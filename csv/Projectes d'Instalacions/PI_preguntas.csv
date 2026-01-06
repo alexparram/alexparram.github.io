@@ -1,0 +1,231 @@
+numero,pregunta,tipo,opciones,respuesta_correcta,justificacion
+1,¿Cuál es la función principal de una red de fontanería AFS?,multiple,"Portar agua del punto de captación al de consumo garantizando caudal, presión y calidad|Evacuar aguas residuales|Recoger aguas pluviales|Tratar el agua residual","Portar agua del punto de captación al de consumo garantizando caudal, presión y calidad","La función es el suministro (abastament), no el saneamiento."
+2,"En una red ramificada, una avería corta el suministro en todos los puntos aguas abajo.",multiple,,Vertader,Es una de las principales desventajas de las redes ramificadas frente a las malladas.
+3,La red mallada tiene como inconveniente un cálculo más complejo.,multiple,,Vertader,Requiere métodos iterativos (Cross) o software específico debido a los múltiples caminos de flujo.
+4,¿Qué tipo de acometida garantiza la potabilidad del agua suministrada?,multiple,Acometida de compañía|Captación privada de pozo|Captación de río|Recogida de pluviales,Acometida de compañía,La compañía suministradora es responsable legal de la calidad y potabilidad hasta el contador.
+5,El Código Técnico de la Edificación (CTE) regula el suministro de agua para procesos industriales.,multiple,,Fals,El CTE-DB-HS4 regula el uso 'sanitario' (doméstico/terciario). El proceso industrial se rige por su propia ingeniería.
+6,¿Qué elemento es obligatorio para evitar el retorno de agua de la instalación interior a la red pública?,multiple,Válvula de retención|Filtro|Contador|Grifo de comprobación,Válvula de retención,Impide la contaminación de la red pública por retorno (antirretorno).
+7,¿Cuál es la presión mínima de suministro en puntos de consumo habituales según CTE?,multiple,1 bar (100 kPa)|3 bar (300 kPa)|5 bar (500 kPa)|0.5 bar (50 kPa),1 bar (100 kPa),El mínimo es 1 bar para grifos comunes (1.5 bar para fluxores).
+8,Un exceso de presión (más de 5 bar) en la red puede provocar...,multiple,"Ruido, vibraciones y reducción de vida útil|Mayor confort|Menor consumo de agua|Mejor calidad del agua","Ruido, vibraciones y reducción de vida útil",También provoca un exceso de consumo innecesario. Se deben instalar reductoras de presión.
+9,El polipropileno (PP) permite unión por soldadura (termofusión).,multiple,,Vertader,"La termofusión crea uniones muy seguras y estancas, eliminando juntas mecánicas."
+10,El acero galvanizado puede estar en contacto directo con tuberías de cobre.,multiple,,Fals,Se produce el par galvánico (electrólisis) que corroe el acero. Se necesita manguito dieléctrico.
+11,¿Qué tratamiento elimina la dureza (cal y magnesio) del agua?,multiple,Descalcificación|Cloración|Filtración|Osmosis inversa,Descalcificación,Mediante resinas de intercambio iónico (intercambia Ca/Mg por Na).
+12,La ósmosis inversa utiliza membranas semipermeables para desmineralizar el agua.,multiple,,Vertader,Retiene sales disueltas aplicando presión superior a la osmótica.
+13,La legionela prolifera especialmente a temperaturas entre...,multiple,20ºC y 45ºC|50ºC y 70ºC|0ºC y 10ºC|>70ºC,20ºC y 45ºC,Es su rango óptimo de crecimiento. A partir de 50ºC deja de multiplicarse y a 70ºC muere instantáneamente.
+14,"En un sistema de ACS con acumulación, el agua acumulada debe mantenerse a...",multiple,60ºC|45ºC|35ºC|90ºC,60ºC,Para prevenir la legionela según normativa (RD 865/2003 y CTE).
+15,El retorno de ACS es obligatorio si la tubería de ida supera los...,multiple,15 metros|5 metros|50 metros|Siempre es obligatorio,15 metros,Para evitar tirar agua fría esperando que salga caliente y confort del usuario.
+16,El sistema separativo de alcantarillado recoge aguas pluviales y residuales en la misma red.,multiple,,Fals,Eso es el sistema unitario. El separativo usa redes independientes.
+17,¿Qué elemento hidráulico evita el paso de malos olores desde la alcantarilla?,multiple,Sifón|Bajante|Arqueta|Canalón,Sifón,Mediante el cierre hidráulico (agua retenida).
+18,La ventilación primaria de las bajantes sirve para...,multiple,Evitar el desifonamiento por pistón o aspiración|Eliminar olores|Aumentar el caudal|Filtrar el agua,Evitar el desifonamiento por pistón o aspiración,Equilibra presiones en la bajante para no romper el cierre hidráulico.
+19,Las aguas negras proceden de...,multiple,Inodoros y urinarios (fecales)|Duchas y lavabos|Cocinas|Lluvia,Inodoros y urinarios (fecales),Contienen materia orgánica fecal. Las de duchas/cocinas son aguas grises.
+20,Un pozo de registro se debe colocar en los cambios de dirección de colectores enterrados.,multiple,,Vertader,Para permitir el acceso y mantenimiento/limpieza.
+21,El PVC es un material habitual en redes de saneamiento pequeñas y medianas.,multiple,,Vertader,"Es ligero, barato y liso, muy usado en edificación."
+22,La pendiente mínima recomendada para un colector de aguas residuales es del...,multiple,1 - 2%|0%|10%|0.1%,1 - 2%,Para garantizar la velocidad de autolimpieza sin erosionar excesivamente.
+23,El Reglamento Electrotécnico de Baja Tensión (REBT) es el RD 842/2002.,multiple,,Vertader,Es la normativa marco actual en España para BT.
+24,Baja Tensión en corriente alterna es hasta...,multiple,1000 V|1500 V|50 V|230 V,1000 V,Entre 50 y 1000 V en AC se considera Baja Tensión habitual.
+25,La tensión nominal monofásica en España es de 230 V.,multiple,,Vertader,Y la trifásica es 400 V.
+26,¿Qué dispositivo protege contra sobrecargas y cortocircuitos?,multiple,Interruptor Magnetotérmico (PIA)|Interruptor Diferencial|Fusible (solo corto)|Pararrayos,Interruptor Magnetotérmico (PIA),Parte térmica (sobrecarga) y magnética (cortocircuito).
+27,¿Qué dispositivo protege a las personas contra contactos indirectos (fugas)?,multiple,Interruptor Diferencial|Magnetotérmico|ICP|Contador,Interruptor Diferencial,Detecta la diferencia de corriente entre fase y neutro (fuga a tierra).
+28,El código de colores para la fase en instalaciones trifásicas puede ser...,multiple,"Marrón, Negro, Gris|Azul, Amarillo, Verde|Rojo, Blanco, Azul|Todo Negro","Marrón, Negro, Gris","Son los colores normalizados para L1, L2, L3."
+29,El conductor neutro debe ser de color...,multiple,Azul|Amarillo-Verde|Negro|Marrón,Azul,Normativa de identificación de conductores.
+30,El conductor de protección (Tierra) debe ser de color...,multiple,Amarillo y Verde|Azul|Negro|Gris,Amarillo y Verde,Identificación exclusiva para tierra.
+31,La potencia eléctrica activa se mide en...,multiple,Vatios (W) o kW|Voltiamperios (VA)|Var|Amperios (A),Vatios (W) o kW,P = V * I * cos(phi).
+32,El factor de potencia (cos phi) ideal es...,multiple,1|0|0.5|Infinito,1,Indica aprovechamiento total de la energía sin reactiva.
+33,"En un sistema trifásico equilibrado, la corriente por el neutro es cero.",multiple,,Vertader,La suma vectorial de las tres fases desfasadas 120º es nula.
+34,¿Qué caída de tensión máxima se permite en alumbrado desde el cuadro general según REBT?,multiple,3%|5%|10%|1%,3%,Para otros usos suele ser 5%.
+35,Un esquema unifilar representa...,multiple,Todos los conductores con una sola línea y símbolos|La posición física real de los cables|El esquema de mando y potencia separado|La instalación de agua,Todos los conductores con una sola línea y símbolos,Simplifica la lectura de circuitos eléctricos.
+36,El tubo corrugado empotrado tipo 'forroplast' (negro) está prohibido en instalaciones interiores.,multiple,,Vertader,Por ser propagador de la llama. Se deben usar tubos no propagadores (habitualmente gris).
+37,El flujo luminoso se mide en...,multiple,Lúmenes (lm)|Lux (lx)|Candelas (cd)|Watios (W),Lúmenes (lm),Es la cantidad total de luz emitida por una fuente.
+38,La iluminancia o nivel de iluminación se mide en...,multiple,Lux (lx)|Lúmenes (lm)|Candelas (cd)|Watios (W),Lux (lx),Lúmenes por metro cuadrado (lm/m2).
+39,La temperatura de color de una luz cálida es...,multiple,< 3300 K (ej. 2700K - 3000K)|> 5300 K (ej. 6000K)|4000 K|No tiene temperatura,< 3300 K (ej. 2700K - 3000K),Tonos rojizos/amarillentos. Luz fría es > 5000K (azulada).
+40,El Índice de Reproducción Cromática (IRC o Ra) indica la fidelidad de los colores.,multiple,,Vertader,Ra 100 es la luz solar (perfecta). Ra > 80 es bueno para interiores.
+41,Las lámparas LED tienen una vida útil inferior a las incandescentes.,multiple,,Fals,Las LED duran mucho más (15.000-50.000h) vs Incandescentes (1.000h).
+42,La eficacia luminosa relaciona los lúmenes emitidos con la potencia consumida (lm/W).,multiple,,Vertader,Mide el rendimiento energético de la fuente de luz.
+43,¿Qué tipo de lámpara requiere un equipo de arranque (cebador/balasto)?,multiple,Fluorescente / Descarga|Incandescente|Halógena directa a red|Vela,Fluorescente / Descarga,Necesitan limitar la corriente y picos para ionizar el gas.
+44,El deslumbramiento (UGR) debe controlarse en oficinas.,multiple,,Vertader,Para evitar fatiga visual y reflejos en pantallas.
+45,La contaminación lumínica es la emisión de luz hacia el cielo (hemisferio superior).,multiple,,Vertader,Desperdicio de energía y afecta a la observación astronómica y ecosistemas.
+46,¿Qué significa BMS?,multiple,Building Management System|Basic Maintenance Service|Better Material Standard|Bio Mechanical System,Building Management System,Sistema de gestión integral del edificio (Domótica/Inmótica).
+47,Un sistema BMS centralizado tiene un único controlador principal.,multiple,,Vertader,"Si falla la central, cae todo el sistema. A diferencia del distribuido."
+48,El protocolo KNX es un estándar abierto para automatización de edificios.,multiple,,Vertader,Permite interoperabilidad entre dispositivos de distintos fabricantes.
+49,"En un sistema BMS, los sensores son elementos de...",multiple,Entrada (Input)|Salida (Output)|Proceso|Cableado,Entrada (Input),"Captan información (temperatura, presencia, luz) para el sistema."
+50,"Los actuadores son elementos que ejecutan las órdenes (encender luz, cerrar persiana).",multiple,,Vertader,Son elementos de Salida.
+51,La bomba de calor aerotérmica es un sistema renovable para ACS.,multiple,,Vertader,Extrae energía del aire ambiente con alto rendimiento (COP).
+52,El depósito de expansión en ACS absorbe las variaciones de volumen del agua al calentarse.,multiple,,Vertader,El agua se dilata al calentar y necesita ese espacio para no reventar la tubería.
+53,Las tuberías de PPR (polipropileno random) son verdes habitualmente.,multiple,,Vertader,"Color característico, aunque no exclusivo."
+54,"En saneamiento, el 'cierre hidráulico' suele medir 50 mm.",multiple,,Vertader,Altura mínima de agua para garantizar que no pasen olores.
+55,La aparamenta eléctrica debe tener un grado IP adecuado al entorno.,multiple,,Vertader,"IP (Ingress Protection) contra polvo y agua (ej. IP44, IP65)."
+56,¿Qué IP indica protección total contra polvo y chorros de agua?,multiple,IP65|IP20|IP00|IP40,IP65,"6=Polvo estanco, 5=Chorros de agua."
+57,Los cables libres de halógenos (LSZH) son obligatorios en locales de pública concurrencia.,multiple,,Vertader,No emiten gases tóxicos ni humos opacos en caso de incendio.
+58,El diámetro de una tubería de saneamiento se calcula para que vaya a sección llena.,multiple,,Fals,Se calcula a sección parcial (habitualmente 50-70%) para permitir ventilación.
+59,La 'Toma de Tierra' conecta las masas metálicas al terreno.,multiple,,Vertader,Para derivar corrientes de fuga y proteger a las personas.
+60,El diferencial salta cuando hay un cortocircuito entre fase y neutro.,multiple,,Fals,Ahí salta el magnetotérmico. El diferencial salta por fugas a tierra.
+61,DALI es un protocolo para control de iluminación.,multiple,,Vertader,Digital Addressable Lighting Interface.
+62,El caudal simultáneo es la suma aritmética de todos los caudales instalados.,multiple,,Fals,"Se aplica un coeficiente de simultaneidad, ya que no todo se usa a la vez."
+63,Las aguas grises pueden reutilizarse para cisternas de inodoro tras tratamiento simple.,multiple,,Vertader,Ahorro de agua potable.
+64,La resistividad del cobre es menor que la del aluminio.,multiple,,Vertader,El cobre conduce mejor.
+65,El aluminio se usa en líneas de distribución por su menor peso y coste.,multiple,,Vertader,"Aunque conduce peor que el cobre, compensa en grandes secciones."
+66,Una luminaria IP20 es apta para exterior.,multiple,,Fals,IP20 no protege contra agua. Exterior requiere IP44/54/65.
+67,La luz de emergencia debe durar al menos 1 hora tras corte de luz.,multiple,,Vertader,Normativa básica de emergencia.
+68,El reglamento de baja tensión exige 5 conductores en líneas trifásicas con neutro.,multiple,,Vertader,3 Fases + Neutro + Tierra.
+69,La acometida eléctrica finaliza en la Caja General de Protección (CGP).,multiple,,Vertader,Es el punto de conexión con la red de distribución.
+70,El contador eléctrico inteligente permite la telegestión.,multiple,,Vertader,Lectura remota y corte.
+71,La bañera necesita conexión equipotencial suplementaria.,multiple,,Vertader,Para evitar diferencias de potencial en zona húmeda.
+72,Los volúmenes de prohibición en baños limitan dónde instalar enchufes.,multiple,,Vertader,"Volumen 0, 1, 2 y 3."
+73,En el volumen 0 (interior bañera) se pueden instalar luminarias 230V IP68.,multiple,,Fals,"Solo pequeña tensión de seguridad (MBTS, 12V)."
+74,El RITE regula las instalaciones térmicas (Calefacción/Clima/ACS).,multiple,,Vertader,Reglamento de Instalaciones Térmicas en los Edificios.
+75,La ventilación híbrida combina ventilación natural y mecánica.,multiple,,Vertader,Actúa mecánicamente cuando las condiciones naturales no bastan.
+76,El caudal de ventilación en viviendas suele ser por admisión en zonas secas y extracción en húmedas.,multiple,,Vertader,Sistema de flujo estándar CTE-DB-HS3.
+77,Las campanas de cocina deben tener conducto independiente de la ventilación general.,multiple,,Vertader,Por grasas y riesgo de incendio.
+78,El aire acondicionado tipo Split consta de unidad interior y exterior.,multiple,,Vertader,"Evaporadora dentro, Condensadora fuera."
+79,El suelo radiante trabaja a alta temperatura (80ºC).,multiple,,Fals,Trabaja a baja temperatura (30-45ºC) para confort y eficiencia.
+80,La aerotermia tiene rendimiento superior a 1 (COP > 1).,multiple,,Vertader,Mueve más energía térmica que la eléctrica que consume.
+81,El DB-HE obliga a contribución renovable para ACS.,multiple,,Vertader,Solar térmica o alternativa (aerotermia).
+82,Los paneles fotovoltaicos generan ACS directamente.,multiple,,Fals,Generan electricidad. Los térmicos generan ACS.
+83,El inversor fotovoltaico convierte corriente continua en alterna.,multiple,,Vertader,DC de paneles a AC de red.
+84,Las baterías solares almacenan energía en kWh.,multiple,,Vertader,Capacidad de energía.
+85,El autoconsumo con excedentes permite verter energía a la red.,multiple,,Vertader,Y recibir compensación.
+86,La ICT regula las infraestructuras de telecomunicaciones.,multiple,,Vertader,Infraestructura Común de Telecomunicaciones.
+87,La fibra óptica es inmune a interferencias electromagnéticas.,multiple,,Vertader,"Transmite luz, no electricidad."
+88,El cable coaxial se usa para señal de TV.,multiple,,Vertader,Estándar en antena.
+89,El par trenzado (UTP/FTP) se usa para redes de datos.,multiple,,Vertader,Ethernet RJ45.
+90,Un RACK es un armario para alojar equipos de telecomunicaciones.,multiple,,Vertader,Medida estándar 19 pulgadas.
+91,El SAI (UPS) proporciona energía en caso de corte eléctrico.,multiple,,Vertader,Sistema de Alimentación Ininterrumpida.
+92,El grupo electrógeno usa combustible para generar electricidad.,multiple,,Vertader,Motor diésel habitualmente.
+93,La domótica se refiere a la automatización de viviendas.,multiple,,Vertader,Inmótica es para edificios terciarios.
+94,Los detectores de presencia ahorran energía en iluminación.,multiple,,Vertader,Apagan si no hay nadie.
+95,Un luxómetro mide la intensidad de corriente.,multiple,,Fals,Mide iluminancia (lux).
+96,"El multímetro (polímetro) mide Voltios, Amperios y Ohmios.",multiple,,Vertader,Herramienta básica electricista.
+97,La pinza amperimétrica mide intensidad sin cortar el cable.,multiple,,Vertader,Por inducción magnética.
+98,El megger sirve para medir aislamiento.,multiple,,Vertader,Resistencia muy alta de aislamiento.
+99,La resistencia de tierra debe ser lo más alta posible.,multiple,,Fals,Lo más baja posible para facilitar la descarga.
+100,Una pica de tierra es un electrodo en contacto con el terreno.,multiple,,Vertader,Acero cobreado habitualmente.
+101,El anillo conductor alrededor del edificio es un buen electrodo de tierra.,multiple,,Vertader,Mejor que picas aisladas.
+102,Los pararrayos con dispositivo de cebado tienen mayor radio de protección.,multiple,,Vertader,Adelantan el trazador ascendente.
+103,El PSI (Prevención y Seguridad en caso de Incendio) incluye detección y alarma.,multiple,,Vertader,Parte de instalaciones de seguridad.
+104,Un pulsador de alarma manual debe ser de color verde.,multiple,,Fals,Rojo. Verde suele ser apertura de puerta emergencia.
+105,La sirena de incendio debe tener sonido bitonal.,multiple,,Vertader,Para distinguirla de otras alarmas.
+106,La central de incendios supervisa las líneas de detectores.,multiple,,Vertader,Avisa de avería o línea abierta.
+107,El gas natural es más denso que el aire (pesa más).,multiple,,Fals,"Es más ligero (metano), tiende a subir. El butano/propano pesa más."
+108,La rejilla de ventilación para Gas Natural debe estar en parte superior.,multiple,,Vertader,Porque el gas sube si hay fuga.
+109,La válvula solenoide de gas corta el suministro si detecta fuga.,multiple,,Vertader,Vinculada a sensor de gas.
+110,Las tuberías de gas se pintan obligatoriamente de azul.,multiple,,Fals,Suelen ser amarillo o vainilla. Agua es azul o verde.
+111,¿Cuál es la potencia máxima prevista para un grado de electrificación básico según REBT?,multiple,5750 W|7360 W|9200 W|3450 W,5750 W,Si supera 5750 W pasa a ser electrificación elevada.
+112,¿Qué circuito corresponde a la cocina y horno en electrificación básica?,multiple,C3|C1|C2|C4,C3,"C1:Ilum, C2:Tomas, C3:Cocina/Horno, C4:Lavadora/Termo, C5:Baño/Cocina."
+113,La sección mínima de conductores para el circuito C1 (Iluminación) es...,multiple,1.5 mm2|2.5 mm2|4 mm2|6 mm2,1.5 mm2,Protegido con PIA de 10A.
+114,La sección mínima para el circuito C3 (Cocina/Horno) es habitualmente...,multiple,6 mm2|4 mm2|2.5 mm2|10 mm2,6 mm2,Protegido con PIA de 25A.
+115,¿Cuál es la tensión de seguridad en locales húmedos?,multiple,24 V|50 V|230 V|12 V,24 V,En locales secos es 50 V.
+116,El volumen 1 en un baño con bañera llega hasta una altura de...,multiple,2.25 m|3.00 m|Techo|0.60 m,2.25 m,Desde el suelo de la bañera hasta 2.25m.
+117,"En el Volumen 2 de un baño, ¿se permiten enchufes o tomas de corriente?",multiple,"No, salvo afeitadoras con trafo aislamiento|Sí, cualquiera IP44|Sí, cualquiera IP65|Sí, con diferencial 10mA","No, salvo afeitadoras con trafo aislamiento",Generalmente prohibidos tomas estándar 230V.
+118,El conductor de protección en una derivación individual de 16mm2 (fases) debe ser de...,multiple,16 mm2|10 mm2|6 mm2|Igual a la fase,16 mm2,"Hasta 16mm2 de fase, la tierra es igual a la fase. A partir de 16mm2 es S/2 (con mín 16)."
+119,La caída de tensión máxima permitida en Derivación Individual para contadores concentrados es...,multiple,1.0 %|0.5 %|1.5 %|3.0 %,1.0 %,Para contadores centralizados. Si es único usuario es 1.5%.
+120,Un interruptor diferencial de 'Clase AC' es adecuado para...,multiple,Corrientes alternas senoidales normales|Corrientes pulsantes|Corrientes continuas|Cargas informáticas pesadas,Corrientes alternas senoidales normales,El estándar. Para electrónica/ordenadores se recomienda Clase A (inmunizado).
+121,El número máximo de puntos de utilización (tomas) en el circuito C2 es de...,multiple,20|30|10|Ilimitado,20,Según ITC-BT-25.
+122,¿Qué diámetro exterior mínimo tiene el tubo para una Derivación Individual estándar?,multiple,32 mm|20 mm|40 mm|25 mm,32 mm,Mínimo normativo para DI.
+123,El caudal instantáneo mínimo para un lavabo es de...,multiple,0.10 l/s|0.05 l/s|0.20 l/s|0.30 l/s,0.10 l/s,Según tabla CTE DB HS4.
+124,El caudal instantáneo mínimo para una ducha es de...,multiple,0.20 l/s|0.10 l/s|0.30 l/s|0.50 l/s,0.20 l/s,Igual que una bañera pequeña (0.20) o grande (0.30).
+125,La velocidad del agua en tuberías metálicas no debe superar...,multiple,2.0 m/s|3.0 m/s|1.0 m/s|1.5 m/s,2.0 m/s,Para evitar erosión y ruido. En plásticos se admite algo más.
+126,"En una red de retorno de ACS, el caudal se calcula para que la caída de temperatura no supere...",multiple,3 ºC|5 ºC|1 ºC|10 ºC,3 ºC,Entre la salida del acumulador y el punto más alejado.
+127,El fluxor requiere un caudal instantáneo mucho mayor que una cisterna.,multiple,,Vertader,Aprox 1.25 l/s vs 0.10 l/s de cisterna. Requiere cálculo especial.
+128,Las llaves de paso de cuarto húmedo deben estar entre...,multiple,"Arriba, accesibles|Suelo|Techo falso|Fuera del cuarto","Arriba, accesibles",Deben ser accesibles para el usuario para corte de mantenimiento.
+129,El Polietileno Reticulado (PEX) tiene 'memoria térmica'.,multiple,,Vertader,"Si se dobla, aplicando calor recupera su forma original."
+130,Las pruebas de estanqueidad en tuberías se hacen a una presión de...,multiple,1.5 veces la de trabajo (mín 6 bar)|Igual a la de trabajo|100 bar|1 bar,1.5 veces la de trabajo (mín 6 bar),Para asegurar resistencia.
+131,La ventilación secundaria en bajantes es obligatoria en edificios de más de...,multiple,7 plantas|3 plantas|5 plantas|10 plantas,7 plantas,O si hay más de 11 plantas si los ramales son cortos. Evita sobrepresiones.
+132,La ventilación terciaria ventila...,multiple,Los propios cierres hidráulicos (sifones)|La bajante|El colector|La arqueta,Los propios cierres hidráulicos (sifones),Protege el cierre hidráulico localmente contra desifonamiento.
+133,El diámetro mínimo de una bajante de residuales es habitualmente...,multiple,110 mm|90 mm|75 mm|50 mm,110 mm,Para inodoros suele ser 110mm.
+134,La arqueta a pie de bajante debe ser registrable.,multiple,,Vertader,Punto crítico de atascos (cambio de vertical a horizontal).
+135,Un bombeo de aguas fecales debe tener obligatoriamente...,multiple,Ventilación propia|Trituradora|Filtro de arena|Cloración,Ventilación propia,Para evacuar gases acumulados en el depósito de bombeo.
+136,Las válvulas de aireación pueden sustituir a la ventilación primaria.,multiple,,Fals,"Pueden complementar o sustituir secundaria/terciaria en ciertos casos, pero la primaria (salida a cubierta) es necesaria para el alivio."
+137,La Calidad de Aire Interior (IDA) para oficinas es...,multiple,IDA 2|IDA 1|IDA 3|IDA 4,IDA 2,"Aire de buena calidad (Oficinas, enseñanza, residencias)."
+138,IDA 1 se requiere en...,multiple,"Hospitales, clínicas|Cines|Gimnasios|Oficinas","Hospitales, clínicas",Aire de óptima calidad.
+139,El filtro ODA se refiere a la calidad del aire...,multiple,Exterior (Outdoor Air)|Interior (Indoor Air)|Expulsado|Recirculado,Exterior (Outdoor Air),"Clasifica la suciedad del aire exterior (ODA 1 puro, ODA 3 sucio)."
+140,El recuperador de calor es obligatorio cuando el caudal de aire expulsado es superior a...,multiple,0.28 m3/s (aprox 1000 m3/h)|0.5 m3/s|1.0 m3/s|Siempre,0.28 m3/s (aprox 1000 m3/h),RITE IT 1.2.4.5.2.
+141,El COP define el rendimiento en modo...,multiple,Calefacción|Refrigeración|Ventilación|Deshumectación,Calefacción,Coefficient of Performance. Para frío es EER.
+142,Un sistema VRV (Volumen de Refrigerante Variable) permite...,multiple,Conectar múltiples unidades interiores a una exterior y control individual|Solo una unidad interior|Usar agua como fluido caloportador|Ventilar sin climatizar,Conectar múltiples unidades interiores a una exterior y control individual,Muy eficiente para edificios de oficinas.
+143,El suelo radiante se recomienda combinar con...,multiple,Bomba de calor aerotérmica/geotérmica|Radiadores eléctricos|Caldera de vapor|Estufas de leña,Bomba de calor aerotérmica/geotérmica,Por trabajar ambos a baja temperatura Eficiente.
+144,La contribución solar mínima para ACS en zona climática IV suele ser...,multiple,70 %|30 %|100 %|50 %,70 %,"Depende del volumen, pero suele ser 60-70%."
+145,El fluido del circuito primario solar debe llevar...,multiple,Anticongelante (Glicol)|Solo agua|Aceite|Aire,Anticongelante (Glicol),Para evitar congelación en invierno y rotura de paneles.
+146,La inclinación óptima de paneles solares térmicos para ACS todo el año es...,multiple,Latitud geográfica aprox (40º en BCN)|0º (Horizontales)|90º (Verticales)|15º,Latitud geográfica aprox (40º en BCN),Maximiza captación anual. Para calefacción (invierno) se inclinan más (Latitud + 10º).
+147,El 'efecto termosifón' permite la circulación natural del fluido sin bomba.,multiple,,Vertader,El agua caliente sube por densidad. El depósito debe estar más alto que el panel.
+148,Un MPPT en un inversor fotovoltaico sirve para...,multiple,Seguir el punto de máxima potencia del panel|Transformar DC a AC|Desconectar la batería|Monitorizar la temperatura,Seguir el punto de máxima potencia del panel,Optimiza el rendimiento del string fotovoltaico.
+149,El vertido cero impide inyectar excedentes a la red.,multiple,,Vertader,Mediante un sistema antivertido que regula el inversor.
+150,El RITI (Recinto de Instalaciones de Telecomunicaciones Inferior) aloja...,multiple,"Registros de operadores de telefonía, fibra y coaxial|Cabecera de TV satélite|Solo contadores eléctricos|Bombas de agua","Registros de operadores de telefonía, fibra y coaxial",Es el punto de entrada desde la calle.
+151,El RITS (Superior) aloja principalmente...,multiple,Cabeceras de TV terrestre y satélite|Telefonía|Fibra óptica|Videoportero,Cabecera de TV terrestre y satélite,Cerca de las antenas en cubierta.
+152,La red de dispersión enlaza...,multiple,La red de distribución con la red interior de usuario (PAU)|La antena con el RITS|El RITI con el RITS|La arqueta con el RITI,La red de dispersión enlaza la red de distribución con el PAU.,Es el tramo final que entra en la vivienda.
+153,El PAU (Punto de Acceso al Usuario) se sitúa en...,multiple,El Registro de Terminación de Red (RTR) en la entrada de la vivienda|El salón|El RITI|El rellano,El Registro de Terminación de Red (RTR) en la entrada de la vivienda,Frontera entre la comunidad y el usuario.
+154,El cable de pares trenzados Cat 6 permite velocidades de hasta...,multiple,1 Gbps (o 10Gbps en cortas)|100 Mbps|10 Mbps|100 Gbps,1 Gbps (o 10Gbps en cortas),Estándar Gigabit Ethernet.
+155,El cable coaxial para TV terrestre suele tener una impedancia de...,multiple,75 Ohmios|50 Ohmios|100 Ohmios|8 Ohmios,75 Ohmios,Estándar RG-6 o RG-59 para TV. (50 Ohmios es para radio/wifi).
+156,"En una ICT, se debe dejar previsión de _ cables coaxiales por vivienda.",multiple,2|1|3|0,2,"Uno para RTV terrestre y otro para Satélite/Cable, hasta el PAU."
+157,Para medir el aislamiento de una instalación se usa un...,multiple,Megóhmetro (Megger)|Multímetro|Telurometro|Luxómetro,Megóhmetro (Megger),Aplica alta tensión DC (500V/1000V) para medir resistencia de aislamiento.
+158,El Telurómetro mide...,multiple,La resistencia de la toma de tierra|La continuidad|La tensión|El aislamiento,La resistencia de la toma de tierra,Imprescindible para verificar la puesta a tierra.
+159,La continuidad del conductor de protección se verifica con...,multiple,Un ohmímetro y corriente de 200mA|Un voltímetro|Un luxómetro|La mano,Un ohmímetro y corriente de 200mA,Para asegurar que la tierra llega bien a todos los enchufes.
+160,La iluminación de emergencia debe proporcionar al menos...,multiple,1 lux en el eje de evacuación|10 lux|50 lux|0.5 lux,1 lux en el eje de evacuación,Mínimo CTE-DB-SUA.
+161,"En el cuadro general de mando y protección, el IGA es...",multiple,Interruptor General Automático|Interruptor General de Alimentación|Indice General de Aislamiento|Interruptor de Gas,Interruptor General Automático,Corta toda la instalación y protege derivación individual.
+162,El PCS (Protector Contra Sobretensiones) protege contra...,multiple,"Picos de tensión (rayos, maniobras)|Cortocircuitos|Derivaciones|Sobrecargas","Picos de tensión (rayos, maniobras)",Protege electrónica sensible. Obligatorio si hay pararrayos o línea aérea.
+163,¿Qué es una instalación domótica con topología en estrella?,multiple,Todos los cables van a un cuadro central|Los elementos se conectan en serie|No usa cables|Es inalámbrica,Todos los cables van a un cuadro central,Típico de sistemas centralizados. KNX suele ser bus (línea/árbol).
+164,Un detector de humo óptico es eficaz para...,multiple,Humos visibles (fuegos lentos)|Fuegos rápidos sin humo|Fuegos de alcohol|Gases,Humos visibles (fuegos lentos),Detecta oscurecimiento o dispersión de luz.
+165,Un detector termovelocimétrico salta por...,multiple,Un aumento rápido de temperatura|Llegar a una temperatura fija|Humo|Llama,Un aumento rápido de temperatura,Detecta la velocidad de subida (gradiente).
+166,"En climatización, un sistema a 2 tubos permite...",multiple,Frío O Calor en todo el edificio a la vez|Frío Y Calor simultáneo en distintas zonas|Solo Frío|Solo Calor,Frío O Calor en todo el edificio a la vez,Con 4 tubos se puede tener zonas en frío y zonas en calor simultáneamente.
+167,El fancoil es una unidad terminal de...,multiple,Agua-Aire|Refrigerante-Aire|Aire-Aire|Agua-Agua,Agua-Aire,Le llega agua (fría/caliente) y tiene un ventilador.
+168,"La 'clase de reacción al fuego' de un cable (ej. Cca-s1,d1,a1) define...",multiple,"Su comportamiento como combustible (propagación, humos, gotas, acidez)|Su resistencia a seguir funcionando|Su aislamiento eléctrico|Su color","Su comportamiento como combustible (propagación, humos, gotas, acidez)",Reglamento CPR (Construction Products Regulation).
+169,Un cable AS (Alta Seguridad) aguanta el fuego y permite seguir funcionando (Resistencia).,multiple,,Vertader,Denominado RF (Resistente al Fuego). Importante diferenciar reacción vs resistencia.
+170,El esquema de conexión a tierra TT es el obligatorio en viviendas en España.,multiple,,Vertader,"Neutro a tierra en trafo, Masas a tierra local. Diferencial imprescindible."
+171,"En una vivienda, la toma de tierra del edificio se conecta al borne principal de tierra.",multiple,,Vertader,De ahí sale a la derivación individual.
+172,"Si toco un cable de fase pelado, estoy sufriendo un contacto...",multiple,Directo|Indirecto|Inducido|Capacitivo,Directo,Tocar partes activas es contacto directo. Tocar carcasa con fuga es indirecto.
+173,El grado de protección IK mide...,multiple,Resistencia a impactos mecánicos|Protección contra agua|Aislamiento térmico|Protección solar,Resistencia a impactos mecánicos,Escala IK00 a IK10 (martillazo).
+174,Un diferencial de 30mA se considera de...,multiple,Alta sensibilidad|Baja sensibilidad|Industrial|Retardado,Alta sensibilidad,Protege a las personas (fibrilación). 300mA es para riesgo incendio o industrial.
+175,La resistividad del terreno se mide en...,multiple,Ohmios metro|Ohmios|Voltios|Siemens,Ohmios metro,Característica del suelo.
+176,Para mejorar una toma de tierra se puede...,multiple,"Añadir más picas, profundizar o usar geles conductores|Echar agua salada temporalmente (no definitivo)|Poner picas más cortas|Aislar las picas","Añadir más picas, profundizar o usar geles conductores",Busca bajar la resistencia de contacto.
+177,El 'anillo de distribución' en fontanería garantiza presión más uniforme.,multiple,,Vertader,Alimenta desde dos lados.
+178,La 'Junta de dilatación' en tuberías absorbe los cambios de longitud por temperatura.,multiple,,Vertader,Mediante liras o fuelles.
+179,El 'golpe de ariete' se produce por...,multiple,Cierre brusco de válvulas|Exceso de caudal|Baja presión|Aire en la tubería,Cierre brusco de válvulas,Onda de presión que puede romper tuberías. Se evita con dispositivos antiariete.
+180,Una bomba centrífuga no debe funcionar en seco.,multiple,,Vertader,Se quema el sello mecánico por falta de lubricación/refrigeración.
+181,La cavitación en bombas produce...,multiple,"Ruido, erosión y pérdida de rendimiento|Mejor bombeo|Aumento de presión|Enfriamiento","Ruido, erosión y pérdida de rendimiento",Formación de burbujas de vapor por baja presión en aspiración.
+182,El vaso de expansión cerrado tiene una membrana y gas (aire/nitrógeno).,multiple,,Vertader,Absorbe la dilatación del agua en calefacción/ACS.
+183,"En un suelo radiante, el paso de tubos es más estrecho cerca de las ventanas.",multiple,,Vertader,Para combatir la mayor pérdida térmica por el vidrio.
+184,El equilibrado hidráulico es necesario para que todos los radiadores calienten igual.,multiple,,Vertader,Evita que el agua haga 'cortocircuito' por el camino más fácil.
+185,Una válvula termostática en radiador regula la temperatura de la habitación.,multiple,,Vertader,Abre o cierra el caudal según Tª ambiente.
+186,La biomasa (pellets) tiene balance de CO2 neutro teóricamente.,multiple,,Vertader,El CO2 emitido es el que capturó el árbol al crecer.
+187,Una instalación de gas butano requiere rejilla de ventilación inferior.,multiple,,Vertader,El gas pesa más que el aire y se acumula abajo.
+188,El 'tiro' de una chimenea depende de la diferencia de temperatura y altura.,multiple,,Vertader,Aire caliente sube por densidad.
+189,La energía reactiva se penaliza en la factura eléctrica industrial.,multiple,,Vertader,Si el cos phi es bajo (<0.95). Se corrige con baterías de condensadores.
+190,Un vatímetro mide potencia reactiva.,multiple,,Fals,Mide activa (W). El varímetro mide reactiva (var).
+191,La selectividad protecciones asegura que salte solo el disyuntor más cercano al fallo.,multiple,,Vertader,Evita apagones generales por un fallo local.
+192,El ICP (Interruptor de Control de Potencia) ya está integrado en el contador digital.,multiple,,Vertader,Antes era un aparato físico en el cuadro.
+193,"La tarifa de acceso 2.0TD tiene discriminación horaria en 3 periodos (Punta, Llano, Valle).",multiple,,Vertader,Estándar actual para <15kW.
+194,El periodo Valle es el más caro.,multiple,,Fals,Es el más barato (noche y fines de semana). Punta es el caro.
+195,"En una ICT, el cable de acometida entra por la arqueta de entrada.",multiple,,Vertader,Punto de conexión con operadores.
+196,La red de alimentación en ICT une el RITI con el RITS.,multiple,,Fals,"Esa es la red de distribución? No, alimentación es operador->RITI. La que sube es distribución/dispersión vertical."
+197,La mezcla de señales TV SAT y Terrestre se hace mediante...,multiple,Mezclador diplexor|Amplificador|Derivador|PAU,Mezclador diplexor,Permite bajar un solo cable con ambas frecuencias.
+198,La banda de frecuencias de TV Terrestre (UHF) va de...,multiple,470 a 790 MHz (ahora menos por 5G)|88 a 108 MHz|5 a 2150 MHz|2.4 GHz,470 a 790 MHz (ahora menos por 5G),Recorte por Dividendo Digital (700MHz).
+199,La atenuación de un cable coaxial aumenta con la frecuencia.,multiple,,Vertader,Pierde más señal en frecuencias altas (Satélite) que bajas.
+200,El cable de pares de cobre telefónico tradicional se llama...,multiple,Par trenzado Cat3 (o par telefónico)|Coaxial|Fibra|Guíaondas,Par trenzado Cat3 (o par telefónico),Uso en telefonía básica (POTS).
+201,El reglamento de gas es el RIGLO.,multiple,,Fals,Es el Reglamento Técnico de Distribución y Utilización de Combustibles Gaseosos (RD 919/2006).
+202,La presión del gas natural en vivienda es de 20-22 mbar.,multiple,,Vertader,Baja presión domestica.
+203,Un vatio es igual a un julio por segundo.,multiple,,Vertader,Definición física de potencia.
+204,La Ley de Ohm es V = I * R.,multiple,,Vertader,Física básica.
+205,La frecuencia de la red en Europa es 60 Hz.,multiple,,Fals,Es 50 Hz. 60 Hz es América.
+206,Un sistema fotovoltaico aislado necesita baterías obligatoriamente para la noche.,multiple,,Vertader,"Si no hay red, se necesita acumulación."
+207,El agua caliente pesa menos que la fría.,multiple,,Vertader,"Menor densidad, estratifica arriba."
+208,El PVC se puede usar para ACS.,multiple,,Fals,No aguanta temperatura (se ablanda >60ºC). Se usa CPVC o PPR/PEX.
+209,Una caldera estanca coge el aire de la habitación.,multiple,,Fals,Lo coge del exterior por tubo coaxial.
+210,El rendimiento de una caldera de condensación puede superar el 100% (sobre PCI).,multiple,,Vertader,Al recuperar el calor latente del vapor de agua.
+211,El aire primario en climatización es aire tratado exterior.,multiple,,Vertader,Para ventilación.
+212,Un difusor rotacional mezcla bien el aire impulsado con el ambiente.,multiple,,Vertader,Alta inducción.
+213,La rejilla de retorno suele tener dimensión mayor que la impulsión.,multiple,,Vertader,Para menor velocidad y ruido.
+214,El plenum es una caja de distribución de aire.,multiple,,Vertader,Antes de la rejilla o difusor.
+215,El caudalímetro mide la presión.,multiple,,Fals,Mide el caudal.
+216,El preostato actúa por presión.,multiple,,Vertader,Interruptor de presión.
+217,El termostato actúa por temperatura.,multiple,,Vertader,Interruptor de temperatura.
+218,Una electroválvula se abre/cierra eléctricamente.,multiple,,Vertader,Control automático.
+219,El contactor sirve para maniobrar potencias elevadas.,multiple,,Vertader,El relé es para maniobra (poca potencia).
+220,La categoría AC-3 de un contactor es para cargas resistivas.,multiple,,Fals,AC-1 resistivas. AC-3 motores (inductivas).
+221,El guardamotor protege contra cortocircuito y sobrecarga del motor.,multiple,,Vertader,Todo en uno ajustado al motor.
+222,El arranque estrella-triángulo reduce la corriente de arranque.,multiple,,Vertader,Arranca a menor tensión (1/raiz3).
+223,Un variador de frecuencia controla la velocidad de un motor AC.,multiple,,Vertader,Variando Hz.
+224,La bomba de calor absorbe calor del foco frío.,multiple,,Vertader,Principios termodinámicos. Parece magia pero es física.
+225,El refrigerante R-32 es más ecológico que el R-410A.,multiple,,Vertader,Menor PCA (Potencial Calentamiento Atmosférico).
+226,La unidad interior de un aire acondicionado condensa agua en verano.,multiple,,Vertader,Deshumidifica el aire al enfriarlo. Necesita desagüe.
+227,La unidad exterior condensa agua en invierno (calefacción).,multiple,,Vertader,La batería exterior se enfría y condensa/escarcha.
+228,Es legal unir tierras de antena y eléctrica.,multiple,,Vertader,Es obligatorio (equipotencialidad).
+229,La toma de tierra debe ser independiente para el pararrayos.,multiple,,Fals,"Se recomienda unir todas las tierras bajo tierra para equipotencialidad, aunque tenga su pica propia."
+230,El lux es lumen partido por metro cuadrado.,multiple,,Vertader,Definición exacta.

@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudiar Examen CAI - Dark Mode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette: Slate Dark Mode */
+            --bg-color: #0f172a;
+            /* Slate 900 */
+            --container-bg: #1e293b;
+            /* Slate 800 */
+            --text-main: #f1f5f9;
+            /* Slate 100 */
+            --text-muted: #94a3b8;
+            /* Slate 400 */
+            --border-color: #334155;
+            /* Slate 700 */
+            --accent-color: #3b82f6;
+            /* Blue 500 */
+            --accent-hover: #2563eb;
+            /* Blue 600 */
+
+            --success-bg: #064e3b;
+            /* Emerald 900 */
+            --success-border: #059669;
+            /* Emerald 600 */
+            --success-text: #a7f3d0;
+            /* Emerald 200 */
+
+            --error-bg: #7f1d1d;
+            /* Red 900 */
+            --error-border: #dc2626;
+            /* Red 600 */
+            --error-text: #fecaca;
+            /* Red 200 */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: var(--text-main);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        /* File Upload Styles */
+        .upload-section {
+            text-align: center;
+            padding: 40px;
+            border: 2px dashed var(--border-color);
+            border-radius: 16px;
+            margin-bottom: 30px;
+            transition: border-color 0.3s;
+        }
+
+        .upload-section:hover {
+            border-color: var(--accent-color);
+        }
+
+        .file-input-wrapper {
+            margin-top: 15px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-upload {
+            display: inline-block;
+            padding: 12px 24px;
+            cursor: pointer;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .custom-file-upload:hover {
+            background: var(--accent-hover);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            /* Subtle glass effect */
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            /* Reduced padding inside cards */
+            padding: 15px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            color: var(--text-main);
+            /* Smaller font size for tighter fit */
+            font-size: 1.5rem;
+        }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            min-height: 250px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .question-number {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: var(--text-main);
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            background: transparent;
+            padding: 18px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            border: 2px solid var(--border-color);
+            transition: all 0.2s ease;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .option:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--text-muted);
+        }
+
+        .option.selected {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--text-main);
+            color: white;
+        }
+
+        .option.correct {
+            background: var(--success-bg);
+            border-color: var(--success-border);
+            color: var(--success-text);
+        }
+
+        .option.incorrect {
+            background: var(--error-bg);
+            border-color: var(--error-border);
+            color: var(--error-text);
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .top-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .question-selector {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 16px;
+            background: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-main);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+        }
+
+        .question-selector option {
+            background: var(--container-bg);
+            color: var(--text-main);
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: var(--border-color);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .toggle-switch.active {
+            background: var(--accent-color);
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 22px;
+            height: 22px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(30px);
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--text-muted);
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .feedback {
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            font-weight: 500;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feedback.correct {
+            background: var(--success-bg);
+            border: 1px solid var(--success-border);
+            color: var(--success-text);
+        }
+
+        .feedback.incorrect {
+            background: var(--error-bg);
+            border: 1px solid var(--error-border);
+            color: var(--error-text);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        /* Layout & Sidebar Styles */
+        .main-layout {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .sidebar {
+            width: 260px;
+            flex-shrink: 0;
+            background: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 15px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            position: sticky;
+            top: 20px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-color) transparent;
+        }
+
+        .content-area {
+            flex-grow: 1;
+            min-width: 0;
+            /* Prevents flex item from overflowing */
+        }
+
+        .question-grid {
+            display: grid;
+            /* EDIT HERE: Change '12px' to adjust dot size. Smaller number = smaller dots. */
+            grid-template-columns: repeat(auto-fill, minmax(15px, 1fr));
+            gap: 7px;
+            /* Space between dots */
+            padding-right: 7px;
+        }
+
+        .grid-dot {
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .grid-dot:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--text-muted);
+        }
+
+        .grid-dot.current {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+            z-index: 2;
+        }
+
+        .grid-dot.correct {
+            background: var(--success-bg);
+            border-color: var(--success-border);
+        }
+
+        .grid-dot.incorrect {
+            background: var(--error-bg);
+            border-color: var(--error-border);
+        }
+
+        .grid-dot.blank {
+            background: #cbd5e1;
+            /* Light gray for blank */
+            border-color: #94a3b8;
+        }
+
+        @media (max-width: 900px) {
+            .main-layout {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                max-height: 150px;
+                position: static;
+            }
+
+            .question-grid {
+                grid-template-columns: repeat(auto-fill, minmax(25px, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+                /* Reduced padding on mobile */
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .question-text {
+                font-size: 1.1rem;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="mainContainer">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <div style="flex-grow: 1; text-align: center;">
+                <h1>Programa de estudio para preguntas tipo test</h1>
+                <p class="subtitle" style="margin-bottom: 0;">v0.2</p>
+            </div>
+            <div id="timer"
+                style="font-family: monospace; font-size: 2.5rem; color: var(--accent-color); font-weight: bold; background: var(--container-bg); padding: 5px 20px; border-radius: 8px; border: 1px solid var(--border-color); display: none;">
+                00:00</div>
+        </div>
+
+        <div id="upload-screen" class="upload-section">
+            <h3 style="color: var(--text-main); margin-bottom: 15px;">Importar Preguntas</h3>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Carga tu archivo CSV para comenzar
+            </p>
+            <label class="custom-file-upload">
+                <input type="file" id="csvFileInput" accept=".csv" />
+                📂 Seleccionar Archivo CSV
+            </label>
+            <div id="file-error" style="color: #ef4444; margin-top: 15px; display: none;">Error leyendo el archivo.
+            </div>
+        </div>
+
+        <div id="app" style="display: none;">
+            <div class="main-layout">
+                <div id="sidebar" class="sidebar">
+                    <h4
+                        style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                        Navegación</h4>
+                    <div id="question-grid" class="question-grid"></div>
+                </div>
+                <div id="main-content" class="content-area">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let questions = [];
+        let allQuestionsBackup = []; // Store original questions for export
+        let currentIndex = 0;
+        let currentMode = 'normal'; // normal, random, algorithm
+        let displayOrder = [];
+        let questionWeights = [];
+        let stats = {
+            correct: 0,
+            incorrect: 0,
+            blank: 0,
+            rawScore: 0.0,       // Track weighted score
+            answered: new Set(), // Now stores 'currentIndex' (step numbers) instead of question indices
+            userAnswers: {}      // Now stores 'currentIndex' -> answer
+        };
+
+        // File Input Handler
+        document.getElementById('csvFileInput').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const text = event.target.result;
+                processCSV(text);
+            };
+            reader.onerror = function () {
+                document.getElementById('file-error').style.display = 'block';
+            };
+            reader.readAsText(file);
+        });
+
+        function processCSV(text) {
+            try {
+                const questionsData = [];
+                let row = [];
+                let col = '';
+                let inQuotes = false;
+
+                // Remove BOM if present
+                if (text.charCodeAt(0) === 0xFEFF) {
+                    text = text.slice(1);
+                }
+
+                for (let i = 0; i < text.length; i++) {
+                    const char = text[i];
+                    const nextChar = text[i + 1];
+
+                    if (char === '"') {
+                        if (inQuotes && nextChar === '"') {
+                            // Escaped quote
+                            col += '"';
+                            i++;
+                        } else {
+                            inQuotes = !inQuotes;
+                        }
+                    } else if (char === ',' && !inQuotes) {
+                        row.push(col);
+                        col = '';
+                    } else if ((char === '\r' || char === '\n') && !inQuotes) {
+                        if (char === '\r' && nextChar === '\n') {
+                            i++;
+                        }
+                        if (row.length > 0 || col.length > 0) {
+                            row.push(col);
+                            questionsData.push(row);
+                            row = [];
+                            col = '';
+                        }
+                    } else {
+                        col += char;
+                    }
+                }
+                if (row.length > 0 || col.length > 0) {
+                    row.push(col);
+                    questionsData.push(row);
+                }
+
+                // Header is first row
+                questions = questionsData.slice(1)
+                    .map(values => {
+                        if (values.length < 2) return null;
+                        const q = {
+                            numero: values[0] || '',
+                            pregunta: values[1] || '',
+                            tipo: values[2] || 'multiple',
+                            opciones: values[3] || '',
+                            respuesta_correcta: values[4] ? values[4].trim() : '',
+                            justificacion: values[5] ? values[5].trim() : ''
+                        };
+
+                        // Pre-process and shuffle options
+                        let opts = [];
+                        if (q.opciones && q.opciones.trim()) {
+                            if (q.opciones.includes('|')) {
+                                opts = q.opciones.split('|').map(o => o.trim());
+                            } else if (q.opciones.includes(';')) {
+                                opts = q.opciones.split(';').map(o => o.trim());
+                            } else {
+                                opts = [q.opciones.trim()];
+                            }
+                        }
+
+                        // Default to T/F if empty
+                        if (opts.length === 0) {
+                            opts = ['Vertader', 'Fals'];
+                        }
+
+                        // Check if it is True/False to avoid shuffling
+                        // We check looser equality to catch variations if any, but ensure standard output
+                        const isTF = opts.length === 2 &&
+                            opts.some(o => o.toLowerCase().includes('vertader')) &&
+                            opts.some(o => o.toLowerCase().includes('fals'));
+
+                        if (isTF) {
+                            // Force standard order
+                            opts = ['Vertader', 'Fals'];
+                        } else {
+                            // Shuffle options (Fisher-Yates) for non-TF
+                            for (let i = opts.length - 1; i > 0; i--) {
+                                const j = Math.floor(Math.random() * (i + 1));
+                                [opts[i], opts[j]] = [opts[j], opts[i]];
+                            }
+                        }
+
+                        q.shuffledOptions = opts;
+                        return q;
+                    })
+                    .filter(q => q && q.pregunta && q.pregunta.trim());
+
+                if (questions.length > 0) {
+                    // Init
+                    questionWeights = new Array(questions.length).fill(1.0);
+                    allQuestionsBackup = [...questions]; // Store original questions for export
+
+                    document.getElementById('upload-screen').style.display = 'none';
+                    document.getElementById('app').style.display = 'block';
+
+                    setMode('normal');
+                } else {
+                    alert('No se encontraron preguntas válidas en el CSV.');
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Error procesando el CSV: ' + error.message);
+            }
+        }
+
+
+
+        function setMode(mode) {
+            currentMode = mode;
+            currentIndex = 0;
+            // Reset session stats
+            stats.correct = 0;
+            stats.incorrect = 0;
+            stats.blank = 0;
+            stats.rawScore = 0.0;
+            // Start Timer if not running
+            if (!timerInterval) {
+                startTimer();
+            } else {
+                // Restart timer for new mode
+                startTimer();
+            }
+            stats.answered.clear();
+            stats.userAnswers = {};
+
+            if (mode === 'normal') {
+                displayOrder = questions.map((_, i) => i);
+            } else if (mode === 'random') {
+                displayOrder = [...Array(questions.length).keys()];
+                shuffleArray(displayOrder);
+            } else if (mode === 'algorithm') {
+                displayOrder = [pickWeightedIndex()];
+            }
+            renderApp();
+            renderSidebar();
+        }
+
+        window.changeMode = function (mode) {
+            if (confirm('¿Cambiar de modo? Se reiniciará el progreso actual.')) {
+                setMode(mode);
+            } else {
+                renderApp(); // Re-render to reset select dropdown
+            }
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function pickWeightedIndex() {
+            const totalWeight = questionWeights.reduce((a, b) => a + b, 0);
+            let random = Math.random() * totalWeight;
+
+            for (let i = 0; i < questionWeights.length; i++) {
+                random -= questionWeights[i];
+                if (random < 0) return i;
+            }
+            return Math.floor(Math.random() * questions.length);
+        }
+
+        function renderApp() {
+            if (questions.length === 0) {
+                document.getElementById('main-content').innerHTML = `
+                    <div style="background: var(--container-bg); border-radius: 24px; padding: 40px; border: 1px solid var(--border-color); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); text-align: center;">
+                        <p style="color: var(--text-muted);">No hay preguntas disponibles. Por favor, importa un archivo CSV.</p>
+                        <button class="btn btn-primary" onclick="location.reload()">Recargar</button>
+                    </div>
+                `;
+                renderSidebar(); // Clear sidebar too
+                return;
+            }
+
+            const actualIndex = displayOrder[currentIndex];
+            const currentQuestion = questions[actualIndex];
+
+            const isAnswered = stats.answered.has(currentIndex);
+            const currentAnswer = stats.userAnswers[currentIndex];
+
+            let feedbackHTML = '';
+            if (isAnswered) {
+                const justification = currentQuestion.justificacion ? `<div style="margin-top: 10px; font-size: 0.95rem; opacity: 0.9; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">ℹ️ ${currentQuestion.justificacion}</div>` : '';
+
+                if (currentAnswer) {
+                    if (currentAnswer === 'En blanco') {
+                        feedbackHTML = `<div class="feedback" style="display: block; background: var(--container-bg); border: 1px solid var(--text-muted); color: var(--text-muted);">⏸ Respondido en blanco. La respuesta era: <strong>${currentQuestion.respuesta_correcta}</strong>${justification}</div>`;
+                    } else {
+                        const correct = currentAnswer.toLowerCase() === currentQuestion.respuesta_correcta.toLowerCase();
+                        if (correct) {
+                            feedbackHTML = `<div class="feedback correct" style="display: block;">✓ ¡Correcto!${justification}</div>`;
+                        } else {
+                            feedbackHTML = `<div class="feedback incorrect" style="display: block;">✗ La respuesta correcta es: <strong>${currentQuestion.respuesta_correcta}</strong>${justification}</div>`;
+                        }
+                    }
+                } else {
+                    feedbackHTML = `<div class="feedback correct" style="display: block;">💡 Respuesta: <strong>${currentQuestion.respuesta_correcta}</strong>${justification}</div>`;
+                }
+            }
+
+            let selectorHTML = '';
+            if (currentMode !== 'algorithm') {
+                selectorHTML = `
+                    <select class="question-selector" onchange="goToQuestion(this.value)">
+                        ${questions.map((q, i) => `
+                            <option value="${i}" ${displayOrder[currentIndex] === i ? 'selected' : ''}>
+                                ${i + 1}. ${q.pregunta.substring(0, 50)}...
+                            </option>
+                        `).join('')}
+                    </select>
+                `;
+            } else {
+                selectorHTML = `
+                    <div class="question-selector" style="cursor: default; opacity: 0.8; background: var(--container-bg); color: var(--text-main);">
+                         Modo Inteligente - Paso ${currentIndex + 1}
+                    </div>
+                `;
+            }
+
+            const progress = currentMode === 'algorithm' ? 100 : ((currentIndex + 1) / questions.length) * 100;
+
+            let score = 0;
+            const totalAnswered = stats.correct + stats.incorrect + stats.blank;
+            if (totalAnswered > 0) {
+                score = ((stats.correct - stats.incorrect) / totalAnswered) * 10;
+            }
+            score = Math.max(0, score);
+            const scoreDisplay = totalAnswered > 0 ? score.toFixed(1) : '-';
+
+            const mainContent = document.getElementById('main-content');
+
+            mainContent.innerHTML = `
+                <div style="background: var(--container-bg); border-radius: 24px; padding: 40px; border: 1px solid var(--border-color); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
+                    <div class="top-controls">
+                        ${selectorHTML}
+                        
+                        <div class="mode-selector">
+                        <select id="modeSelect" onchange="changeMode(this.value)" style="padding: 10px; border-radius: 8px; background: var(--container-bg); color: var(--text-main); border: 1px solid var(--border-color); font-family: inherit; cursor: pointer;">
+                            <option value="normal" ${currentMode === 'normal' ? 'selected' : ''}>Normal</option>
+                            <option value="random" ${currentMode === 'random' ? 'selected' : ''}>Aleatorio</option>
+                            <option value="algorithm" ${currentMode === 'algorithm' ? 'selected' : ''}>Inteligente</option>
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${progress}%"></div>
+                    </div>
+
+                    <div class="stats">
+                        <div class="stat-card">
+                            <div class="stat-label">Progreso</div>
+                            <div class="stat-value">
+                                ${currentMode === 'algorithm' ? (currentIndex + 1) : (currentIndex + 1) + '/' + questions.length}
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Correctas</div>
+                            <div class="stat-value" style="color: var(--success-text)">${stats.correct}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Incorrectas</div>
+                            <div class="stat-value" style="color: var(--error-text)">${stats.incorrect}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Nota (/10)</div>
+                            <div class="stat-value" style="color: var(--accent-color)">
+                                ${stats.answered.size > 0 ? Math.max(0, (stats.rawScore / stats.answered.size) * 10).toFixed(2) : '0.00'}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card">
+                        <div>
+                            <div class="question-number">Pregunta ${currentQuestion.numero}</div>
+                            <div class="question-text">${currentQuestion.pregunta}</div>
+                            
+                            <div class="options">
+                                ${renderOptions(currentQuestion, currentAnswer, isAnswered)}
+                            </div>
+                        </div>
+                        ${feedbackHTML}
+                    </div>
+
+                    <div class="controls">
+                        <button class="btn btn-secondary" onclick="previousQuestion()" ${currentIndex === 0 ? 'disabled' : ''}>
+                            ← Anterior
+                        </button>
+                        ${!isAnswered ?
+                    `
+                            <button class="btn btn-secondary" onclick="nextQuestion()" style="border: 1px solid var(--border-color); background: transparent;">Omitir →</button>
+                            <button class="btn btn-primary" onclick="showAnswer()">Ver Respuesta</button>
+                            ` :
+                    `<button class="btn btn-primary" onclick="nextQuestion()">Siguiente →</button>`
+                }
+                    </div>
+
+                    <!-- Delete & Export Section (Bottom) -->
+                    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); text-align: center;">
+                        <p style="font-size: 0.9em; color: var(--text-muted); margin-bottom: 15px;">
+                            <small>⚠️ Gestión de Preguntas: Si detectas una pregunta incorrecta, puedes eliminarla de esta sesión. Para guardar los cambios, exporta el CSV corregido.</small>
+                        </p>
+                        <div style="display: flex; gap: 10px; justify-content: center;">
+                            <button class="btn" onclick="deleteCurrentQuestion()" style="background-color: #dc3545; color: white;">
+                                🗑️ Eliminar Pregunta
+                            </button>
+                            <button class="btn-secondary" onclick="exportQuestions()" style="padding: 12px 24px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); cursor: pointer;">
+                                📥 Exportar CSV Corregido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Also update sidebar to reflect current active question
+            renderSidebar();
+        }
+
+        function renderSidebar() {
+            if (currentMode === 'algorithm') {
+                // In algorithm mode, grid might not make sense or should just show history?
+                // For simplified implementation, we hide or show limited grid.
+                // Let's show history of steps.
+                const grid = document.getElementById('question-grid');
+                grid.innerHTML = '<div style="grid-column: 1/-1; color: var(--text-muted); font-size: 0.8rem; text-align: center;">Modo Inteligente activa.<br>Navegación secuencial.</div>';
+                return;
+            }
+
+            const grid = document.getElementById('question-grid');
+            grid.innerHTML = '';
+
+            // Iterate over ALL questions to maintain original order (1..N) in grid
+            questions.forEach((_, qIndex) => {
+                const dot = document.createElement('div');
+                dot.className = 'grid-dot';
+                dot.title = `Pregunta ${qIndex + 1}`;
+
+                // Find where this question is in the current session (step index)
+                const stepIndex = displayOrder.indexOf(qIndex);
+
+                // If the question exists in the current order (it should in Normal/Random)
+                if (stepIndex !== -1) {
+                    // Check if this step has been answered
+                    if (stats.answered.has(stepIndex)) {
+                        const answer = stats.userAnswers[stepIndex];
+                        if (answer === 'En blanco') {
+                            dot.classList.add('blank');
+                        } else {
+                            const q = questions[qIndex];
+                            const isCorrect = answer.toLowerCase() === q.respuesta_correcta.toLowerCase();
+                            dot.classList.add(isCorrect ? 'correct' : 'incorrect');
+                        }
+                    }
+
+                    // Highlight if it's the currently displayed question
+                    if (stepIndex === currentIndex) {
+                        dot.classList.add('current');
+                    }
+
+                    // Click navigates to this specific question
+                    dot.onclick = () => goToQuestion(qIndex);
+                } else {
+                    // Should not happen in Normal/Random unless filtered
+                    dot.style.opacity = '0.2';
+                    dot.style.cursor = 'default';
+                }
+
+                grid.appendChild(dot);
+            });
+        }
+
+        function renderOptions(question, currentAnswer, isAnswered) {
+            // Use pre-shuffled options
+            const encodedOptions = question.shuffledOptions || ['Vertader', 'Fals'];
+
+            // Add "En blanco" as the last option always
+            const options = [...encodedOptions, 'En blanco'];
+
+            return options.map(opt => {
+                let classes = 'option';
+                const isCorrect = opt.toLowerCase() === question.respuesta_correcta.toLowerCase();
+                const isBlank = opt === 'En blanco';
+
+                if (currentAnswer === opt) {
+                    classes += ' selected';
+                    if (isBlank) {
+                        // Neutral styling for blank selection
+                        classes += ' active';
+                    } else {
+                        classes += isCorrect ? ' correct' : ' incorrect';
+                    }
+                } else if (isAnswered && isCorrect && !isBlank) {
+                    // Show correct answer if user missed it
+                    classes += ' correct';
+                }
+
+                return `<div class="${classes}" onclick="selectOption('${opt.replace(/'/g, "\\'")}')">${opt}</div>`;
+            }).join('');
+        }
+
+        window.selectOption = function (answer) {
+            if (stats.answered.has(currentIndex)) return;
+
+            const actualIndex = displayOrder[currentIndex];
+            const currentQuestion = questions[actualIndex];
+
+            stats.userAnswers[currentIndex] = answer;
+            stats.answered.add(currentIndex);
+
+            if (answer === 'En blanco') {
+                stats.blank++;
+                // No change to rawScore (0 points)
+                questionWeights[actualIndex] = Math.min(20, questionWeights[actualIndex] * 1.5);
+            } else {
+                const correct = answer.toLowerCase() === currentQuestion.respuesta_correcta.toLowerCase();
+
+                // Calculate penalty based on number of options
+                // Get options again to know count (excluding 'En blanco')
+                let numOptions = 2; // Default T/F
+                if (currentQuestion.opciones && currentQuestion.opciones.trim()) {
+                    if (currentQuestion.opciones.includes('|')) numOptions = currentQuestion.opciones.split('|').length;
+                    else if (currentQuestion.opciones.includes(';')) numOptions = currentQuestion.opciones.split(';').length;
+                }
+
+                if (correct) {
+                    stats.correct++;
+                    stats.rawScore += 1.0;
+                    questionWeights[actualIndex] = Math.max(0.1, questionWeights[actualIndex] * 0.4);
+                } else {
+                    stats.incorrect++;
+                    // Penalty logic: 1 / (N - 1)
+                    // If 2 options (T/F): 1/1 = 1.0
+                    // If 3 options: 1/2 = 0.5
+                    // If 4 options: 1/3 = 0.33
+                    let penalty = 1.0;
+                    if (numOptions > 2) {
+                        penalty = 1.0 / (numOptions - 1);
+                    }
+                    stats.rawScore -= penalty;
+
+                    questionWeights[actualIndex] = Math.min(20, questionWeights[actualIndex] * 2.5);
+                }
+            }
+
+            renderApp();
+        };
+
+        window.showAnswer = function () {
+            if (!stats.answered.has(currentIndex)) {
+                stats.answered.add(currentIndex);
+                renderApp();
+            }
+        };
+
+        window.nextQuestion = function () {
+            const isLast = currentIndex === displayOrder.length - 1;
+
+            if (isLast) {
+                if (currentMode === 'algorithm') {
+                    displayOrder.push(pickWeightedIndex());
+                    currentIndex++;
+                    renderApp();
+                } else if (currentIndex < questions.length - 1) {
+                    currentIndex++;
+                    renderApp();
+                }
+            } else {
+                currentIndex++;
+                renderApp();
+            }
+        };
+
+        window.previousQuestion = function () {
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderApp();
+            }
+        };
+
+        window.goToQuestion = function (index) {
+            if (currentMode === 'algorithm') return;
+            const targetIndex = parseInt(index);
+            const position = displayOrder.indexOf(targetIndex);
+            if (position !== -1) {
+                currentIndex = position;
+                renderApp();
+            }
+        };
+
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('app').style.display === 'none') return;
+            if (e.key === 'ArrowRight') nextQuestion();
+            if (e.key === 'ArrowLeft') previousQuestion();
+        });
+
+        // --- NEW FEATURES: Delete & Export ---
+
+        window.deleteCurrentQuestion = function () {
+            if (questions.length === 0) return;
+
+            if (!confirm("¿Estás seguro de eliminar esta pregunta de la sesión? (Tendrás que exportar el CSV para guardar cambios)")) return;
+
+            const actualIndex = displayOrder[currentIndex];
+            // 5. Adjust stats if the deleted question was already answered
+            // If it was answered, we should remove its contribution from stats
+            // to keep the score "fair" relative to what remains.
+            const wasAnswered = stats.answered.has(currentIndex);
+
+            if (wasAnswered) {
+                const answer = stats.userAnswers[currentIndex];
+                if (answer === 'En blanco') {
+                    stats.blank--;
+                } else {
+                    const currentQ = allQuestionsBackup.find(q => q === questions[actualIndex]); // Wait, questions array is already spliced? No, logic above.
+                    // Actually, we need to know if it was correct/incorrect.
+                    // But we already removed it from 'questions' array in step 2.
+                    // CRITICAL: We need to check correctness BEFORE removing from 'questions'.
+                    // My logic order was: 2. Remove from active questions.
+                    // So I need to move this check UPHILL or use the backup before splash.
+                    // simpler: The userAnswers stored the string answer.
+                    // BUT we don't know the correct answer effectively if we already deleted the question object from 'questions'.
+                    // HOWEVER, we can just assume we should shift the indices and NOT reset totals if we don't want to change the score.
+                    // User said "que no se reinicien las estadisticas".
+                    // If I delete a question I got WRONG, should my score improve? Probably yes.
+                    // If I delete a question I got RIGHT, should my score drop? Probably yes.
+                    // So I DO need to adjust totals.
+
+                    // Let's rely on the fact that I haven't moved the code logic yet.
+                    // I will implement a re-ordered logic below.
+                }
+            }
+
+            // NEW LOGIC ORDER FOR PRESERVING STATS
+            const questionToRemove = questions[actualIndex];
+
+            // A. Check if answered and adjust counts
+            if (stats.answered.has(currentIndex)) {
+                const answer = stats.userAnswers[currentIndex];
+                if (answer === 'En blanco') {
+                    stats.blank--;
+                } else {
+                    if (answer.toLowerCase() === questionToRemove.respuesta_correcta.toLowerCase()) {
+                        stats.correct--;
+                        stats.rawScore -= 1.0;
+                    } else {
+                        stats.incorrect--;
+                        // We need to recalculate penalty to remove it exactly?
+                        // Or just approximate. The rawScore is complex.
+                        // Let's assume standard penalty or just leave rawScore somewhat dirty?
+                        // Better: Recalculate penalty based on options count of the question.
+                        let numOptions = 2;
+                        if (questionToRemove.opciones && questionToRemove.opciones.trim()) {
+                            if (questionToRemove.opciones.includes('|')) numOptions = questionToRemove.opciones.split('|').length;
+                            else if (questionToRemove.opciones.includes(';')) numOptions = questionToRemove.opciones.split(';').length;
+                        }
+                        let penalty = 1.0;
+                        if (numOptions > 2) penalty = 1.0 / (numOptions - 1);
+                        stats.rawScore += penalty; // Add back the penalty (undo subtraction)
+                    }
+                }
+            }
+
+            // B. Shift Indices in stats.answered and stats.userAnswers
+            const newAnswered = new Set();
+            const newUserAnswers = {};
+
+            // We are removing 'currentIndex' from the perspective of the user interaction (step).
+            // But 'stats.answered' tracks STEPS (currentIndex), right?
+            // Yes: stats.answered.add(currentIndex);
+            // So if I delete step 5, step 6 becomes step 5.
+
+            stats.answered.forEach(idx => {
+                if (idx < currentIndex) {
+                    newAnswered.add(idx);
+                    newUserAnswers[idx] = stats.userAnswers[idx];
+                } else if (idx > currentIndex) {
+                    newAnswered.add(idx - 1);
+                    newUserAnswers[idx - 1] = stats.userAnswers[idx];
+                }
+                // matches currentIndex -> dropped
+            });
+
+            stats.answered = newAnswered;
+            stats.userAnswers = newUserAnswers;
+
+            // 1. Remove from allQuestionsBackup (optional? logic kept same as before)
+            const originalQ = allQuestionsBackup[actualIndex]; // This assumes 1:1 map if normal mode, but in normal mode displayOrder[i] = i.
+            // Wait, actualIndex is displayOrder[currentIndex]. 
+            // In Normal Mode: actualIndex == currentIndex.
+            // In Random Mode: actualIndex is proper index in questions array.
+
+            // Note: The logic for removing from backup needs to find the exact object because indices don't match backup if we filtered earlier?
+            // current logic: allQuestionsBackup.filter(q => q !== originalQ).
+            const qObj = questions[actualIndex];
+            allQuestionsBackup = allQuestionsBackup.filter(q => q !== qObj);
+
+            // 2. Remove from active questions array
+            questions.splice(actualIndex, 1);
+
+            // 3. Re-initialize weights for that index
+            questionWeights.splice(actualIndex, 1);
+
+            // 4. Re-calculate displayOrder
+            if (currentMode === 'normal') {
+                displayOrder = questions.map((_, i) => i);
+            } else {
+                // In random/algo modes, we need to re-map.
+                // Since an element was removed, indices > actualIndex shifted down.
+                // But displayOrder holds INDICES.
+                // We need to re-generate valid indices for the new length.
+                // Simplest is to just regenerate permutations.
+                displayOrder = questions.map((_, i) => i);
+                if (currentMode === 'random') shuffleArray(displayOrder);
+                // If algo, we pick next one anyway.
+            }
+
+            // 6. Adjust currentIndex
+            if (currentIndex >= questions.length) {
+                currentIndex = Math.max(0, questions.length - 1);
+            }
+
+            renderSidebar();
+            renderApp();
+
+            // Do NOT alert effectively blocking flow, maybe a small toast or just update.
+            // alert("Pregunta eliminada."); 
+        };
+
+        window.exportQuestions = function () {
+            if (allQuestionsBackup.length === 0) {
+                alert("No hay preguntas para exportar.");
+                return;
+            }
+
+            // Header
+            let csvContent = "numero,pregunta,tipo,opciones,respuesta_correcta,justificacion\n";
+
+            // Rows
+            allQuestionsBackup.forEach((q, index) => {
+                const escape = (text) => {
+                    if (!text) return "";
+                    let t = String(text);
+                    if (t.includes('"') || t.includes(',') || t.includes('\n')) {
+                        t = t.replace(/"/g, '""');
+                        return `"${t}"`;
+                    }
+                    return t;
+                };
+
+                const row = [
+                    q.numero || (index + 1),
+                    escape(q.pregunta),
+                    escape(q.tipo),
+                    escape(q.opciones),
+                    escape(q.respuesta_correcta),
+                    escape(q.justificacion)
+                ].join(",");
+                csvContent += row + "\n";
+            });
+
+            // Create download link
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", "preguntas_corregidas.csv");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+
+        // TIMER LOGIC
+        let startTime;
+        let timerInterval;
+
+        function startTimer() {
+            startTime = Date.now();
+            document.getElementById('timer').style.display = 'block';
+
+            clearInterval(timerInterval);
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        function updateTimer() {
+            const now = Date.now();
+            const diff = now - startTime;
+
+            const totalSeconds = Math.floor(diff / 1000);
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+
+            const minStr = String(minutes).padStart(2, '0');
+            const secStr = String(seconds).padStart(2, '0');
+
+            document.getElementById('timer').textContent = `${minStr}:${secStr}`;
+        }
+    </script>
+</body>
+
+</html>
