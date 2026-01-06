@@ -1,88 +1,41 @@
-# 📚 Sistema de Estudio para Examen CAI
+# 📚 Plataforma de Estudio para Examenes Multirespuesta
 
-Sistema completo para extraer preguntas de PDF y estudiar de forma interactiva.
+¡Hola! 👋 Esta es una herramienta web diseñada para ayudarnos a preparar los exámenes tipo test de las asignaturas. Permite cargar preguntas desde archivos CSV y practicar de forma interactiva.
 
 ## 🚀 Cómo usar
 
-### Paso 1: Extraer preguntas del PDF
+Simplemente abre el enlace de la web (si estás viendo esto en GitHub, ve a la sección "Deployments" o al enlace de GitHub Pages).
 
-Ejecuta el script de Python para extraer todas las preguntas del PDF y guardarlas en CSV:
+1.  **Selecciona una asignatura**: Haz clic en una de las tarjetas (CAI, SiF, MT, PI).
+2.  **Empieza a practicar**: Se cargarán las preguntas y podrás responderlas una a una.
+3.  **Modos de estudio**: Puedes cambiar el modo de estudio en el menú desplegable de arriba a la derecha.
 
-```bash
-python extract_questions.py
-```
+## 🧠 Modos de Estudio
 
-Esto creará el archivo `preguntas.csv` con todas las preguntas extraídas del PDF.
+*   **Modo Normal**: Las preguntas aparecen en orden secuencial (1, 2, 3...). Ideal para un primer repaso.
+*   **Modo Aleatorio**: El orden de las preguntas se mezcla completamente al azar.
+*   **Modo Inteligente (Algorithm Mode)**: 🚀 **¡Recomendado!**
+    *   Este modo utiliza un algoritmo de probabilidad para priorizar las preguntas que fallas.
+    *   Si fallas una pregunta, aumentan las posibilidades de que vuelva a salir pronto.
+    *   Si aciertas, la probabilidad de que aparezca disminuye.
+    *   Perfecto para asegurar que repasas lo que realmente te cuesta más.
 
-### Paso 2: Estudiar con la interfaz web
+## ⌨️ Controles
 
-**Opción A - Usando el script automático (RECOMENDADO):**
+*   **Click en opción**: Seleccionar respuesta.
+*   **Espacio**: Confirmar selección (si hay una seleccionada).
+*   **Flecha Derecha (→)**: Siguiente pregunta.
+*   **Flecha Izquierda (←)**: Pregunta anterior.
+*   **Número (1-4)**: Seleccionar opción 1-4 rápidamente.
 
-Simplemente haz doble clic en:
-```
-iniciar_servidor.bat
-```
+## 🔧 Detalles Técnicos (Opcional)
 
-Esto iniciará un servidor web local y abrirá automáticamente la interfaz de estudio en tu navegador.
+Si quieres ejecutar esto en tu propio ordenador (localmente):
 
-**Opción B - Manual:**
+1.  Descarga el código.
+2.  Abre una terminal en la carpeta.
+3.  Ejecuta: `python -m http.server 8000`
+4.  Abre en tu navegador: `http://localhost:8000`
 
-```bash
-# Iniciar servidor HTTP local
-python -m http.server 8000
-
-# Luego abre en tu navegador:
-# http://localhost:8000/estudiar.html
-```
-
-## 📁 Archivos del sistema
-
-- **extract_questions.py** - Script de Python que extrae preguntas del PDF
-- **preguntas.csv** - Archivo CSV con todas las preguntas (generado automáticamente)
-- **estudiar.html** - Interfaz web interactiva para estudiar
-- **iniciar_servidor.bat** - Script para iniciar el servidor fácilmente
-
-## ✨ Características de la interfaz
-
-- ✅ Diseño moderno con gradientes y animaciones
-- ✅ Navegación pregunta por pregunta
-- ✅ Feedback inmediato de respuestas correctas/incorrectas
-- ✅ Contador de progreso y estadísticas
-- ✅ Botón para ver la respuesta correcta
-- ✅ Navegación con teclado (flechas ← →)
-- ✅ Barra de progreso visual
-
-## 🎯 Controles
-
-- **Click en opción** - Seleccionar y verificar respuesta
-- **Siguiente →** - Ir a la siguiente pregunta
-- **← Anterior** - Volver a la pregunta anterior
-- **💡 Ver Respuesta** - Mostrar la respuesta correcta sin seleccionar
-- **Tecla →** - Siguiente pregunta
-- **Tecla ←** - Pregunta anterior
-
-## ⚙️ Requisitos
-
-- Python 3.x
-- Biblioteca pdfplumber (instalada automáticamente si usas pip)
-
-## 🔧 Solución de problemas
-
-**Si el CSV no carga:**
-- Asegúrate de usar el servidor HTTP local (iniciar_servidor.bat)
-- No abras estudiar.html directamente desde el explorador de archivos
-
-**Si no se extraen preguntas:**
-- Verifica que el archivo PDF esté en la misma carpeta
-- Revisa la estructura del PDF (debe contener texto extraíble)
-
-## 📊 Datos extraídos
-
-El CSV contiene las siguientes columnas:
-- **numero** - Número de la pregunta
-- **pregunta** - Texto de la pregunta
-- **tipo** - Tipo de pregunta (verdadero_falso, multiple)
-- **opciones** - Opciones de respuesta
-- **respuesta_correcta** - La respuesta correcta
-
-¡Buena suerte con tu estudio! 🎓
+---
+¡Mucha suerte con los exámenes! 🎓

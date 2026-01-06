@@ -173,9 +173,49 @@
 
         .main-layout {
             display: grid;
-            grid-template-columns: 280px 1fr;
+            grid-template-columns: 280px 1fr 280px;
+            /* Added 3rd column for right sidebar */
             gap: 30px;
             animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Hide right sidebar by default (collapsed column) when not active */
+        .main-layout:not(.has-right-sidebar) {
+            grid-template-columns: 280px 1fr;
+        }
+
+        .right-sidebar {
+            background: rgba(59, 130, 246, 0.05);
+            /* Light blue tint */
+            border: 1px solid var(--accent-color);
+            border-radius: 16px;
+            padding: 20px;
+            height: fit-content;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            display: none;
+            /* Hidden by default */
+        }
+
+        .right-sidebar h4 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @media (max-width: 1200px) {
+            .main-layout {
+                grid-template-columns: 260px 1fr;
+                /* Hide right sidebar on medium screens if tight, or stack it */
+            }
+
+            .main-layout.has-right-sidebar {
+                grid-template-columns: 260px 1fr 250px;
+            }
         }
 
         @media (max-width: 900px) {
@@ -191,6 +231,10 @@
                 margin-bottom: 20px;
                 display: none;
                 /* Hide sidebar on mobile for now or make collapsible */
+            }
+
+            .right-sidebar {
+                display: none !important;
             }
         }
 
@@ -572,6 +616,19 @@
                 <div id="main-content" class="content-area">
                     <!-- Dynamic content -->
                 </div>
+
+                <div id="right-sidebar" class="right-sidebar">
+                    <h4>🚀 Modo Inteligente</h4>
+                    <p>Este modo utiliza un <strong>algoritmo de probabilidad</strong> para optimizar tu estudio:</p>
+                    <ul style="padding-left: 20px; margin-top: 10px; margin-bottom: 15px;">
+                        <li style="margin-bottom: 8px;">Las preguntas empiezan con el mismo peso (1.0).</li>
+                        <li style="margin-bottom: 8px;">Si <strong>fallas</strong> ❌, el peso de la pregunta aumenta
+                            (+2.0), haciéndola más probable de aparecer.</li>
+                        <li style="margin-bottom: 8px;">Si <strong>aciertas</strong> ✅, el peso disminuye (÷2), por lo
+                            que saldrá menos.</li>
+                    </ul>
+                    <p>¡Así te aseguras de repasar más lo que peor llevas!</p>
+                </div>
             </div>
         </div>
     </div>
@@ -775,6 +832,16 @@
             } else if (mode === 'algorithm') {
                 displayOrder = [pickWeightedIndex()];
             }
+
+            // Toggle Right Sidebar based on mode
+            if (mode === 'algorithm') {
+                document.getElementById('right-sidebar').style.display = 'block';
+                document.querySelector('.main-layout').classList.add('has-right-sidebar');
+            } else {
+                document.getElementById('right-sidebar').style.display = 'none';
+                document.querySelector('.main-layout').classList.remove('has-right-sidebar');
+            }
+
             renderApp();
             renderSidebar();
         }
