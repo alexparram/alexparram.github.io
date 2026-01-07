@@ -1,0 +1,57 @@
+numero,pregunta,tipo,opciones,respuesta_correcta,justificacion
+1,¿Cuál de las siguientes afirmaciones es cierta?,multiple,Siempre es posible fabricar una pieza en una única fase.|Todos los procesos son siempre deterministas.|En muchas ocasiones es recomendable utilizar varias fases de fabricación.|Las otras tres afirmaciones son falsas.,En muchas ocasiones es recomendable utilizar varias fases de fabricación.,"En la práctica industrial es habitual dividir la fabricación en varias fases para mejorar calidad, precisión y eficiencia."
+2,¿Cuál de los siguientes es una característica típica de las máquinas CNC?,multiple,Baja precisión de posicionamiento.|Alta dependencia del trabajo manual.|Alta repetibilidad y fiabilidad.|Complejidad elevada del sistema mecánico.,Alta repetibilidad y fiabilidad.,Las máquinas CNC se caracterizan por su alta repetibilidad y fiabilidad gracias al control automatizado del movimiento.
+3,"¿Qué diferencia principal hay entre un control con lazo abierto y un control con lazo
+cerrado en una máquina CNC?",multiple,El control con lazo abierto necesita captadores de posición.|El control con lazo abierto funciona sin motores.|El control con lazo cerrado puede corregir errores mediante la retroalimentación de posición.|El control con lazo cerrado sólo funciona en máquinas de 5 ejes.,El control con lazo cerrado puede corregir errores mediante la retroalimentación de posición.,"El lazo cerrado incorpora realimentación (feedback) de posición, lo que permite corregir errores durante el movimiento."
+4,"¿Qué combinación de factores afectará negativamente a la precisión de la trayectoria real
+interpolada en una máquina CNC?",multiple,"Sólo la velocidad de avance programada.|Exclusivamente la masa de la herramienta y el material.|La duración del periodo de muestreo y la velocidad de avance, ya que pueden provocar una
+trayectoria poligonalizada.|Sólo la temperatura ambiente y las vibraciones externas.","La duración del periodo de muestreo y la velocidad de avance, ya que pueden provocar una
+trayectoria poligonalizada.",Un periodo de muestreo largo combinado con alta velocidad de avance puede aproximar la trayectoria con segmentos (poligonalización).
+5,¿Cuál de las siguientes afirmaciones sobre las máquinas de control numérico es cierta?,multiple,Las impresoras 3D domésticas son máquinas de control numérico.|Una máquina de control numérico únicamente puede tener automatizada la función principal.|El elemento de control de una máquina de control numérico siempre es un PC.|La función principal de todas las máquinas de control numérico es fabricar piezas.,Las impresoras 3D domésticas son máquinas de control numérico.,"Una impresora 3D ejecuta movimientos programados por control numérico, por lo que encaja en la definición general de máquina CN."
+6,¿Cuál de las siguientes funciones es no modal?,multiple,G0|M6|S1000|Las tres funciones indicadas son modales.,M6,M6 (cambio de herramienta) es una orden no modal: se ejecuta y no permanece activa como estado del control.
+7,"¿Cuál de las siguientes afirmaciones sobre el ciclo fijo de taladrado G81 para fresadoras
+con control numérico Fagor es falsa?",multiple,La Z indica la altura del plano de referencia.|Es un ciclo fijo modal.|Es posible definir un tiempo de espera de la broca en el fondo del taladro.|La broca obligatoriamente entra y sale del agujero girando.,La Z indica la altura del plano de referencia.,En G81 la Z normalmente define la profundidad/posición objetivo del taladrado; el plano de referencia se define con otros parámetros.
+8,"En una estación de montaje, si el tiempo de transferencia es más pequeño que el tiempo
+de las acciones que no interfieren con el palet, se puede afirmar que:",multiple,"Utilizar un sistema de transporte síncrono de palets disminuirá el tiempo de ciclo de la estación.|Aumentar la velocidad del manipulador durante la maniobra de insertar la pieza en el producto
+aumentará la productividad de la estación.|Aumentar la velocidad de las pinzas al coger la pieza disminuirá el tiempo de ciclo de la
+estación.|Aumentar la velocidad de las pinzas al dejar la pieza disminuirá el tiempo de ciclo de la
+estación.","Aumentar la velocidad del manipulador durante la maniobra de insertar la pieza en el producto
+aumentará la productividad de la estación.","Si la transferencia no limita el ciclo, la productividad mejora reduciendo acciones que sí interfieren: la inserción del manipulador."
+9,"En una línea de montaje donde todas las estaciones utilizan sistemas de visión por
+ordenador para identificar y posicionar las piezas y robots con cambio automático del
+elemento terminal por sujeción y manipulación se puede afirmar que:",multiple,Es totalmente flexible.|Es rígida.|Le hace falta poder anular estaciones para ser totalmente flexible.|Las otras tres afirmaciones son falsas.,Le hace falta poder anular estaciones para ser totalmente flexible.,"Aunque haya visión y cambio automático de herramienta, para ser totalmente flexible debe poderse saltar/ anular estaciones."
+10,"Se está seleccionando un robot para una estación de montaje que debe ser flexible y debe
+poder garantizar un mismo nivel de repetibilidad en todos los puntos del área de trabajo.
+¿Qué tipo de robot se recomendaría?",multiple,Cartesiano.|Antropomórfico.|Scara.|Delta.,Cartesiano.,Los robots cartesianos mantienen precisión y repetibilidad más uniformes en todo su volumen de trabajo al usar ejes lineales ortogonales.
+11,¿Cuál de las siguientes afirmaciones es cierta?,multiple,"Un encoder angular absoluto no permite conocer la dirección de giro de un determinado
+elemento.|Un encoder no permite, en ningún caso, conocer una longitud recorrida por un determinado
+elemento.|Algunos encoders angulares incrementales permiten conocer la dirección de giro de un
+determinado elemento.|Las otras tres afirmaciones son falsas.","Algunos encoders angulares incrementales permiten conocer la dirección de giro de un
+determinado elemento.",Los encoders incrementales con dos canales (cuadratura) permiten inferir el sentido de giro comparando la fase entre señales.
+12,"Indicar cuántas de las siguientes afirmaciones son ciertas sobre un sistema SCADA.
+(i) Mantiene una copia de las variables de memoria del PLC.
+(ii) El sistema presenta en pantalla, normalmente de forma gráfica, el estado del sistema
+que controla el PLC.
+(iii) Puede modificar las consignas del PLC.",multiple,Las tres afirmaciones.|Sólo dos de las tres afirmaciones.|Sólo una de las tres afirmaciones.|Ninguna de las tres afirmaciones.,Las tres afirmaciones.,"Un SCADA suele replicar variables del PLC, visualizar el estado del proceso y permitir modificar consignas/valores de control."
+13,"¿Cuál de las siguientes hipótesis no se hace en el modelo de tiempo de fabricación que
+se utiliza para determinar el lote crítico?",multiple,El tiempo de preparación de máquina es independiente de la pieza que se hacía antes.|Las paradas son siempre programadas.|El tiempo de ciclo es aleatorio.|Las paradas son siempre regulares.,El tiempo de ciclo es aleatorio.,El modelo típico para lote crítico asume tiempos deterministas (no aleatorios) para poder comparar sistemas; por eso no se asume aleatoriedad del ciclo.
+14,"Para servir un pedido se puede escoger entre un sistema de fabricación rígido y uno
+flexible. Se podrá acabar antes la producción si:",multiple,"Se utiliza un sistema flexible siempre que el pedido sea inferior al lote crítico.|Se utiliza un sistema rígido siempre que el pedido sea inferior al lote crítico.|Se utiliza un sistema flexible siempre que el pedido sea superior al lote crítico.|El lote crítico tiene que ver con la reducción de costes, no con la rapidez al servir pedidos.",Se utiliza un sistema flexible siempre que el pedido sea inferior al lote crítico.,"Para pedidos pequeños (por debajo del lote crítico), la flexibilidad compensa la menor productividad por menores tiempos de preparación/cambios."
+15,"¿Cuál de los siguientes elementos NO acostumbra a formar parte de una Célula de
+Fabricación Flexible?",multiple,Proceso de fabricación de la pieza.|Gestión del desgaste de las herramientas.|Transporte de piezas entre máquinas.|Verificación de las piezas fabricadas.,Gestión del desgaste de las herramientas.,"En una FMS es habitual integrar proceso, transporte y verificación; la gestión del desgaste de herramientas puede existir, pero no suele considerarse parte básica del conjunto."
+16,"Indicar cuántas de las siguientes afirmaciones se consideran ventajas principales de los
+métodos matriciales para la agrupación de piezas:
+(i) Permite agrupar piezas en función de su proceso de fabricación.
+(ii) Siempre da como resultado un número fijo de células totalmente separadas.
+(iii) Tiene en cuenta la saturación de las máquinas.",multiple,Las tres afirmaciones.|Sólo dos de las tres afirmaciones.|Sólo una de las tres afirmaciones.|Ninguna de las tres afirmaciones.,Sólo una de las tres afirmaciones.,"De las tres, sólo (i) es ventaja típica; (ii) es falso y (iii) no suele estar contemplado en métodos matriciales básicos."
+17,"Respecto a la metodología SMED, ¿cuál de las siguientes afirmaciones es cierta?",multiple,"Siempre es necesario aplicar las tres etapas de la metodología SMED.|La etapa 2 de la metodología SMED consigue reducir el tiempo total de preparación respecto
+a los resultados obtenidos en la etapa 1.|Se aplica habitualmente a los procesos de fabricación que se consideran altamente flexibles.|Las otras tres afirmaciones son falsas.",Las otras tres afirmaciones son falsas.,"La afirmación correcta es que las otras tres son falsas: no siempre hacen falta las 3 etapas, la etapa 2 suele convertir internas en externas y la SMED se aplica sobre todo a procesos poco flexibles con setups altos."
+18,"En el caso de la reducción del tiempo de preparación de una prensa de estampación de
+chapa, ¿cuál de los siguientes elementos formaría parte de la etapa 3 de la metodología
+SMED?",multiple,"Centradores de matrices para la mesa inferior de la prensa.|Mesa inferior móvil.|Espacio habilitado junto a la máquina para depositar la matriz que se debe montar a
+continuación.|Ninguno de los otros tres elementos.",Mesa inferior móvil.,La etapa 3 de SMED incluye mejoras técnicas/mecanización para acelerar el cambio; una mesa inferior móvil es un ejemplo.
+19,"Respecto a los Sistemas Integrados de Fabricación, ¿cuál de las siguientes afirmaciones
+es cierta?",multiple,"El concepto de fabricación integrada por ordenador se empezó a implantar a finales de los
+años 90.|Permite adaptarse fácilmente a cambios no previstos.|Siempre es recomendable integrar todos los elementos que componen un sistema productivo.|Permite aumentar la calidad de los productos fabricados.",Permite aumentar la calidad de los productos fabricados.,"La integración (CIM/SIF) suele mejorar la calidad al reducir errores, aumentar trazabilidad y controlar mejor el proceso."
+20,"Respecto a la Fábrica 4.0, ¿cuál de las siguientes afirmaciones NO es cierta?",multiple,"Se fundamenta en la aplicación extensiva de las tecnologías de la información y de los
+sistemas ciberfísicos.|Se aplica únicamente a la impresión 3D.|En muchos casos, utiliza el concepto de Digital Twins.|La ciberseguridad forma parte principal del sistema.",Se aplica únicamente a la impresión 3D.,Industria 4.0 no se limita a impresión 3D; aplica tecnologías digitales y ciberfísicas a muchos procesos industriales.
