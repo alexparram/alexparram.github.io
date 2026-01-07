@@ -586,6 +586,24 @@
 
             <div class="upload-section">
                 <p style="color: var(--text-muted); margin-bottom: 15px;">O puja el teu propi fitxer CSV:</p>
+
+                <!-- CSV Explanation & Example -->
+                <div
+                    style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 20px; text-align: left; font-size: 0.9rem; color: var(--text-muted);">
+                    <p style="margin-bottom: 10px; font-weight: 600; color: var(--text-main);">ℹ️ Format del CSV:</p>
+                    <p style="margin-bottom: 5px;">El fitxer ha de tenir els camps:
+                        <code>numero, pregunta, tipo, opciones, respuesta_correcta, justificacion</code>
+                    </p>
+                    <ul style="padding-left: 20px; list-style-type: disc; margin-bottom: 10px;">
+                        <li>Separa les opcions amb <code>|</code> (barra vertical).</li>
+                        <li>Si deixes opcions buides, s'assumeix Vertader/Fals.</li>
+                    </ul>
+                    <a href="#" id="downloadExample"
+                        style="color: var(--accent-color); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 5px;">
+                        📥 Descarregar CSV d'exemple
+                    </a>
+                </div>
+
                 <label class="custom-file-upload">
                     <input type="file" id="csvFileInput" accept=".csv" />
                     📂 Pujar fitxer manualment
@@ -664,6 +682,25 @@
                 document.getElementById('file-error').style.display = 'block';
             };
             reader.readAsText(file);
+        });
+
+        // Download Example CSV
+        document.getElementById('downloadExample').addEventListener('click', function (e) {
+            e.preventDefault();
+            const csvContent = "numero,pregunta,tipo,opciones,respuesta_correcta,justificacion\n" +
+                "1,¿De qué color es el cielo?,multiple,Azul|Verde|Rojo|Amarillo,Azul,Porque la luz se dispersa.\n" +
+                "2,La tierra es plana.,multiple,,Fals,Es un esferoide oblato.\n" +
+                "3,¿Cuál es la raíz cuadrada de 64?,multiple,4|8|16|32,8,8x8=64";
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "ejemplo_preguntas.csv");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         });
 
         // LOAD SUBJECT (FETCH)
