@@ -29,10 +29,10 @@ elemento.|Algunos encoders angulares incrementales permiten conocer la direcció
 determinado elemento.|Las otras tres afirmaciones son falsas.","Algunos encoders angulares incrementales permiten conocer la dirección de giro de un
 determinado elemento.",Los encoders incrementales con dos canales (cuadratura) permiten inferir el sentido de giro comparando la fase entre señales.
 12,"Indicar cuántas de las siguientes afirmaciones son ciertas sobre un sistema SCADA.
-\n(i) Mantiene una copia de las variables de memoria del PLC.
-\n(ii) El sistema presenta en pantalla, normalmente de forma gráfica, el estado del sistema
+(i) Mantiene una copia de las variables de memoria del PLC.
+(ii) El sistema presenta en pantalla, normalmente de forma gráfica, el estado del sistema
 que controla el PLC.
-\n(iii) Puede modificar las consignas del PLC.",multiple,Las tres afirmaciones.|Sólo dos de las tres afirmaciones.|Sólo una de las tres afirmaciones.|Ninguna de las tres afirmaciones.,Las tres afirmaciones.,"Un SCADA suele replicar variables del PLC, visualizar el estado del proceso y permitir modificar consignas/valores de control."
+(iii) Puede modificar las consignas del PLC.",multiple,Las tres afirmaciones.|Sólo dos de las tres afirmaciones.|Sólo una de las tres afirmaciones.|Ninguna de las tres afirmaciones.,Las tres afirmaciones.,"Un SCADA suele replicar variables del PLC, visualizar el estado del proceso y permitir modificar consignas/valores de control."
 13,"¿Cuál de las siguientes hipótesis no se hace en el modelo de tiempo de fabricación que
 se utiliza para determinar el lote crítico?",multiple,El tiempo de preparación de máquina es independiente de la pieza que se hacía antes.|Las paradas son siempre programadas.|El tiempo de ciclo es aleatorio.|Las paradas son siempre regulares.,El tiempo de ciclo es aleatorio.,El modelo típico para lote crítico asume tiempos deterministas (no aleatorios) para poder comparar sistemas; por eso no se asume aleatoriedad del ciclo.
 14,"Para servir un pedido se puede escoger entre un sistema de fabricación rígido y uno
@@ -41,9 +41,9 @@ flexible. Se podrá acabar antes la producción si:",multiple,"Se utiliza un sis
 Fabricación Flexible?",multiple,Proceso de fabricación de la pieza.|Gestión del desgaste de las herramientas.|Transporte de piezas entre máquinas.|Verificación de las piezas fabricadas.,Gestión del desgaste de las herramientas.,"En una FMS es habitual integrar proceso, transporte y verificación; la gestión del desgaste de herramientas puede existir, pero no suele considerarse parte básica del conjunto."
 16,"Indicar cuántas de las siguientes afirmaciones se consideran ventajas principales de los
 métodos matriciales para la agrupación de piezas:
-\n(i) Permite agrupar piezas en función de su proceso de fabricación.
-\n(ii) Siempre da como resultado un número fijo de células totalmente separadas.
-\n(iii) Tiene en cuenta la saturación de las máquinas.",multiple,Las tres afirmaciones.|Sólo dos de las tres afirmaciones.|Sólo una de las tres afirmaciones.|Ninguna de las tres afirmaciones.,Sólo una de las tres afirmaciones.,"De las tres, sólo (i) es ventaja típica; (ii) es falso y (iii) no suele estar contemplado en métodos matriciales básicos."
+(i) Permite agrupar piezas en función de su proceso de fabricación.
+(ii) Siempre da como resultado un número fijo de células totalmente separadas.
+(iii) Tiene en cuenta la saturación de las máquinas.",multiple,Las tres afirmaciones.|Sólo dos de las tres afirmaciones.|Sólo una de las tres afirmaciones.|Ninguna de las tres afirmaciones.,Sólo una de las tres afirmaciones.,"De las tres, sólo (i) es ventaja típica; (ii) es falso y (iii) no suele estar contemplado en métodos matriciales básicos."
 17,"Respecto a la metodología SMED, ¿cuál de las siguientes afirmaciones es cierta?",multiple,"Siempre es necesario aplicar las tres etapas de la metodología SMED.|La etapa 2 de la metodología SMED consigue reducir el tiempo total de preparación respecto
 a los resultados obtenidos en la etapa 1.|Se aplica habitualmente a los procesos de fabricación que se consideran altamente flexibles.|Las otras tres afirmaciones son falsas.",Las otras tres afirmaciones son falsas.,"La afirmación correcta es que las otras tres son falsas: no siempre hacen falta las 3 etapas, la etapa 2 suele convertir internas en externas y la SMED se aplica sobre todo a procesos poco flexibles con setups altos."
 18,"En el caso de la reducción del tiempo de preparación de una prensa de estampación de
