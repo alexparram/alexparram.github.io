@@ -549,106 +549,100 @@
                 00:00</div>
         </div>
 
-        <!-- SELECTION SCREEN -->
-        <div id="selection-screen">
-            <h2 style="text-align: center; margin-bottom: 30px; font-weight: 600; color: var(--text-main);">Selecciona
-                una assignatura</h2>
+        <!-- HIERARCHICAL SELECTION SCREENS -->
 
-            <div class="subject-grid">
-                <!-- CAI -->
-                <div class="subject-card" onclick="loadSubject('csv/SiF/SIF 23-06-25.csv')">
-                    <div class="subject-icon">📐</div>
-                    <div class="subject-title">Fabri</div>
-                    <div class="subject-count">Examen Final SIF 23-06-25 - Teoria </div>
-                </div>
-
-                <!-- SiF -->
-                <div class="subject-card" onclick="loadSubject('csv/SiF/SiF_preguntas.csv')">
-                    <div class="subject-icon">🏭</div>
-                    <div class="subject-title">Sistemes Integrats de Fabricació</div>
-                    <div class="subject-count">Generats amb IA</div>
-                </div>
-
-                <!-- MT -->
-                <div class="subject-card" onclick="loadSubject('csv/Maquines%20Termiques/MT_preguntas.csv')">
-                    <div class="subject-icon">🔥</div>
-                    <div class="subject-title">Màquines Tèrmiques</div>
-                    <div class="subject-count">Generats amb IA</div>
-                </div>
-
-                <!-- PI -->
-                <div class="subject-card" onclick="loadSubject('csv/Projectes%20d\'Instalacions/PI_preguntas.csv')">
-                    <div class="subject-icon">⚡</div>
-                    <div class="subject-title">Projectes d'Instal·lacions</div>
-                    <div class="subject-count">Generats amb IA</div>
-                </div>
-            </div>
-
-            <div class="upload-section">
-                <p style="color: var(--text-muted); margin-bottom: 15px;">O puja el teu propi fitxer CSV:</p>
-
-                <!-- CSV Explanation & Example -->
-                <div
-                    style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 20px; text-align: left; font-size: 0.9rem; color: var(--text-muted);">
-                    <p style="margin-bottom: 10px; font-weight: 600; color: var(--text-main);">ℹ️ Format del CSV:</p>
-                    <p style="margin-bottom: 5px;">El fitxer ha de tenir els camps:
-                        <code>numero, pregunta, tipo, opciones, respuesta_correcta, justificacion</code>
-                    </p>
-                    <ul style="padding-left: 20px; list-style-type: disc; margin-bottom: 10px;">
-                        <li>Separa les opcions amb <code>|</code> (barra vertical).</li>
-                        <li>Si deixes opcions buides, s'assumeix Vertader/Fals.</li>
-                    </ul>
-                    <a href="#" id="downloadExample"
-                        style="color: var(--accent-color); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 5px;">
-                        📥 Descarregar CSV d'exemple
-                    </a>
-                </div>
-
-                <label class="custom-file-upload">
-                    <input type="file" id="csvFileInput" accept=".csv" />
-                    📂 Pujar fitxer manualment
-                </label>
-                <div id="file-error" style="color: #ef4444; margin-top: 15px; display: none;">Error llegint el fitxer.
-                </div>
-            </div>
-
-            <div id="loading" style="display: none; text-align: center; margin-top: 20px;">
-                <div class="spinner"></div>
-                <p style="margin-top: 10px; color: var(--text-muted);">Carregant preguntes...</p>
+        <!-- STEP 1: SUBJECTS -->
+        <div id="subject-selection-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-weight: 600; color: var(--text-main);">
+                Selecciona una assignatura
+            </h2>
+            <div class="subject-grid" id="subject-grid">
+                <!-- Dynamic Subjects will be rendered here -->
             </div>
         </div>
 
-        <!-- APP SCREEN (Hidden by default) -->
-        <div id="app" style="display: none;">
-            <div class="main-layout">
-                <div id="sidebar" class="sidebar">
-                    <h4
-                        style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
-                        Navegación</h4>
-                    <div style="margin-bottom: 15px;">
-                        <button onclick="location.reload()" class="btn btn-secondary"
-                            style="width: 100%; font-size: 0.9rem; padding: 8px;">↩ Tornar al Menú</button>
-                    </div>
-                    <div id="question-grid" class="question-grid"></div>
-                </div>
-                <div id="main-content" class="content-area">
-                    <!-- Dynamic content -->
-                </div>
-
-                <div id="right-sidebar" class="right-sidebar">
-                    <h4>🚀 Modo Inteligente</h4>
-                    <p>Este modo utiliza un <strong>algoritmo de probabilidad</strong> para optimizar tu estudio:</p>
-                    <ul style="padding-left: 20px; margin-top: 10px; margin-bottom: 15px;">
-                        <li style="margin-bottom: 8px;">Las preguntas empiezan con el mismo peso (1.0).</li>
-                        <li style="margin-bottom: 8px;">Si <strong>fallas</strong> ❌, el peso de la pregunta aumenta
-                            , se multiplica por 2.5, haciéndola más probable de aparecer.</li>
-                        <li style="margin-bottom: 8px;">Si <strong>aciertas</strong> ✅, el peso disminuye x0.4, por lo
-                            que saldrá menos.</li>
-                    </ul>
-                    <p>¡Así te aseguras de repasar más lo que peor llevas!</p>
-                </div>
+        <!-- STEP 2: TESTS -->
+        <div id="test-selection-container" style="display: none;">
+            <div style="margin-bottom: 20px;">
+                <button onclick="goBackToSubjects()" class="btn btn-secondary"
+                    style="padding: 8px 16px; font-size: 0.9rem;">
+                    ← Tornar a Assignatures
+                </button>
+            </div>
+            <h2 id="selected-subject-title"
+                style="text-align: center; margin-bottom: 30px; font-weight: 600; color: var(--text-main);">
+                <!-- Subject Title -->
+            </h2>
+            <div class="subject-grid" id="test-grid">
+                <!-- Dynamic Tests will be rendered here -->
             </div>
         </div>
+
+        <div class="upload-section" style="margin-top: 50px;">
+            <p style="color: var(--text-muted); margin-bottom: 15px;">O puja el teu propi fitxer CSV:</p>
+
+            <!-- CSV Explanation & Example -->
+            <div
+                style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 20px; text-align: left; font-size: 0.9rem; color: var(--text-muted);">
+                <p style="margin-bottom: 10px; font-weight: 600; color: var(--text-main);">ℹ️ Format del CSV (Nou):</p>
+                <p style="margin-bottom: 5px;">
+                    <code>Pregunta, Opcion A, Opcion B, Opcion C, Opcion D, Respuesta Correcta, Explicacion, Referencia</code>
+                </p>
+                <p style="margin-bottom: 10px; font-weight: 600; color: var(--text-main); margin-top: 15px;">ℹ️ Format
+                    del CSV (Antic):</p>
+                <p style="margin-bottom: 5px;">
+                    <code>numero, pregunta, tipo, opciones, respuesta_correcta, justificacion</code>
+                </p>
+                <a href="#" id="downloadExample"
+                    style="color: var(--accent-color); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 5px;">
+                    📥 Descarregar CSV d'exemple
+                </a>
+            </div>
+
+            <label class="custom-file-upload">
+                <input type="file" id="csvFileInput" accept=".csv" />
+                📂 Pujar fitxer manualment
+            </label>
+            <div id="file-error" style="color: #ef4444; margin-top: 15px; display: none;">Error llegint el fitxer.</div>
+        </div>
+
+        <div id="loading" style="display: none; text-align: center; margin-top: 20px;">
+            <div class="spinner"></div>
+            <p style="margin-top: 10px; color: var(--text-muted);">Carregant preguntes...</p>
+        </div>
+    </div>
+
+    <!-- APP SCREEN (Hidden by default) -->
+    <div id="app" style="display: none;">
+        <div class="main-layout">
+            <div id="sidebar" class="sidebar">
+                <h4
+                    style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                    Navegación</h4>
+                <div style="margin-bottom: 15px;">
+                    <button onclick="location.reload()" class="btn btn-secondary"
+                        style="width: 100%; font-size: 0.9rem; padding: 8px;">↩ Tornar al Menú</button>
+                </div>
+                <div id="question-grid" class="question-grid"></div>
+            </div>
+            <div id="main-content" class="content-area">
+                <!-- Dynamic content -->
+            </div>
+
+            <div id="right-sidebar" class="right-sidebar">
+                <h4>🚀 Modo Inteligente</h4>
+                <p>Este modo utiliza un <strong>algoritmo de probabilidad</strong> para optimizar tu estudio:</p>
+                <ul style="padding-left: 20px; margin-top: 10px; margin-bottom: 15px;">
+                    <li style="margin-bottom: 8px;">Las preguntas empiezan con el mismo peso (1.0).</li>
+                    <li style="margin-bottom: 8px;">Si <strong>fallas</strong> ❌, el peso de la pregunta aumenta
+                        , se multiplica por 2.5, haciéndola más probable de aparecer.</li>
+                    <li style="margin-bottom: 8px;">Si <strong>aciertas</strong> ✅, el peso disminuye x0.4, por lo
+                        que saldrá menos.</li>
+                </ul>
+                <p>¡Así te aseguras de repasar más lo que peor llevas!</p>
+            </div>
+        </div>
+    </div>
     </div>
 
     <script>
@@ -665,6 +659,142 @@
             rawScore: 0.0,       // Track weighted score
             answered: new Set(), // Now stores 'currentIndex' (step numbers) instead of question indices
             userAnswers: {}      // Now stores 'currentIndex' -> answer
+        };
+
+        // HIERARCHY DATA
+        const SUBJECTS = {
+            'PI': {
+                title: "Projectes d'Instal·lacions",
+                icon: "⚡",
+                tests: [
+                    {
+                        title: "PI - AFS 260110",
+                        path: "csv/Projectes d'Instal·lacions/PI - AFS 260110.csv",
+                        info: "Aigua Freda Sanitària"
+                    },
+                    {
+                        title: "PI - Sanejament 260110",
+                        path: "csv/Projectes d'Instal·lacions/PI - Sanejament 260110.csv",
+                        info: "Sanejament"
+                    },
+                    {
+                        title: "PI - Baixa Tensió 260110",
+                        path: "csv/Projectes d'Instal·lacions/PI - Baixa Tensió 260110.csv",
+                        info: "Baixa Tensió"
+                    },
+                    {
+                        title: "PI - BMS 260110",
+                        path: "csv/Projectes d'Instal·lacions/PI - BMS 260110.csv",
+                        info: "Building Management Systems"
+                    },
+                    {
+                        title: "PI - Enllumenat 260110",
+                        path: "csv/Projectes d'Instal·lacions/PI - Enllumenat 260110.csv",
+                        info: "Enllumenat"
+                    }
+                ]
+            },
+            'SiF': {
+                title: "Sistemes Integrats de Fabricació",
+                icon: "🏭",
+                tests: [
+                    {
+                        title: "Sistemes Integrats de Fabricació",
+                        path: "csv/SiF/SiF_preguntas.csv",
+                        info: "Generats amb IA"
+                    },
+                    {
+                        title: "Examen Final SIF 23-06-25",
+                        path: "csv/SiF/SIF 23-06-25.csv",
+                        info: "Teoria - Examen passat"
+                    }
+                ]
+            },
+            'MT': {
+                title: "Màquines Tèrmiques",
+                icon: "🔥",
+                tests: [
+                    {
+                        title: "Màquines Tèrmiques",
+                        path: "csv/Maquines%20Termiques/MT_preguntas.csv",
+                        info: "Generats amb IA"
+                    }
+                ]
+            }
+        };
+
+        // INITIALIZATION
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSubjects();
+        });
+
+        function renderSubjects() {
+            const grid = document.getElementById('subject-grid');
+            grid.innerHTML = '';
+
+            Object.keys(SUBJECTS).forEach(key => {
+                const sub = SUBJECTS[key];
+                const card = document.createElement('div');
+                card.className = 'subject-card';
+                card.onclick = () => selectSubject(key);
+                card.innerHTML = `
+                    <div class="subject-icon">${sub.icon}</div>
+                    <div class="subject-title">${sub.title}</div>
+                    <div class="subject-count">${sub.tests.length} Exàmens</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function selectSubject(key) {
+            const sub = SUBJECTS[key];
+            if (!sub) return;
+
+            // Hide subjects, show tests
+            document.getElementById('subject-selection-container').style.display = 'none';
+            document.getElementById('test-selection-container').style.display = 'block';
+
+            document.getElementById('selected-subject-title').innerText = sub.title;
+
+            const grid = document.getElementById('test-grid');
+            grid.innerHTML = '';
+
+            sub.tests.forEach(test => {
+                const card = document.createElement('div');
+                card.className = 'subject-card';
+                card.onclick = () => loadTest(test.path); // Start loading
+                card.innerHTML = `
+                    <div class="subject-icon">📝</div>
+                    <div class="subject-title">${test.title}</div>
+                    <div class="subject-count">${test.info}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function goBackToSubjects() {
+            document.getElementById('subject-selection-container').style.display = 'block';
+            document.getElementById('test-selection-container').style.display = 'none';
+        }
+
+        // Renamed from loadSubject to loadTest for clarity, but logic is same
+        window.loadTest = async function (path) {
+            const loader = document.getElementById('loading');
+            loader.style.display = 'block';
+
+            try {
+                // Fetch is getting relative to index.html, usually fine on GitHub Pages
+                const response = await fetch(path);
+                if (!response.ok) throw new Error("Fitxer no trobat");
+
+                const text = await response.text();
+                processCSV(text);
+                document.getElementById('selection-screen').style.display = 'none';
+            } catch (err) {
+                alert("Error carregant l'assignatura: " + err.message);
+            } finally {
+                loader.style.display = 'none';
+            }
         };
 
         // File Input Handler for Manual Upload
@@ -703,25 +833,7 @@
             document.body.removeChild(link);
         });
 
-        // LOAD SUBJECT (FETCH)
-        window.loadSubject = async function (path) {
-            const loader = document.getElementById('loading');
-            loader.style.display = 'block';
-
-            try {
-                // Fetch is getting relative to index.html, usually fine on GitHub Pages
-                const response = await fetch(path);
-                if (!response.ok) throw new Error("Fitxer no trobat");
-
-                const text = await response.text();
-                processCSV(text);
-                document.getElementById('selection-screen').style.display = 'none';
-            } catch (err) {
-                alert("Error carregant l'assignatura: " + err.message);
-            } finally {
-                loader.style.display = 'none';
-            }
-        };
+        // REMOVED OLD loadSubject implementation (replaced by loadTest above)
 
         function processCSV(text) {
             try {
@@ -769,30 +881,84 @@
                     questionsData.push(row);
                 }
 
+                if (questionsData.length < 2) throw new Error("CSV buit o invàlid");
+
+                // DETECT FORMAT
+                const header = questionsData[0].map(h => h.trim().toLowerCase());
+                const isNewFormat = header[0].includes('pregunta'); // New format: Pregunta, Opcion A...
+
                 // Header is first row
                 questions = questionsData.slice(1)
                     .map(values => {
                         if (values.length < 2) return null;
-                        const q = {
-                            numero: values[0] || '',
-                            pregunta: values[1] || '',
-                            tipo: values[2] || 'multiple',
-                            opciones: values[3] || '',
-                            respuesta_correcta: values[4] ? values[4].trim() : '',
-                            justificacion: values[5] ? values[5].trim() : ''
-                        };
+
+                        let q = {};
+
+                        if (isNewFormat) {
+                            // NEW FORMAT: 
+                            // 0: Pregunta
+                            // 1: Opcion A
+                            // 2: Opcion B
+                            // 3: Opcion C
+                            // 4: Opcion D
+                            // 5: Respuesta Correcta (e.g. "B")
+                            // 6: Explicacion
+                            // 7: Referencia
+
+                            q.numero = ''; // No explicit number in new format, will index later
+                            q.pregunta = values[0] || '';
+
+                            // Extract options A,B,C,D...
+                            const rawOptions = values.slice(1, 5).filter(o => o && o.trim()); // Take cols 1-4
+                            q.opciones = rawOptions.join('|'); // Store internally as pipe separated for consistency or array?
+
+                            // The answer is given as "A", "B", etc. We map it to the content.
+                            const correctLetter = (values[5] || '').trim().toUpperCase();
+                            const letterMap = { 'A': 0, 'B': 1, 'C': 2, 'D': 3 };
+                            const correctIndex = letterMap[correctLetter];
+                            if (correctIndex !== undefined && rawOptions[correctIndex]) {
+                                q.respuesta_correcta = rawOptions[correctIndex];
+                            } else {
+                                q.respuesta_correcta = values[5]; // Fallback
+                            }
+
+                            q.justificacion = values[6] ? values[6].trim() : '';
+                            q.referencia = values[7] ? values[7].trim() : '';
+
+                        } else {
+                            // OLD FORMAT:
+                            // 0: numero
+                            // 1: pregunta
+                            // 2: tipo
+                            // 3: opciones
+                            // 4: respuesta_correcta
+                            // 5: justificacion
+
+                            q = {
+                                numero: values[0] || '',
+                                pregunta: values[1] || '',
+                                tipo: values[2] || 'multiple',
+                                opciones: values[3] || '',
+                                respuesta_correcta: values[4] ? values[4].trim() : '',
+                                justificacion: values[5] ? values[5].trim() : '',
+                                referencia: '' // No reference in old format
+                            };
+                        }
+
 
                         // Pre-process and shuffle options
                         let opts = [];
-                        if (q.opciones && q.opciones.trim()) {
-                            if (q.opciones.includes('|')) {
-                                opts = q.opciones.split('|').map(o => o.trim());
-                            } else if (q.opciones.includes(';')) {
-                                opts = q.opciones.split(';').map(o => o.trim());
-                            } else {
-                                opts = [q.opciones.trim()];
-                            }
+                        if (q.opciones && q.opciones.includes('|')) {
+                            opts = q.opciones.split('|').map(o => o.trim());
+                        } else if (q.opciones && q.opciones.includes(';')) {
+                            opts = q.opciones.split(';').map(o => o.trim());
+                        } else if (Array.isArray(q.opciones)) {
+                            // Should not happen with above logic but safe guard
+                            opts = q.opciones;
+                        } else if (q.opciones) {
+                            opts = [q.opciones.trim()];
                         }
+
 
                         // Default to T/F if empty
                         if (opts.length === 0) {
@@ -800,7 +966,6 @@
                         }
 
                         // Check if it is True/False to avoid shuffling
-                        // We check looser equality to catch variations if any, but ensure standard output
                         const isTF = opts.length === 2 &&
                             opts.some(o => o.toLowerCase().includes('vertader')) &&
                             opts.some(o => o.toLowerCase().includes('fals'));
@@ -817,9 +982,21 @@
                         }
 
                         q.shuffledOptions = opts;
+
+                        // Assign Number if missing
+                        if (!q.numero) {
+                            // will be assigned by index anyway relative to list? No, display logic uses q.numero.
+                            // Let's leave empty, and renderApp can fallback to index+1.
+                        }
+
                         return q;
                     })
                     .filter(q => q && q.pregunta && q.pregunta.trim());
+
+                // Post-processing to assign numbers if missing
+                questions.forEach((q, i) => {
+                    if (!q.numero) q.numero = (i + 1).toString();
+                });
 
                 if (questions.length > 0) {
                     // Init
@@ -930,20 +1107,24 @@
             let feedbackHTML = '';
             if (isAnswered) {
                 const justification = currentQuestion.justificacion ? `<div style="margin-top: 10px; font-size: 0.95rem; opacity: 0.9; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">ℹ️ ${currentQuestion.justificacion}</div>` : '';
+                const referencia = currentQuestion.referencia ? `<div style="margin-top: 5px; font-size: 0.85rem; color: var(--accent-text); opacity: 0.8;">📚 Ref: ${currentQuestion.referencia}</div>` : '';
+
+                // Combine justification and reference
+                const extraInfo = justification + referencia;
 
                 if (currentAnswer) {
                     if (currentAnswer === 'En blanco') {
-                        feedbackHTML = `<div class="feedback" style="display: block; background: var(--container-bg); border: 1px solid var(--text-muted); color: var(--text-muted);">⏸ Respondido en blanco. La respuesta era: <strong>${currentQuestion.respuesta_correcta}</strong>${justification}</div>`;
+                        feedbackHTML = `<div class="feedback" style="display: block; background: var(--container-bg); border: 1px solid var(--text-muted); color: var(--text-muted);">⏸ Respondido en blanco. La respuesta era: <strong>${currentQuestion.respuesta_correcta}</strong>${extraInfo}</div>`;
                     } else {
                         const correct = currentAnswer.toLowerCase() === currentQuestion.respuesta_correcta.toLowerCase();
                         if (correct) {
-                            feedbackHTML = `<div class="feedback correct" style="display: block;">✓ ¡Correcto!${justification}</div>`;
+                            feedbackHTML = `<div class="feedback correct" style="display: block;">✓ ¡Correcto!${extraInfo}</div>`;
                         } else {
-                            feedbackHTML = `<div class="feedback incorrect" style="display: block;">✗ La respuesta correcta es: <strong>${currentQuestion.respuesta_correcta}</strong>${justification}</div>`;
+                            feedbackHTML = `<div class="feedback incorrect" style="display: block;">✗ La respuesta correcta es: <strong>${currentQuestion.respuesta_correcta}</strong>${extraInfo}</div>`;
                         }
                     }
                 } else {
-                    feedbackHTML = `<div class="feedback correct" style="display: block;">💡 Respuesta: <strong>${currentQuestion.respuesta_correcta}</strong>${justification}</div>`;
+                    feedbackHTML = `<div class="feedback correct" style="display: block;">💡 Respuesta: <strong>${currentQuestion.respuesta_correcta}</strong>${extraInfo}</div>`;
                 }
             }
 

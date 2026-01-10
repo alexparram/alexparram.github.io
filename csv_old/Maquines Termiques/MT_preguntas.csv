@@ -1,0 +1,219 @@
+numero,pregunta,tipo,opciones,respuesta_correcta,justificacion
+1,Una fuente de energía es un sistema que transforma...,multiple,Energía acumulada en flujo de energía|Flujo de energía en energía acumulada|Energía eléctrica en calor|Calor en trabajo,Energía acumulada en flujo de energía,Definición básica de fuente.
+2,La energía geotérmica aprovecha...,multiple,El calor interno de la Tierra|La radiación solar|La marea|El viento,El calor interno de la Tierra,Fuente de energía térmica natural.
+3,Un transformador A/F convierte...,multiple,Energía Acumulada en Flujo|Flujo en Acumulada|Flujo en Flujo|Acumulada en Acumulada,Energía Acumulada en Flujo,A/F = Acumulador a Flujo.
+4,La combustión es una transformación de...,multiple,Energía química en calor|Energía nuclear en calor|Energía cinética en calor|Energía potencial en trabajo,Energía química en calor,Reacción exotérmica.
+5,Un motor térmico motor transforma...,multiple,Calor en trabajo mecánico|Trabajo en calor|Energía eléctrica en química|Luz en electricidad,Calor en trabajo mecánico,Definición fundamental de MT.
+6,"En un motor exotérmico, la combustión ocurre fuera del fluido de trabajo.",multiple,,Vertader,Ejemplo: Máquina de vapor o Stirling.
+7,"En un motor endotérmico, la combustión ocurre dentro del fluido de trabajo.",multiple,,Vertader,Ejemplo: Motor de combustión interna (Otto/Diesel).
+8,El Ciclo de Carnot es el ciclo más eficiente posible entre dos temperaturas.,multiple,,Vertader,Teorema de Carnot.
+9,El Ciclo de Carnot consta de...,multiple,Dos isotermas y dos adiabáticas|Dos isócoras y dos isobaras|Dos isotermas y dos isócoras|Una isoterma y tres adiabáticas,Dos isotermas y dos adiabáticas,Procesos reversibles.
+10,El rendimiento del ciclo de Carnot depende solo de...,multiple,Las temperaturas de los focos caliente y frío|El fluido de trabajo|La presión máxima|El volumen,Las temperaturas de los focos caliente y frío,n = 1 - (Tc/Th).
+11,El ciclo Otto es el ciclo ideal de los motores de...,multiple,Encendido por chispa (gasolina)|Encendido por compresión (diésel)|Turbinas de gas|Vapor,Encendido por chispa (gasolina),MEP (Motores de Encendido Provocado).
+12,La combustión en el ciclo Otto teórico se modela como...,multiple,A volumen constante (Isócora)|A presión constante (Isobara)|A temperatura constante|Adiabática,A volumen constante (Isócora),Explosión rápida.
+13,El ciclo Diesel es el ciclo ideal de los motores de...,multiple,Encendido por compresión|Gasolina|Vapor|Stirling,Encendido por compresión,MEC (Motores de Encendido por Compresión).
+14,La combustión en el ciclo Diesel teórico se modela como...,multiple,A presión constante (Isobara)|A volumen constante|Isoterma|Adiabática,A presión constante (Isobara),Inyección progresiva.
+15,El ciclo Sabathé o Mixto tiene...,multiple,Una parte de combustión a V constante y otra a P constante|Toda la combustión a P constante|Toda a V constante|Dosadiabáticas,Una parte de combustión a V constante y otra a P constante,Más realista para motores diesel rápidos.
+16,El ciclo Brayton es el ciclo de las...,multiple,Turbinas de gas|Máquinas de vapor|Motores Otto|Refrigeradores,Turbinas de gas,"Compresión y expansión adiabáticas, calentamiento y enfriamiento isobaras."
+17,El ciclo Rankine se usa en...,multiple,Centrales térmicas de vapor|Coches|Aviones|Cohetes,Centrales térmicas de vapor,Usa cambio de fase líquido-vapor.
+18,El ciclo Stirling teórico tiene dos isotermas y dos...,multiple,Isócoras|Isobaras|Adiabáticas|Polintrópicas,Isócoras,Con regeneración es tan eficiente como Carnot.
+19,El ciclo Ericsson teórico tiene dos isotermas y dos...,multiple,Isobaras|Isócoras|Adiabáticas|Isentrópicas,Isobaras,También alcanza eficiencia Carnot con regeneración.
+20,"En un motor de 4 tiempos, el ciclo completo dura...",multiple,2 vueltas de cigüeñal (720°)|1 vuelta (360°)|4 vueltas|Media vuelta,2 vueltas de cigüeñal (720°),"Admisión, Compresión, Expansión, Escape."
+21,"En un motor de 2 tiempos, el ciclo completo dura...",multiple,1 vuelta de cigüeñal (360°)|2 vueltas|Media vuelta|4 vueltas,1 vuelta de cigüeñal (360°),Una explosión por vuelta.
+22,La relación de compresión es el cociente entre...,multiple,Volumen máximo y volumen mínimo (cámara)|Diámetro y carrera|Presión máxima y mínima|Potencia y par,Volumen máximo y volumen mínimo (cámara),(Vd + Vc) / Vc.
+23,El dosado estequiométrico es...,multiple,La relación ideal aire/combustible para combustión completa|La cantidad máxima de gasolina|El exceso de aire|La mezcla rica,La relación ideal aire/combustible para combustión completa,Químicamente justa sin sobrar reactivos.
+24,"Si mezcla es 'rica' (lambda < 1), significa que...",multiple,Falta aire (o sobra combustible)|Sobra aire|Es perfecta|No quema,Falta aire (o sobra combustible),Produce CO e inquemados.
+25,El picado de bielas (detonación) en motores Otto se debe a...,multiple,Autoencendido espontáneo de la mezcla antes de tiempo|Fallo de la bujía|Exceso de aceite|Baja compresión,Autoencendido espontáneo de la mezcla antes de tiempo,Combustión anormal muy dañina.
+26,El número de Octano mide...,multiple,La resistencia a la detonación de la gasolina|La potencia|La energía|La viscosidad,La resistencia a la detonación de la gasolina,Mayor octanaje permite mayor compresión sin picar.
+27,El número de Cetano mide...,multiple,La facilidad de autoignición del diésel|La resistencia a detonar|La volatilidad|El poder calorífico,La facilidad de autoignición del diésel,Mayor cetano = menor retardo de ignición.
+28,La cilindrada unitaria es el volumen...,multiple,Desplazado por el pistón en una carrera|Total del cilindro|De la cámara de combustión|Del aceite,Desplazado por el pistón en una carrera,Area x Carrera.
+29,La carrera (S) es la distancia entre...,multiple,El PMS y el PMI|El diámetro del cilindro|El cigüeñal y la biela|Las válvulas,El PMS y el PMI,Punto Muerto Superior e Inferior.
+30,PMS significa...,multiple,Punto Muerto Superior|Potencia Máxima Sostenida|Presión Media Sistema|Punto Mínimo Salida,Punto Muerto Superior,Punto más alto del pistón.
+31,El cruce de válvulas es el momento en que...,multiple,Están abiertas admisión y escape simultáneamente|Están cerradas ambas|Se cruzan los ejes|Se rompe la correa,Están abiertas admisión y escape simultáneamente,Al final de escape e inicio de admisión para barrido.
+32,La sobrealimentación (Turbo/Compresor) busca...,multiple,Aumentar la densidad del aire en admisión para quemar más combustible|Enfriar el motor|Reducir el ruido|Ahorrar aceite,Aumentar la densidad del aire en admisión para quemar más combustible,Más oxígeno = más potencia en mismo volumen.
+33,El Intercooler sirve para...,multiple,Enfriar el aire comprimido para aumentar su densidad|Enfriar el agua del motor|Calentar la gasolina|Enfriar el aceite,Enfriar el aire comprimido para aumentar su densidad,El aire al comprimirse se calienta y pierde densidad.
+34,El motor Wankel es un motor...,multiple,Rotativo|Alternativo de pistones|De reacción|Eléctrico,Rotativo,Usa un rotor triangular en una carcasa epitrocoide.
+35,"En el Wankel, el ciclo de 4 tiempos ocurre...",multiple,En cada una de las 3 caras del rotor|Una vez por vuelta de rotor|Solo en una cara|No tiene 4 tiempos,En cada una de las 3 caras del rotor,3 ciclos por vuelta de rotor.
+36,El rotor del Wankel gira a...,multiple,1/3 de la velocidad del eje excéntrico|La misma velocidad|El triple de velocidad|El doble,1/3 de la velocidad del eje excéntrico,Reducción interna.
+37,La propulsión a reacción se basa en el principio de...,multiple,Acción y Reacción (3ª Ley Newton)|Conservación de la energía|Arquímedes|Bernoulli,Acción y Reacción (3ª Ley Newton),Expulsión de masa a alta velocidad.
+38,"En una tobera supersónica (Laval), la sección...",multiple,Primero converge y luego diverge|Es constante|Siempre converge|Siempre diverge,Primero converge y luego diverge,Garganta sónica.
+39,El empuje de un cohete depende de...,multiple,El gasto másico y la velocidad de salida de los gases|La temperatura externa|La presión del tanque solo|El volumen,El gasto másico y la velocidad de salida de los gases,F = m_dot * Ve + (Pe-Pa)Ae.
+40,"En una turbina de gas simple, los componentes principales son...",multiple,"Compresor, Cámara de Combustión, Turbina|Caldera, Pistón, Condensador|Bomba, Evaporador, Válvula|Cilindro, biela, cigüeñal","Compresor, Cámara de Combustión, Turbina",Ciclo Brayton abierto.
+41,El trabajo útil en una turbina de gas es la diferencia entre...,multiple,Trabajo de turbina y trabajo de compresor|Calor y trabajo|Entalpía y entropía|Presión y temperatura,Trabajo de turbina y trabajo de compresor,El compresor consume mucha potencia (ratio alto).
+42,La regeneración en el ciclo Brayton consiste en...,multiple,Precalentar el aire comprimido con los gases de escape|Refrigerar el aire|Volver a comprimir|Inyectar agua,Precalentar el aire comprimido con los gases de escape,Aumenta el rendimiento recuperando calor residual.
+43,Un turborreactor (jet) genera empuje principalmente por...,multiple,La expulsión de gases a alta velocidad por la tobera|La hélice|El eje|Las ruedas,La expulsión de gases a alta velocidad por la tobera,Todo el trabajo va a energía cinética del gas.
+44,Un turboventilador (turbofan) tiene...,multiple,Un fan (ventilador) grande frontal que deriva parte del aire (bypass)|Pistones|Hélice externa|Rotor Wankel,Un fan (ventilador) grande frontal que deriva parte del aire (bypass),Más eficiente y silencioso que el turbojet puro.
+45,"En el ciclo Rankine, el fluido de trabajo cambia de fase.",multiple,,Vertader,Agua líquida -> Vapor -> Líquido.
+46,La función del condensador es...,multiple,Convertir vapor a líquido cediendo calor al foco frío|Calentar el agua|Comprimir el vapor|Expandir el vapor,Convertir vapor a líquido cediendo calor al foco frío,Cierra el ciclo y baja la presión de escape.
+47,El sobrecalentamiento del vapor aumenta el rendimiento y protege la turbina de la humedad.,multiple,,Vertader,Evita gotas de agua en las últimas etapas.
+48,Una turbina de acción (Laval) transforma la presión en velocidad en...,multiple,El estator (toberas)|El rotor|El eje|La carcasa,El estator (toberas),En el rotor la presión se mantiene constante.
+49,Una turbina de reacción transforma la presión en velocidad en...,multiple,Tanto en el estator como en el rotor|Solo estator|Solo rotor|Ninguno,Tanto en el estator como en el rotor,Cae presión en ambos.
+50,El regenerador en el motor Stirling es fundamental porque...,multiple,"Almacena calor del gas caliente y lo cede al frío, aumentando eficiencia|Filtra el aire|Lubrica el pistón|Enciende la mezcla","Almacena calor del gas caliente y lo cede al frío, aumentando eficiencia","Sin él, el rendimiento es muy bajo."
+51,El motor Stirling es de combustión externa.,multiple,,Vertader,Puede usar cualquier fuente de calor.
+52,La cogeneración consiste en...,multiple,Producir electricidad y calor útil simultáneamente|Producir solo electricidad|Producir frío|Quemar basura,Producir electricidad y calor útil simultáneamente,Aumenta el rendimiento global de la energía primaria.
+53,La trigeneración produce...,multiple,"Electricidad, calor y frío|Electricidad, vapor y agua|Calor, movimiento y luz|Tres tipos de combustible","Electricidad, calor y frío",Usa calor residual para refrigeración por absorción.
+54,Una pila de combustible transforma...,multiple,Energía química directamente en electricidad|Calor en electricidad|Electricidad en hidrógeno|Luz en calor,Energía química directamente en electricidad,"Proceso electroquímico, no termodinámico (sin Carnot)."
+55,La pila PEM usa una membrana de...,multiple,Intercambio de protones (polimérica)|Cerámica|Ácido líquido|Carbonato fundido,Intercambio de protones (polimérica),Proton Exchange Membrane. Baja temperatura.
+56,El combustible más común para pilas de combustible es...,multiple,Hidrógeno|Carbón|Gasolina|Madera,Hidrógeno,Residuo: Agua.
+57,El Primer Principio de la Termodinámica es la conservación de la energía.,multiple,,Vertader,Q - W = Delta U.
+58,La entalpía (H) se define como...,multiple,U + PV|U - PV|T * S|P / T,U + PV,Energía interna + trabajo de flujo.
+59,La entropía (S) mide...,multiple,El desorden o irreversibilidad del sistema|La temperatura|La presión|El calor total,El desorden o irreversibilidad del sistema,Segundo principio: dS >= dQ/T.
+60,Un proceso adiabático es aquel en que...,multiple,No hay intercambio de calor con el entorno|La temperatura es constante|La presión es constante|El volumen es constante,No hay intercambio de calor con el entorno,Q = 0.
+61,Un proceso isentrópico es adiabático y reversible.,multiple,,Vertader,Entropía constante.
+62,Los motores de 2 tiempos suelen tener mayor potencia específica que los de 4 tiempos.,multiple,,Vertader,Doble de explosiones a mismas RPM.
+63,Los motores de 2 tiempos consumen y contaminan más que los de 4 tiempos.,multiple,,Vertader,Pérdida de combustible por el escape y quema de aceite.
+64,Las lumbreras sustituyen a las válvulas en el motor de 2 tiempos clásico.,multiple,,Vertader,Orificios en el cilindro.
+65,El cárter de un motor 2T suele usarse para precompresión.,multiple,,Vertader,La mezcla pasa por el cárter.
+66,El ciclo Atkinson mejora el rendimiento permitiendo una expansión mayor que la compresión.,multiple,,Vertader,Usado en híbridos (Toyota Prius).
+67,El ciclo Miller es una variación del Otto con cierre anticipado/retrasado de admisión.,multiple,,Vertader,Usa compresor.
+68,La relación de compresión en turbinas de gas es mucho menor que en Diesel.,multiple,,Fals,"Suele ser alta, pero el concepto es relación de presiones."
+69,La temperatura de entrada a la turbina está limitada por...,multiple,La resistencia de los materiales de los álabes|El combustible|El compresor|La presión,La resistencia de los materiales de los álabes,Punto crítico (TIT).
+70,La refrigeración de los álabes permite aumentar la temperatura de entrada.,multiple,,Vertader,Aire sangrado del compresor por dentro del álabe.
+71,La calidad del vapor (x) es...,multiple,La fracción de masa que es vapor en una mezcla líquido-vapor|La temperatura|La presión|La pureza del agua,La fracción de masa que es vapor en una mezcla líquido-vapor,"x=1 vapor saturado seco, x=0 líquido saturado."
+72,El ciclo Rankine Orgánico (ORC) usa fluidos orgánicos en lugar de agua.,multiple,,Vertader,"Para bajas temperaturas (geotermia, solar, residuos)."
+73,El catalizador de tres vías reduce...,multiple,"NOx, CO y HC|Solo CO2|Humo|Ruido","NOx, CO y HC","Monóxido, Hidrocarburos y Óxidos de Nitrógeno."
+74,El filtro de partículas (FAP/DPF) elimina...,multiple,El hollín (partículas sólidas) de los diésel|El CO2|El agua|El NOx,El hollín (partículas sólidas) de los diésel,Humo negro.
+75,La válvula EGR recircula gases de escape para reducir...,multiple,Los NOx (Óxidos de Nitrógeno)|La potencia|El CO2|El consumo,Los NOx (Óxidos de Nitrógeno),Baja la temperatura de combustión.
+76,El AdBlue (Urea) se usa en sistemas SCR para reducir...,multiple,NOx|Partículas|CO|HC,NOx,Catalizador de Reducción Selectiva.
+77,El trabajo (W) es una función de estado.,multiple,,Fals,Es función de línea (depende del camino).
+78,El calor (Q) es una función de estado.,multiple,,Fals,También depende del camino.
+79,La energía interna (U) es una función de estado.,multiple,,Vertader,Depende solo del estado inicial y final.
+80,1 caballo de vapor (CV) equivale aproximadamente a...,multiple,736 W|1000 W|500 W|100 W,736 W,0.736 kW.
+81,El par motor se mide en...,multiple,Newton metro (Nm)|Julios|Watios|Pascales,Newton metro (Nm),Fuerza x Distancia.
+82,La potencia es el producto de...,multiple,Par motor x Velocidad angular|Presión x Volumen|Fuerza x Masa|Voltaje x Resistencia,Par motor x Velocidad angular,P = T * omega.
+83,El ciclo Stirling es regenerativo.,multiple,,Vertader,Usa regenerador.
+84,El ciclo Ericsson es regenerativo.,multiple,,Vertader,Usa regenerador.
+85,El rendimiento térmico se define como Trabajo Neto / Calor Absorbido.,multiple,,Vertader,Eficiencia fundamental.
+86,Una máquina frigorífica consume trabajo para mover calor del foco frío al caliente.,multiple,,Vertader,Ciclo inverso.
+87,El COP (Coeficiente de desempeño) de una bomba de calor puede ser mayor que 1.,multiple,,Vertader,Suele ser 3 o 4.
+88,El ciclo Diesel tiene mayor rendimiento teórico que el Otto a misma relación de compresión.,multiple,,Fals,"Otto es superior a misma r_c, pero Diesel permite r_c más altas en la práctica."
+89,La relación de compresión de un gasolina suele ser 10:1.,multiple,,Vertader,8:1 a 12:1 típico.
+90,La relación de compresión de un diésel suele ser 20:1.,multiple,,Vertader,16:1 a 24:1 típico.
+91,La mariposa de admisión regula la carga en los motores Diesel.,multiple,,Fals,Regulan por cantidad de inyección (calidad). Otto regula por mariposa (cantidad).
+92,Los motores Diesel trabajan siempre con exceso de aire.,multiple,,Vertader,Mezcla pobre.
+93,El turbocompresor aprovecha la energía de los gases de escape.,multiple,,Vertader,Mueve una turbina.
+94,El compresor volumétrico (Roots) es arrastrado por el cigüeñal.,multiple,,Vertader,Roba potencia mecánica pero da respuesta instantánea.
+95,El ciclo de Rankine con recalentamiento mejora el título de vapor a la salida de turbina.,multiple,,Vertader,Menos humedad.
+96,La purga de caldera sirve para eliminar sales concentradas.,multiple,,Vertader,Evita incrustaciones.
+97,El economizador precalienta el agua de alimentación con humos de escape.,multiple,,Vertader,Ahorra combustible.
+98,El precalentador de aire calienta el aire de combustión.,multiple,,Vertader,Mejora combustión.
+99,"La turbina Pelton es una turbina hidráulica, no térmica.",multiple,,Vertader,De acción para agua.
+100,La turbina Francis es hidráulica.,multiple,,Vertader,De reacción.
+101,La turbina Kaplan es hidráulica.,multiple,,Vertader,Hélice variable.
+102,"El ciclo ligeno (trigeneración) produce electricidad, calor y frío.",multiple,,Vertader,Eficiencia total alta.
+103,La torre de refrigeración enfría agua evaporando una parte de ella.,multiple,,Vertader,Calor latente.
+104,El ciclo combinado une un ciclo Brayton (gas) y uno Rankine (vapor).,multiple,,Vertader,Eficiencia > 60%.
+105,"En un ciclo combinado, los gases de escape de la turbina de gas calientan la caldera de recuperación (HRSG).",multiple,,Vertader,Fuente de calor para el vapor.
+106,El PCI (Poder Calorífico Inferior) no cuenta el calor latente del agua formada.,multiple,,Vertader,El agua sale como vapor.
+107,El PCS (Superior) cuenta el calor de condensación del agua.,multiple,,Vertader,Debe condensar el agua.
+108,El GLP es Gas Licuado del Petróleo (Butano/Propano).,multiple,,Vertader,Combustible alternativo.
+109,El GNC es Gas Natural Comprimido (Metano).,multiple,,Vertader,Combustible alternativo.
+110,El Biodiésel se obtiene de aceites vegetales.,multiple,,Vertader,Transesterificación.
+111,El Bioetanol se obtiene de fermentación de azúcares.,multiple,,Vertader,Sustituto gasolina.
+112,La viscosidad del aceite disminuye al aumentar la temperatura.,multiple,,Vertader,Se vuelve más fluido.
+113,El SAE indica la viscosidad del aceite.,multiple,,Vertader,Society of Automotive Engineers.
+114,Un aceite 10W40 es multigrado.,multiple,,Vertader,Comportamiento en frío (10W) y caliente (40).
+115,El sistema Common Rail es de inyección directa a alta presión.,multiple,,Vertader,Diésel moderno.
+116,El inyector-bomba une la generación de presión y la inyección.,multiple,,Vertader,Unit Injector.
+117,El encendido electrónico elimina los platinos (ruptor).,multiple,,Vertader,Más fiable.
+118,La bobina de encendido es un transformador de alta tensión.,multiple,,Vertader,Pasa 12V a 20.000V.
+119,El orden de encendido típico en 4 cilindros es 1-3-4-2.,multiple,,Vertader,Equilibrado.
+120,El volante de inercia regulariza el giro del motor.,multiple,,Vertader,Almacena energía cinética.
+121,El cigüeñal transforma movimiento lineal en rotativo.,multiple,,Vertader,Mecanismo biela-manivela.
+122,La biela une el pistón con el cigüeñal.,multiple,,Vertader,Transmite fuerza.
+123,El segmento de fuego es el más cercano a la culata.,multiple,,Vertader,Sella la compresión.
+124,El segmento rascador controla el aceite.,multiple,,Vertader,Devuelve aceite al cárter.
+125,La culata cierra los cilindros por arriba.,multiple,,Vertader,Aloja válvulas y bujías.
+126,El bloque motor aloja los cilindros y el cigüeñal.,multiple,,Vertader,Estructura principal.
+127,La distribución OHV tiene válvulas en culata y árbol en bloque.,multiple,,Vertader,Varillas y balancines.
+128,La distribución OHC tiene el árbol de levas en culata.,multiple,,Vertader,Over Head Camshaft.
+129,DOHC significa doble árbol de levas en cabeza.,multiple,,Vertader,Admisión y Escape separados.
+130,La correa de distribución debe cambiarse periódicamente.,multiple,,Vertader,"Si rompe, avería grave."
+131,La cadena de distribución suele durar la vida del motor.,multiple,,Vertader,Más robusta.
+132,El VVT es la distribución variable.,multiple,,Vertader,Variable Valve Timing.
+133,El VVT mejora el par en bajos y la potencia en altos.,multiple,,Vertader,Optimiza diagrama.
+134,La energía solar fotovoltaica produce electricidad directamente.,multiple,,Vertader,Semiconductores.
+135,La energía solar térmica calienta un fluido.,multiple,,Vertader,Colectores.
+136,La energía eólica mueve aerogeneradores.,multiple,,Vertader,Viento.
+137,La biomasa es neutra en CO2 teórico.,multiple,,Vertader,El carbono vino de la atmósfera.
+138,"El hidrógeno es un vector energético, no una fuente primaria.",multiple,,Vertader,Hay que producirlo.
+139,La electrólisis separa el agua en H2 y O2.,multiple,,Vertader,Consume electricidad.
+140,El reformado de gas natural produce hidrógeno.,multiple,,Vertader,Steam Reforming (más común).
+141,El almacenamiento de hidrógeno es un reto tecnológico.,multiple,,Vertader,Alta presión o criogénico.
+142,La pila SOFC trabaja a alta temperatura (800-1000°C).,multiple,,Vertader,Óxido Sólido.
+143,La pila AFC se usó en el programa Apolo.,multiple,,Vertader,Alcalina.
+144,El motor Stirling es silencioso.,multiple,,Vertader,Sin explosiones.
+145,El motor Stirling tarda en arrancar (o calentar).,multiple,,Vertader,Inercia térmica.
+146,La turbina de gas arranca rápido.,multiple,,Fals,"Suele requerir secuencia compleja, aunque más rápido que vapor."
+147,La turbina de vapor tiene gran inercia térmica.,multiple,,Vertader,Arranque lento.
+148,El rendimiento de la turbina de gas baja con el calor ambiente.,multiple,,Vertader,Aire menos denso.
+149,La altitud afecta al rendimiento de los motores de aviación.,multiple,,Vertader,Menos densidad aire.
+150,La postcombustión aumenta el empuje temporalmente.,multiple,,Vertader,Inyecta fuel en tobera (Cazas).
+151,La postcombustión consume mucho combustible.,multiple,,Vertader,Muy ineficiente.
+152,El estatorreactor (Ramjet) no tiene compresor rotativo.,multiple,,Vertader,Usa la velocidad del aire.
+153,El pulsorreactor funciona con explosiones pulsantes.,multiple,,Vertader,V1 alemana.
+154,El cohete de combustible líquido permite controlar el empuje.,multiple,,Vertader,Válvulas graduables.
+155,El cohete de combustible sólido no se puede apagar una vez encendido.,multiple,,Vertader,Se quema hasta el fin.
+156,El impulso específico (Isp) mide la eficiencia del cohete.,multiple,,Vertader,Segundos.
+157,El motor iónico tiene muy bajo empuje pero muy alto Isp.,multiple,,Vertader,Para espacio profundo.
+158,La velocidad de escape de la Tierra es 11.2 km/s.,multiple,,Vertader,Física.
+159,La órbita geoestacionaria está a 36.000 km.,multiple,,Vertader,Sincronizada.
+160,La termodinámica estudia el equilibrio.,multiple,,Vertader,Estados estables.
+161,"El punto triple del agua es donde coexisten sólido, líquido y gas.",multiple,,Vertader,0.01 °C.
+162,El punto crítico es donde desaparece la distinción líquido-gas.,multiple,,Vertader,374 °C para agua.
+163,El calor latente de vaporización del agua es muy alto.,multiple,,Vertader,2260 kJ/kg.
+164,El calor específico del agua es 4.18 kJ/kgK.,multiple,,Vertader,1 cal/gC.
+165,Un gas ideal cumple PV=nRT.,multiple,,Vertader,Modelo simple.
+166,El aire se puede aproximar a gas ideal.,multiple,,Vertader,A presiones normales.
+167,La constante adiabática del aire (gamma) es 1.4.,multiple,,Vertader,Cp/Cv.
+168,Cp > Cv en gases.,multiple,,Vertader,Mayer: Cp - Cv = R.
+169,El trabajo de expansión es positivo.,multiple,,Vertader,Sistema hace trabajo.
+170,El trabajo de compresión es negativo.,multiple,,Vertader,Se hace trabajo sobre sistema.
+171,El calor absorbido es positivo.,multiple,,Vertader,Entra energía.
+172,El calor cedido es negativo.,multiple,,Vertader,Sale energía.
+173,El cero absoluto es -273.15 °C.,multiple,,Vertader,0 Kelvin.
+174,La escala Kelvin no tiene valores negativos.,multiple,,Vertader,Absoluta.
+175,La escala Rankine es la absoluta Fahrenheit.,multiple,,Vertader,Inglesa.
+176,1 bar son 100.000 Pascales.,multiple,,Vertader,Presión.
+177,1 atmósfera son 101.325 Pa.,multiple,,Vertader,Presión estándar.
+178,1 psi es una libra por pulgada cuadrada.,multiple,,Vertader,Pound per square inch.
+179,El manómetro mide la presión relativa (manométrica).,multiple,,Vertader,P_abs - P_atm.
+180,El vacío absoluto es 0 Pa.,multiple,,Vertader,Sin materia.
+181,La cavitación produce burbujas de vapor en zonas de baja presión.,multiple,,Vertader,Daña bombas/hélices.
+182,El golpe de ariete es un pico de presión por frenar fluido.,multiple,,Vertader,Cierre válvula.
+183,El flujo laminar es ordenado.,multiple,,Vertader,Reynolds bajo.
+184,El flujo turbulento es caótico.,multiple,,Vertader,Reynolds alto.
+185,La capa límite está pegada a la pared.,multiple,,Vertader,Velocidad cero.
+186,El tubo Venturi mide caudal por depresión.,multiple,,Vertader,Bernoulli.
+187,EL tubo Pitot mide velocidad por presión de impacto.,multiple,,Vertader,Aviones.
+188,Un intercooler aire-aire usa aire ambiente para enfriar.,multiple,,Vertader,Radiador frontal.
+189,Un intercooler aire-agua usa el circuito de refrigeración.,multiple,,Vertader,Más estable.
+190,El termostato regula la temperatura del motor.,multiple,,Vertader,Abre paso al radiador.
+191,El electroventilador fuerza aire en el radiador.,multiple,,Vertader,Si no hay velocidad.
+192,La bomba de agua suele ser centrífuga.,multiple,,Vertader,Mueve el refrigerante.
+193,El refrigerante lleva anticongelante (Glicol).,multiple,,Vertader,Baja punto congelación y sube ebullición.
+194,El cárter seco usa bombas de recuperación.,multiple,,Vertader,Competición/Aviones.
+195,El cárter húmedo almacena el aceite en el fondo.,multiple,,Vertader,Coches normales.
+196,El filtro de aceite tiene válvula de bypass.,multiple,,Vertader,Por si se obstruye.
+197,La presión de aceite se mide tras la bomba.,multiple,,Vertader,Testigo rojo.
+198,El consumo específico (SFC) mide combustible por potencia.,multiple,,Vertader,g/kWh.
+199,El rendimiento volumétrico mide cuánto aire entra real vs teórico.,multiple,,Vertader,Respiración del motor.
+200,La admisión variable mejora el rendimiento volumétrico.,multiple,,Vertader,Resonancia.
+201,El escape sintonizado ayuda a vaciar el cilindro.,multiple,,Vertader,Ondas de presión.
+202,La sonda Lambda mide oxígeno en escape.,multiple,,Vertader,Ajuste mezcla.
+203,El catalizador necesita estar caliente para funcionar.,multiple,,Vertader,Light-off temp.
+204,El motor híbrido paralelo suma potencia eléctrica y térmica.,multiple,,Vertader,Ambos empujan.
+205,El motor híbrido serie usa el térmico solo como generador.,multiple,,Vertader,Tracción eléctrica.
+206,El coche eléctrico tiene par máximo desde cero RPM.,multiple,,Vertader,Característica motor eléctrico.
+207,El freno regenerativo recupera energía al detenerse.,multiple,,Vertader,Carga batería.
+208,KERS significa Kinetic Energy Recovery System.,multiple,,Vertader,F1.
+209,El ciclo WLT es el estándar de homologación actual.,multiple,,Vertader,WLTP (Worldwide).
+210,La norma Euro 6 limita severamente los NOx.,multiple,,Vertader,Anticontaminación.
+211,La gasolina sin plomo usa aditivos antidetonantes distintos al plomo.,multiple,,Vertader,MTBE/ETBE.
+212,El plomo dañaba el catalizador.,multiple,,Vertader,Venenoso.
+213,El azufre en el diésel genera lluvia ácida y daña filtros.,multiple,,Vertader,Se ha reducido mucho (ULSD).
+214,El motor bóxer tiene cilindros opuestos.,multiple,,Vertader,Centro gravedad bajo (Porsche/Subaru).
+215,El motor en V es más corto que en línea.,multiple,,Vertader,Compacto.
+216,El motor en línea es más fácil de equilibrar (L6).,multiple,,Vertader,Suave.
+217,El motor monocilíndrico vibra mucho.,multiple,,Vertader,Necesita eje equilibrado.
+218,La cilindrada total es cilindrada unitaria x número de cilindros.,multiple,,Vertader,V_tot.
