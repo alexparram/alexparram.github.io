@@ -52,12 +52,12 @@
             background: var(--bg-color);
             color: var(--text-main);
             min-height: 100vh;
-            padding: 10px;
+            padding: 0px;
         }
 
         .container {
-            max-width: 1400px;
-            width: 100%;
+            max-width: 800px;
+            width: 95%;
             margin: 0 auto;
         }
 
@@ -578,7 +578,7 @@
             </div>
         </div>
 
-        <div class="upload-section" style="margin-top: 50px;">
+        <div class="upload-section" id="manual-upload-section" style="margin-top: 50px;">
             <p style="color: var(--text-muted); margin-bottom: 15px;">O puja el teu propi fitxer CSV:</p>
 
             <!-- CSV Explanation & Example -->
@@ -790,6 +790,7 @@
                 const text = await response.text();
                 processCSV(text);
                 document.getElementById('test-selection-container').style.display = 'none';
+                document.getElementById('manual-upload-section').style.display = 'none';
             } catch (err) {
                 alert("Error carregant l'assignatura: " + err.message);
             } finally {
@@ -812,7 +813,7 @@
                 // So we just need to hide everything relevant.
                 document.getElementById('subject-selection-container').style.display = 'none';
                 document.getElementById('test-selection-container').style.display = 'none';
-                document.querySelector('.upload-section').style.display = 'none';
+                document.getElementById('manual-upload-section').style.display = 'none';
             };
             reader.onerror = function () {
                 document.getElementById('file-error').style.display = 'block';
