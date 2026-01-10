@@ -700,12 +700,12 @@
                 tests: [
                     {
                         title: "Sistemes Integrats de Fabricació",
-                        path: "csv/SiF/SiF_preguntas.csv",
+                        path: "csv_old/SiF/SiF_preguntas.csv",
                         info: "Generats amb IA"
                     },
                     {
                         title: "Examen Final SIF 23-06-25",
-                        path: "csv/SiF/SIF 23-06-25.csv",
+                        path: "csv_old/SiF/SIF 23-06-25.csv",
                         info: "Teoria - Examen passat"
                     }
                 ]
@@ -716,7 +716,7 @@
                 tests: [
                     {
                         title: "Màquines Tèrmiques",
-                        path: "csv/Maquines%20Termiques/MT_preguntas.csv",
+                        path: "csv_old/Maquines%20Termiques/MT_preguntas.csv",
                         info: "Generats amb IA"
                     }
                 ]
@@ -789,7 +789,7 @@
 
                 const text = await response.text();
                 processCSV(text);
-                document.getElementById('selection-screen').style.display = 'none';
+                document.getElementById('test-selection-container').style.display = 'none';
             } catch (err) {
                 alert("Error carregant l'assignatura: " + err.message);
             } finally {
@@ -806,7 +806,13 @@
             reader.onload = function (event) {
                 const text = event.target.result;
                 processCSV(text);
-                document.getElementById('selection-screen').style.display = 'none';
+                // Hide whichever container is visible, manual upload is available on both usually? 
+                // Actually in my new hierarchy, upload is OUTSIDE the containers? No, let's check view_file.
+                // It seems I put upload-section AFTER test-selection-container.
+                // So we just need to hide everything relevant.
+                document.getElementById('subject-selection-container').style.display = 'none';
+                document.getElementById('test-selection-container').style.display = 'none';
+                document.querySelector('.upload-section').style.display = 'none';
             };
             reader.onerror = function () {
                 document.getElementById('file-error').style.display = 'block';
