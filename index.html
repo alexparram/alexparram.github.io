@@ -456,9 +456,7 @@
                 <h1>Plataforma de estudio para examenes multirespuesta</h1>
                 <p class="subtitle" style="margin-bottom: 0;">v1.0</p>
             </div>
-            <div id="timer"
-                style="font-family: monospace; font-size: 2.5rem; color: var(--accent-color); font-weight: bold; background: var(--container-bg); padding: 5px 20px; border-radius: 8px; border: 1px solid var(--border-color); display: none;">
-                00:00</div>
+
         </div>
         <!-- HIERARCHICAL SELECTION SCREENS -->
         <!-- STEP 1: SUBJECTS -->
@@ -1280,6 +1278,11 @@
                 <div class="exam-stat">
                     <span>Progreso</span>
                     <strong>${progressTxt}</strong>
+                </div>
+                
+                <div class="exam-stat">
+                    <span>Aciertos</span>
+                    <strong><span style="color:var(--success-text)">${stats.correct}</span> / <span style="color:var(--error-text)">${stats.incorrect}</span></strong>
                 </div>
                 
                 <div class="exam-stat">
