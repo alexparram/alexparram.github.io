@@ -171,261 +171,97 @@
             border-color: var(--text-muted);
         }
 
+        /* REDESIGNED EXAM UI CSS */
+
+        .exam-container {
+            max-width: 650px;
+            margin: 0 auto;
+            width: 95%;
+            position: relative;
+        }
+
         .main-layout {
-            display: grid;
-            grid-template-columns: 280px 1fr 280px;
-            /* Added 3rd column for right sidebar */
-            gap: 30px;
-            animation: fadeIn 0.5s ease-out;
+            display: block;
+            /* No more grid/flex sidebars */
         }
 
-        /* Hide right sidebar by default (collapsed column) when not active */
-        .main-layout:not(.has-right-sidebar) {
-            grid-template-columns: 280px 1fr;
-        }
-
+        /* Hide legacy sidebars if they still exist in DOM for safety, 
+           though we will remove them from HTML */
+        .sidebar,
         .right-sidebar {
-            background: rgba(59, 130, 246, 0.05);
-            /* Light blue tint */
-            border: 1px solid var(--accent-color);
-            border-radius: 16px;
-            padding: 20px;
-            height: fit-content;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.5;
-            display: none;
-            /* Hidden by default */
+            display: none !important;
         }
 
-        .right-sidebar h4 {
-            color: var(--accent-color);
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        @media (max-width: 1200px) {
-            .main-layout {
-                grid-template-columns: 260px 1fr;
-                /* Hide right sidebar on medium screens if tight, or stack it */
-            }
-
-            .main-layout.has-right-sidebar {
-                grid-template-columns: 260px 1fr 250px;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .main-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                padding-right: 0;
-                padding-bottom: 20px;
-                margin-bottom: 20px;
-                display: none;
-                /* Hide sidebar on mobile for now or make collapsible */
-            }
-
-            .right-sidebar {
-                display: none !important;
-            }
-        }
-
-        .sidebar {
-            /* border-right: 1px solid var(--border-color); */
-            padding-right: 20px;
-        }
-
-        .question-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            max-height: 70vh;
-            overflow-y: auto;
-            padding-right: 5px;
-        }
-
-        /* Custom scrollbar for grid */
-        .question-grid::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .question-grid::-webkit-scrollbar-track {
-            background: var(--bg-color);
-        }
-
-        .question-grid::-webkit-scrollbar-thumb {
-            background: var(--border-color);
-            border-radius: 3px;
-        }
-
-        .grid-item {
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            border: 1px solid var(--border-color);
-            background: var(--container-bg);
-            color: var(--text-muted);
-            transition: all 0.2s;
-        }
-
-        .grid-item:hover {
-            border-color: var(--accent-color);
-            color: var(--text-main);
-        }
-
-        .grid-item.active {
-            border-color: var(--accent-color);
-            background: rgba(59, 130, 246, 0.1);
-            /* Low opacity blue */
-            color: var(--accent-color);
-            font-weight: 700;
-        }
-
-        .grid-item.correct {
-            background-color: var(--success-bg);
-            border-color: var(--success-border);
-            color: var(--success-text);
-        }
-
-        .grid-item.incorrect {
-            background-color: var(--error-bg);
-            border-color: var(--error-border);
-            color: var(--error-text);
-        }
-
-        .grid-item.blank {
-            background-color: var(--container-bg);
-            border-color: var(--text-muted);
-            color: var(--text-muted);
-            opacity: 0.5;
-        }
-
-
-        .content-area {
-            width: 100%;
-        }
-
-        .top-controls {
+        /* Top Bar for Exam */
+        .exam-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .question-selector {
-            padding: 10px;
-            border-radius: 12px;
+            margin-bottom: 20px;
             background: var(--container-bg);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            font-family: inherit;
-            cursor: pointer;
-            min-width: 200px;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: var(--bg-color);
-            border-radius: 4px;
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.03);
-            /* Subtle glass effect */
+            padding: 15px 20px;
             border-radius: 16px;
-            text-align: center;
             border: 1px solid var(--border-color);
-            /* Reduced padding inside cards */
-            padding: 15px;
         }
 
-        .stat-label {
+        .exam-stat {
             font-size: 0.9rem;
             color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-
-        .stat-value {
-            color: var(--text-main);
-            /* Smaller font size for tighter fit */
-            font-size: 1.25rem;
-        }
-
-        .question-card {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 20px;
-            margin-bottom: 30px;
-            border: 1px solid var(--border-color);
-            min-height: 250px;
-            padding: 25px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            align-items: center;
+        }
+
+        .exam-stat strong {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            margin-top: 4px;
+        }
+
+        /* Question Card Refined */
+        .question-card {
+            background: var(--container-bg);
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+            min-height: auto;
         }
 
         .question-number {
             color: var(--accent-color);
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
         }
 
         .question-text {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
+            font-weight: 500;
             line-height: 1.6;
             margin-bottom: 30px;
             color: var(--text-main);
         }
 
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
+        /* Options Refined */
         .option {
-            background: transparent;
-            padding: 14px 20px;
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 16px 20px;
+            border-radius: 16px;
+            margin-bottom: 12px;
             cursor: pointer;
-            border: 2px solid var(--border-color);
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 1rem;
-            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
         .option:hover {
+            transform: translateY(-2px);
             border-color: var(--accent-color);
             background: rgba(59, 130, 246, 0.05);
         }
@@ -433,105 +269,181 @@
         .option.selected {
             border-color: var(--accent-color);
             background: rgba(59, 130, 246, 0.1);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
         }
 
         .option.correct {
+            background: rgba(6, 78, 59, 0.5);
+            /* Custom tint */
             border-color: var(--success-border);
-            background: var(--success-bg);
             color: var(--success-text);
         }
 
         .option.incorrect {
+            background: rgba(127, 29, 29, 0.5);
             border-color: var(--error-border);
-            background: var(--error-bg);
             color: var(--error-text);
         }
 
-        .option.active {
-            /* For blank selection */
-            border-color: var(--text-muted);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 12px;
-            font-weight: 500;
+        /* Navigation Overlay / Modal */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 1000;
             display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            backdrop-filter: blur(5px);
         }
 
-        .feedback.correct {
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+            gap: 10px;
+            width: 100%;
+            max-width: 500px;
+            max-height: 70vh;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .nav-item {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: var(--container-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .nav-item.active {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .nav-item.correct {
             background: var(--success-bg);
+            border-color: var(--success-border);
             color: var(--success-text);
-            border: 1px solid var(--success-border);
         }
 
-        .feedback.incorrect {
+        .nav-item.incorrect {
             background: var(--error-bg);
+            border-color: var(--error-border);
             color: var(--error-text);
-            border: 1px solid var(--error-border);
         }
 
-        .controls {
+        .nav-item.blank {
+            background: var(--bg-color);
+            opacity: 0.5;
+        }
+
+        /* Bottom Controls */
+        .bottom-controls {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-top: 30px;
+            gap: 15px;
         }
 
-        .btn {
-            padding: 12px 24px;
-            border-radius: 12px;
+        .btn-nav-toggle {
+            background: transparent;
             border: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
             cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s;
         }
 
-        .btn-primary {
-            background: var(--accent-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-hover);
-        }
-
-        .btn-secondary {
-            background: var(--container-bg);
+        .btn-nav-toggle:hover {
+            background: rgba(255, 255, 255, 0.05);
             color: var(--text-main);
-            border: 1px solid var(--border-color);
         }
 
-        .btn-secondary:hover {
-            background: var(--border-color);
+        /* ACTIONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+            border: none;
+            outline: none;
         }
 
         .btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
-            pointer-events: none;
         }
 
-        /* Loading Spinner */
-        .spinner {
-            border: 4px solid var(--container-bg);
-            border-top: 4px solid var(--accent-color);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
+        .btn-primary {
+            background: var(--accent-color);
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
         }
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 10px -2px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border-color: var(--text-muted);
+        }
+
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0;
             }
 
-            100% {
-                transform: rotate(360deg);
+            .exam-container {
+                width: 100%;
+                padding: 0 10px;
+            }
+
+            .question-card {
+                padding: 20px;
+                border-radius: 20px;
+            }
+
+            .question-text {
+                font-size: 1.1rem;
+            }
+
+            .option {
+                padding: 14px 16px;
             }
         }
     </style>
@@ -541,34 +453,26 @@
     <div class="container" id="mainContainer">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
             <div style="flex-grow: 1; text-align: center;">
-                <h1> Plataforma de estudio para examenes multirespuesta</h1>
+                <h1>Plataforma de estudio para examenes multirespuesta</h1>
                 <p class="subtitle" style="margin-bottom: 0;">v1.0</p>
             </div>
             <div id="timer"
                 style="font-family: monospace; font-size: 2.5rem; color: var(--accent-color); font-weight: bold; background: var(--container-bg); padding: 5px 20px; border-radius: 8px; border: 1px solid var(--border-color); display: none;">
                 00:00</div>
         </div>
-
         <!-- HIERARCHICAL SELECTION SCREENS -->
-
         <!-- STEP 1: SUBJECTS -->
         <div id="subject-selection-container">
             <h2 style="text-align: center; margin-bottom: 30px; font-weight: 600; color: var(--text-main);">
-                Selecciona una assignatura
-            </h2>
+                Selecciona una assignatura </h2>
             <div class="subject-grid" id="subject-grid">
                 <!-- Dynamic Subjects will be rendered here -->
             </div>
         </div>
-
         <!-- STEP 2: TESTS -->
         <div id="test-selection-container" style="display: none;">
-            <div style="margin-bottom: 20px;">
-                <button onclick="goBackToSubjects()" class="btn btn-secondary"
-                    style="padding: 8px 16px; font-size: 0.9rem;">
-                    ← Tornar a Assignatures
-                </button>
-            </div>
+            <div style="margin-bottom: 20px;"><button onclick="goBackToSubjects()" class="btn btn-secondary"
+                    style="padding: 8px 16px; font-size: 0.9rem;">← Tornar a Assignatures </button></div>
             <h2 id="selected-subject-title"
                 style="text-align: center; margin-bottom: 30px; font-weight: 600; color: var(--text-main);">
                 <!-- Subject Title -->
@@ -577,89 +481,90 @@
                 <!-- Dynamic Tests will be rendered here -->
             </div>
         </div>
-
         <div class="upload-section" id="manual-upload-section" style="margin-top: 50px;">
             <p style="color: var(--text-muted); margin-bottom: 15px;">O puja el teu propi fitxer CSV:</p>
-
             <!-- CSV Explanation & Example -->
             <div
                 style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; margin-bottom: 20px; text-align: left; font-size: 0.9rem; color: var(--text-muted);">
-                <p style="margin-bottom: 10px; font-weight: 600; color: var(--text-main);">ℹ️ Format del CSV (Nou):</p>
-                <p style="margin-bottom: 5px;">
-                    <code>Pregunta, Opcion A, Opcion B, Opcion C, Opcion D, Respuesta Correcta, Explicacion, Referencia</code>
-                </p>
-                <p style="margin-bottom: 10px; font-weight: 600; color: var(--text-main); margin-top: 15px;">ℹ️ Format
-                    del CSV (Antic):</p>
-                <p style="margin-bottom: 5px;">
-                    <code>numero, pregunta, tipo, opciones, respuesta_correcta, justificacion</code>
-                </p>
-                <a href="#" id="downloadExample"
-                    style="color: var(--accent-color); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 5px;">
-                    📥 Descarregar CSV d'exemple
+                <p style="margin-bottom: 10px; font-weight: 600; color: var(--text-main);">ℹ️ Format del
+                    CSV (Nou):</p>
+                <p style="margin-bottom: 5px;"><code>Pregunta,
+        Opcion A,
+        Opcion B,
+        Opcion C,
+        Opcion D,
+        Respuesta Correcta,
+        Explicacion,
+        Referencia</code></p>
+                <p style="margin-bottom: 10px; font-weight: 600; color: var(--text-main); margin-top: 15px;">
+                    ℹ️ Format del CSV (Antic):</p>
+                <p style="margin-bottom: 5px;"><code>numero,
+        pregunta,
+        tipo,
+        opciones,
+        respuesta_correcta,
+        justificacion</code></p><a href="#" id="downloadExample"
+                    style="color: var(--accent-color); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 5px;">📥
+                    Descarregar CSV d'exemple
                 </a>
-            </div>
-
-            <label class="custom-file-upload">
-                <input type="file" id="csvFileInput" accept=".csv" />
-                📂 Pujar fitxer manualment
-            </label>
-            <div id="file-error" style="color: #ef4444; margin-top: 15px; display: none;">Error llegint el fitxer.</div>
+            </div><label class="custom-file-upload"><input type="file" id="csvFileInput" accept=".csv" />📂 Pujar
+                fitxer manualment </label>
+            <div id="file-error" style="color: #ef4444; margin-top: 15px; display: none;">Error llegint
+                el fitxer.</div>
         </div>
-
         <div id="loading" style="display: none; text-align: center; margin-top: 20px;">
             <div class="spinner"></div>
             <p style="margin-top: 10px; color: var(--text-muted);">Carregant preguntes...</p>
         </div>
     </div>
-
     <!-- APP SCREEN (Hidden by default) -->
     <div id="app" style="display: none;">
-        <div class="main-layout">
-            <div id="sidebar" class="sidebar">
-                <h4
-                    style="margin-bottom: 15px; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
-                    Navegación</h4>
-                <div style="margin-bottom: 15px;">
-                    <button onclick="location.reload()" class="btn btn-secondary"
-                        style="width: 100%; font-size: 0.9rem; padding: 8px;">↩ Tornar al Menú</button>
+        <div class="exam-container">
+            <!-- Navigation Overlay -->
+            <div id="navOverlay" class="nav-overlay">
+                <div
+                    style="width: 100%; max-width: 500px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <h3 style="color:var(--text-main)">Mapa de Preguntas</h3><button onclick="toggleNav()"
+                        style="background:none; border:none; color:var(--text-muted); font-size:1.5rem; cursor:pointer;">&times;
+                    </button>
                 </div>
-                <div id="question-grid" class="question-grid"></div>
+                <div id="navGrid" class="nav-grid"></div>
+                <div
+                    style="margin-top: 20px; width: 100%; max-width: 500px; padding: 10px; background: var(--container-bg); border-radius: 10px; border: 1px solid var(--border-color);">
+                    <div
+                        style="display:flex; justify-content: space-around; font-size: 0.8rem; color: var(--text-muted);">
+                        <span>⚪ Pendiente</span><span style="color:var(--success-text)">🟢
+                            Correcta</span><span style="color:var(--error-text)">🔴 Incorrecta</span>
+                    </div>
+                </div>
             </div>
-            <div id="main-content" class="content-area">
-                <!-- Dynamic content -->
-            </div>
-
-            <div id="right-sidebar" class="right-sidebar">
-                <h4>🚀 Modo Inteligente</h4>
-                <p>Este modo utiliza un <strong>algoritmo de probabilidad</strong> para optimizar tu estudio:</p>
-                <ul style="padding-left: 20px; margin-top: 10px; margin-bottom: 15px;">
-                    <li style="margin-bottom: 8px;">Las preguntas empiezan con el mismo peso (1.0).</li>
-                    <li style="margin-bottom: 8px;">Si <strong>fallas</strong> ❌, el peso de la pregunta aumenta
-                        , se multiplica por 2.5, haciéndola más probable de aparecer.</li>
-                    <li style="margin-bottom: 8px;">Si <strong>aciertas</strong> ✅, el peso disminuye x0.4, por lo
-                        que saldrá menos.</li>
-                </ul>
-                <p>¡Así te aseguras de repasar más lo que peor llevas!</p>
-            </div>
+            <!-- Dynamic content -->
+            <div id="main-content"></div>
         </div>
     </div>
     </div>
-
-    <script>
-        let questions = [];
+    <script>let questions = [];
         let allQuestionsBackup = []; // Store original questions for export
         let currentIndex = 0;
         let currentMode = 'normal'; // normal, random, algorithm
         let displayOrder = [];
         let questionWeights = [];
+
         let stats = {
+
             correct: 0,
             incorrect: 0,
             blank: 0,
-            rawScore: 0.0,       // Track weighted score
-            answered: new Set(), // Now stores 'currentIndex' (step numbers) instead of question indices
-            userAnswers: {}      // Now stores 'currentIndex' -> answer
-        };
+            rawScore: 0.0,
+            // Track weighted score
+            answered: new Set(),
+            // Now stores 'currentIndex' (step numbers) instead of question indices
+            userAnswers: {}
+
+            // Now stores 'currentIndex' -> answer
+        }
+
+            ;
 
         // HIERARCHY DATA
         const SUBJECTS = {
@@ -669,32 +574,32 @@
                 tests: [
                     {
                         title: "PI - AFS 260110",
-                        path: "csv/Projectes d'Instal·lacions/PI - AFS 260110.csv",
+                        path: "csv/Projectes%20d'Instal%C2%B7lacions/PI%20-%20AFS%20260110.csv",
                         info: "Aigua Freda Sanitària"
                     },
                     {
                         title: "PI - Sanejament 260110",
-                        path: "csv/Projectes d'Instal·lacions/PI - Sanejament 260110.csv",
+                        path: "csv/Projectes%20d'Instal%C2%B7lacions/PI%20-%20Sanejament%20260110.csv",
                         info: "Sanejament"
                     },
                     {
                         title: "PI - Baixa Tensió 260110",
-                        path: "csv/Projectes d'Instal·lacions/PI - Baixa Tensió 260110.csv",
+                        path: "csv/Projectes%20d'Instal%C2%B7lacions/PI%20-%20Baixa%20Tensi%C3%B3%20260110.csv",
                         info: "Baixa Tensió"
                     },
                     {
                         title: "PI - BMS 260110",
-                        path: "csv/Projectes d'Instal·lacions/PI - BMS 260110.csv",
+                        path: "csv/Projectes%20d'Instal%C2%B7lacions/PI%20-%20BMS%20260110.csv",
                         info: "Building Management Systems"
                     },
                     {
                         title: "PI - Enllumenat 260110",
-                        path: "csv/Projectes d'Instal·lacions/PI - Enllumenat 260110.csv",
+                        path: "csv/Projectes%20d'Instal%C2%B7lacions/PI%20-%20Enllumenat%20260110.csv",
                         info: "Enllumenat"
                     },
                     {
                         title: "PI - Preguntes d'exàmens passats",
-                        path: "csv/Projectes d'Instal·lacions/PI - preguntas.csv",
+                        path: "csv/Projectes%20d'Instal%C2%B7lacions/PI%20-%20preguntas.csv",
                         info: "Preguntes d'exàmens passats"
                     }
                 ]
@@ -710,7 +615,7 @@
                     },
                     {
                         title: "Examen Final SIF 23-06-25",
-                        path: "csv_old/SiF/SIF 23-06-25.csv",
+                        path: "csv_old/SiF/SIF%2023-06-25.csv",
                         info: "Teoria - Examen passat"
                     }
                 ]
@@ -726,7 +631,9 @@
                     }
                 ]
             }
-        };
+        }
+
+            ;
 
         // INITIALIZATION
         document.addEventListener('DOMContentLoaded', () => {
@@ -742,11 +649,17 @@
                 const card = document.createElement('div');
                 card.className = 'subject-card';
                 card.onclick = () => selectSubject(key);
-                card.innerHTML = `
-                    <div class="subject-icon">${sub.icon}</div>
-                    <div class="subject-title">${sub.title}</div>
-                    <div class="subject-count">${sub.tests.length} Exàmens</div>
-                `;
+
+                card.innerHTML = ` <div class="subject-icon" >${sub.icon
+                    }
+
+                    </div> <div class="subject-title" >${sub.title
+                    }
+
+                    </div> <div class="subject-count" >${sub.tests.length
+                    }
+
+                    Exàmens</div> `;
                 grid.appendChild(card);
             });
         }
@@ -768,11 +681,14 @@
                 const card = document.createElement('div');
                 card.className = 'subject-card';
                 card.onclick = () => loadTest(test.path); // Start loading
-                card.innerHTML = `
-                    <div class="subject-icon">📝</div>
-                    <div class="subject-title">${test.title}</div>
-                    <div class="subject-count">${test.info}</div>
-                `;
+
+                card.innerHTML = ` <div class="subject-icon" >📝</div> <div class="subject-title" >${test.title
+                    }
+
+                    </div> <div class="subject-count" >${test.info
+                    }
+
+                    </div> `;
                 grid.appendChild(card);
             });
         }
@@ -796,12 +712,87 @@
                 processCSV(text);
                 document.getElementById('test-selection-container').style.display = 'none';
                 document.getElementById('manual-upload-section').style.display = 'none';
-            } catch (err) {
-                alert("Error carregant l'assignatura: " + err.message);
-            } finally {
+            }
+            catch (err) {
+                console.warn(err);
+                if (window.location.protocol === 'file:' && err.message.includes('fetch')) {
+                    alert("⚠️ Seguretat del Navegador: No es pot carregar el fitxer directament des de l'ordinador.\n\nSolució:\n1. Fes servir la secció 'Pujar fitxer manualment' a sota.\n2. O posa el fitxer 'index.html' en un servidor local.");
+                } else {
+                    alert("Error carregant l'assignatura: " + err.message);
+                }
+            }
+            finally {
                 loader.style.display = 'none';
             }
-        };
+        }
+
+        // Helper to render options
+        function renderOptions(question, currentAnswer, isAnswered) {
+            let html = '';
+
+            // Determine options to show
+            let opts = question.shuffledOptions || question.opciones;
+            if (typeof opts === 'string') opts = [opts]; // Safety check
+
+            opts.forEach((opt, index) => {
+                let className = 'option';
+
+                if (isAnswered) {
+                    // Show correct/incorrect style
+                    if (opt.toLowerCase() === question.respuesta_correcta.toLowerCase()) {
+                        className += ' correct';
+                    } else if (currentAnswer && opt.toLowerCase() === currentAnswer.toLowerCase()) {
+                        className += ' incorrect';
+                    }
+                    // Disable click
+                    html += `<div class="${className}">${opt}</div>`;
+                } else {
+                    // Interactive
+                    if (currentAnswer && opt === currentAnswer) className += ' selected';
+                    // Use index for safer click handling
+                    html += `<div class="${className}" onclick="selectOption(${index})">${opt}</div>`;
+                }
+            });
+            return html;
+        }
+
+        function selectOption(optIndex) {
+            const actualIndex = displayOrder[currentIndex];
+            const q = questions[actualIndex];
+            const opts = q.shuffledOptions || q.opciones;
+            const opt = Array.isArray(opts) ? opts[optIndex] : (typeof opts === 'string' ? opts : null);
+
+            if (opt) {
+                // Save answer
+                stats.userAnswers[currentIndex] = opt;
+
+                // Mark as answered immediately
+                stats.answered.add(currentIndex);
+
+                // Update stats immediately
+                const correct = opt.toLowerCase() === q.respuesta_correcta.toLowerCase();
+                if (correct) {
+                    stats.correct++;
+                } else {
+                    stats.incorrect++;
+                }
+
+                // Re-render
+                renderApp();
+            }
+        }
+
+        // ... inside renderApp, replacing the controls rendering ...
+        // We can't replace inside renderApp easily with replace_file_content if we don't target the whole function or a large chunk.
+        // Let's modify renderApp controls separately if needed, but here `renderOptions` and `selectOption` are outside.
+        // Wait, the user wants me to modify the layout (buttons). That is inside renderApp.
+        // I will do two replaces. One for these helper functions, one for renderApp controls.
+        // ACTUALLY, I will check where `renderOptions` is defined. It's around line 730. `renderApp` is around 1220.
+        // I will split this into two calls for safety.
+        // This call will only update `renderOptions` and `selectOption`.
+
+
+        ;
 
         // File Input Handler for Manual Upload
         document.getElementById('csvFileInput').addEventListener('change', function (e) {
@@ -809,6 +800,7 @@
             if (!file) return;
 
             const reader = new FileReader();
+
             reader.onload = function (event) {
                 const text = event.target.result;
                 processCSV(text);
@@ -819,22 +811,26 @@
                 document.getElementById('subject-selection-container').style.display = 'none';
                 document.getElementById('test-selection-container').style.display = 'none';
                 document.getElementById('manual-upload-section').style.display = 'none';
-            };
+            }
+
+                ;
+
             reader.onerror = function () {
                 document.getElementById('file-error').style.display = 'block';
-            };
+            }
+
+                ;
             reader.readAsText(file);
         });
 
         // Download Example CSV
         document.getElementById('downloadExample').addEventListener('click', function (e) {
             e.preventDefault();
-            const csvContent = "numero,pregunta,tipo,opciones,respuesta_correcta,justificacion\n" +
-                "1,¿De qué color es el cielo?,multiple,Azul|Verde|Rojo|Amarillo,Azul,Porque la luz se dispersa.\n" +
-                "2,La tierra es plana.,multiple,,Fals,Es un esferoide oblato.\n" +
-                "3,¿Cuál es la raíz cuadrada de 64?,multiple,4|8|16|32,8,8x8=64";
+            const csvContent = "numero,pregunta,tipo,opciones,respuesta_correcta,justificacion\n" + "1,¿De qué color es el cielo?,multiple,Azul|Verde|Rojo|Amarillo,Azul,Porque la luz se dispersa.\n" + "2,La tierra es plana.,multiple,,Fals,Es un esferoide oblato.\n" + "3,¿Cuál es la raíz cuadrada de 64?,multiple,4|8|16|32,8,8x8=64";
 
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const blob = new Blob([csvContent], {
+                type: 'text/csv;charset=utf-8;'
+            });
             const link = document.createElement("a");
             const url = URL.createObjectURL(blob);
             link.setAttribute("href", url);
@@ -868,26 +864,36 @@
                             // Escaped quote
                             col += '"';
                             i++;
-                        } else {
+                        }
+
+                        else {
                             inQuotes = !inQuotes;
                         }
-                    } else if (char === ',' && !inQuotes) {
+                    }
+
+                    else if (char === ',' && !inQuotes) {
                         row.push(col);
                         col = '';
-                    } else if ((char === '\r' || char === '\n') && !inQuotes) {
+                    }
+
+                    else if ((char === '\r' || char === '\n') && !inQuotes) {
                         if (char === '\r' && nextChar === '\n') {
                             i++;
                         }
+
                         if (row.length > 0 || col.length > 0) {
                             row.push(col);
                             questionsData.push(row);
                             row = [];
                             col = '';
                         }
-                    } else {
+                    }
+
+                    else {
                         col += char;
                     }
                 }
+
                 if (row.length > 0 || col.length > 0) {
                     row.push(col);
                     questionsData.push(row);
@@ -900,110 +906,130 @@
                 const isNewFormat = header[0].includes('pregunta'); // New format: Pregunta, Opcion A...
 
                 // Header is first row
-                questions = questionsData.slice(1)
-                    .map(values => {
-                        if (values.length < 2) return null;
+                questions = questionsData.slice(1).map(values => {
+                    if (values.length < 2) return null;
 
-                        let q = {};
+                    let q = {}
 
-                        if (isNewFormat) {
-                            // NEW FORMAT: 
-                            // 0: Pregunta
-                            // 1: Opcion A
-                            // 2: Opcion B
-                            // 3: Opcion C
-                            // 4: Opcion D
-                            // 5: Respuesta Correcta (e.g. "B")
-                            // 6: Explicacion
-                            // 7: Referencia
+                        ;
 
-                            q.numero = ''; // No explicit number in new format, will index later
-                            q.pregunta = values[0] || '';
+                    if (isNewFormat) {
+                        // NEW FORMAT: 
+                        // 0: Pregunta
+                        // 1: Opcion A
+                        // 2: Opcion B
+                        // 3: Opcion C
+                        // 4: Opcion D
+                        // 5: Respuesta Correcta (e.g. "B")
+                        // 6: Explicacion
+                        // 7: Referencia
 
-                            // Extract options A,B,C,D...
-                            const rawOptions = values.slice(1, 5).filter(o => o && o.trim()); // Take cols 1-4
-                            q.opciones = rawOptions.join('|'); // Store internally as pipe separated for consistency or array?
+                        q.numero = ''; // No explicit number in new format, will index later
+                        q.pregunta = values[0] || '';
 
-                            // The answer is given as "A", "B", etc. We map it to the content.
-                            const correctLetter = (values[5] || '').trim().toUpperCase();
-                            const letterMap = { 'A': 0, 'B': 1, 'C': 2, 'D': 3 };
-                            const correctIndex = letterMap[correctLetter];
-                            if (correctIndex !== undefined && rawOptions[correctIndex]) {
-                                q.respuesta_correcta = rawOptions[correctIndex];
-                            } else {
-                                q.respuesta_correcta = values[5]; // Fallback
-                            }
+                        // Extract options A,B,C,D...
+                        const rawOptions = values.slice(1, 5).filter(o => o && o.trim()); // Take cols 1-4
+                        q.opciones = rawOptions.join('|'); // Store internally as pipe separated for consistency or array?
 
-                            q.justificacion = values[6] ? values[6].trim() : '';
-                            q.referencia = values[7] ? values[7].trim() : '';
+                        // The answer is given as "A", "B", etc. We map it to the content.
+                        const correctLetter = (values[5] || '').trim().toUpperCase();
 
-                        } else {
-                            // OLD FORMAT:
-                            // 0: numero
-                            // 1: pregunta
-                            // 2: tipo
-                            // 3: opciones
-                            // 4: respuesta_correcta
-                            // 5: justificacion
-
-                            q = {
-                                numero: values[0] || '',
-                                pregunta: values[1] || '',
-                                tipo: values[2] || 'multiple',
-                                opciones: values[3] || '',
-                                respuesta_correcta: values[4] ? values[4].trim() : '',
-                                justificacion: values[5] ? values[5].trim() : '',
-                                referencia: '' // No reference in old format
-                            };
+                        const letterMap = {
+                            'A': 0, 'B': 1, 'C': 2, 'D': 3
                         }
 
+                            ;
+                        const correctIndex = letterMap[correctLetter];
 
-                        // Pre-process and shuffle options
-                        let opts = [];
-                        if (q.opciones && q.opciones.includes('|')) {
-                            opts = q.opciones.split('|').map(o => o.trim());
-                        } else if (q.opciones && q.opciones.includes(';')) {
-                            opts = q.opciones.split(';').map(o => o.trim());
-                        } else if (Array.isArray(q.opciones)) {
-                            // Should not happen with above logic but safe guard
-                            opts = q.opciones;
-                        } else if (q.opciones) {
-                            opts = [q.opciones.trim()];
+                        if (correctIndex !== undefined && rawOptions[correctIndex]) {
+                            q.respuesta_correcta = rawOptions[correctIndex];
                         }
 
-
-                        // Default to T/F if empty
-                        if (opts.length === 0) {
-                            opts = ['Vertader', 'Fals'];
+                        else {
+                            q.respuesta_correcta = values[5]; // Fallback
                         }
 
-                        // Check if it is True/False to avoid shuffling
-                        const isTF = opts.length === 2 &&
-                            opts.some(o => o.toLowerCase().includes('vertader')) &&
-                            opts.some(o => o.toLowerCase().includes('fals'));
+                        q.justificacion = values[6] ? values[6].trim() : '';
+                        q.referencia = values[7] ? values[7].trim() : '';
 
-                        if (isTF) {
-                            // Force standard order
-                            opts = ['Vertader', 'Fals'];
-                        } else {
-                            // Shuffle options (Fisher-Yates) for non-TF
-                            for (let i = opts.length - 1; i > 0; i--) {
-                                const j = Math.floor(Math.random() * (i + 1));
-                                [opts[i], opts[j]] = [opts[j], opts[i]];
-                            }
+                    }
+
+                    else {
+                        // OLD FORMAT:
+                        // 0: numero
+                        // 1: pregunta
+                        // 2: tipo
+                        // 3: opciones
+                        // 4: respuesta_correcta
+                        // 5: justificacion
+
+                        q = {
+                            numero: values[0] || '',
+                            pregunta: values[1] || '',
+                            tipo: values[2] || 'multiple',
+                            opciones: values[3] || '',
+                            respuesta_correcta: values[4] ? values[4].trim() : '',
+                            justificacion: values[5] ? values[5].trim() : '',
+                            referencia: '' // No reference in old format
                         }
 
-                        q.shuffledOptions = opts;
+                            ;
+                    }
 
-                        // Assign Number if missing
-                        if (!q.numero) {
-                            // will be assigned by index anyway relative to list? No, display logic uses q.numero.
-                            // Let's leave empty, and renderApp can fallback to index+1.
+
+                    // Pre-process and shuffle options
+                    let opts = [];
+
+                    if (q.opciones && q.opciones.includes('|')) {
+                        opts = q.opciones.split('|').map(o => o.trim());
+                    }
+
+                    else if (q.opciones && q.opciones.includes(';')) {
+                        opts = q.opciones.split(';').map(o => o.trim());
+                    }
+
+                    else if (Array.isArray(q.opciones)) {
+                        // Should not happen with above logic but safe guard
+                        opts = q.opciones;
+                    }
+
+                    else if (q.opciones) {
+                        opts = [q.opciones.trim()];
+                    }
+
+
+                    // Default to T/F if empty
+                    if (opts.length === 0) {
+                        opts = ['Vertader', 'Fals'];
+                    }
+
+                    // Check if it is True/False to avoid shuffling
+                    const isTF = opts.length === 2 && opts.some(o => o.toLowerCase().includes('vertader')) && opts.some(o => o.toLowerCase().includes('fals'));
+
+                    if (isTF) {
+                        // Force standard order
+                        opts = ['Vertader', 'Fals'];
+                    }
+
+                    else {
+
+                        // Shuffle options (Fisher-Yates) for non-TF
+                        for (let i = opts.length - 1; i > 0; i--) {
+                            const j = Math.floor(Math.random() * (i + 1));
+                            [opts[i], opts[j]] = [opts[j], opts[i]];
                         }
+                    }
 
-                        return q;
-                    })
-                    .filter(q => q && q.pregunta && q.pregunta.trim());
+                    q.shuffledOptions = opts;
+
+                    // Assign Number if missing
+                    if (!q.numero) {
+                        // will be assigned by index anyway relative to list? No, display logic uses q.numero.
+                        // Let's leave empty, and renderApp can fallback to index+1.
+                    }
+
+                    return q;
+                }).filter(q => q && q.pregunta && q.pregunta.trim());
 
                 // Post-processing to assign numbers if missing
                 questions.forEach((q, i) => {
@@ -1020,10 +1046,14 @@
                     document.getElementById('app').style.display = 'block';
 
                     setMode('normal');
-                } else {
+                }
+
+                else {
                     alert('No se encontraron preguntas válidas en el CSV.');
                 }
-            } catch (error) {
+            }
+
+            catch (error) {
                 console.error(error);
                 alert('Error procesando el CSV: ' + error.message);
             }
@@ -1043,30 +1073,35 @@
             // Start Timer if not running
             if (!timerInterval) {
                 startTimer();
-            } else {
+            }
+
+            else {
                 // Restart timer for new mode
                 startTimer();
             }
+
             stats.answered.clear();
-            stats.userAnswers = {};
+
+            stats.userAnswers = {}
+
+                ;
 
             if (mode === 'normal') {
                 displayOrder = questions.map((_, i) => i);
-            } else if (mode === 'random') {
+            }
+
+            else if (mode === 'random') {
                 displayOrder = [...Array(questions.length).keys()];
                 shuffleArray(displayOrder);
-            } else if (mode === 'algorithm') {
+            }
+
+            else if (mode === 'algorithm') {
                 displayOrder = [pickWeightedIndex()];
             }
 
-            // Toggle Right Sidebar based on mode
-            if (mode === 'algorithm') {
-                document.getElementById('right-sidebar').style.display = 'block';
-                document.querySelector('.main-layout').classList.add('has-right-sidebar');
-            } else {
-                document.getElementById('right-sidebar').style.display = 'none';
-                document.querySelector('.main-layout').classList.remove('has-right-sidebar');
-            }
+            // Toggle Right Sidebar based on mode - DEPRECATED in new UI
+            // Sidebar elements have been removed.
+            // if (mode === 'algorithm') { ... }
 
             renderApp();
             renderSidebar();
@@ -1075,7 +1110,9 @@
         window.changeMode = function (mode) {
             if (confirm('¿Cambiar de modo? Se reiniciará el progreso actual.')) {
                 setMode(mode);
-            } else {
+            }
+
+            else {
                 renderApp(); // Re-render to reset select dropdown
             }
         }
@@ -1083,7 +1120,9 @@
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
+                [array[i],
+                array[j]] = [array[j],
+                array[i]];
             }
         }
 
@@ -1095,364 +1134,202 @@
                 random -= questionWeights[i];
                 if (random < 0) return i;
             }
+
             return Math.floor(Math.random() * questions.length);
         }
 
+        // NAVIGATION TOGGLE
+        function toggleNav() {
+            const el = document.getElementById('navOverlay');
+
+            if (el.style.display === 'flex') {
+                el.style.display = 'none';
+            }
+
+            else {
+                renderNavGrid(); // Updates the grid before showing
+                el.style.display = 'flex';
+            }
+        }
+
+        function renderNavGrid() {
+            const grid = document.getElementById('navGrid');
+            grid.innerHTML = '';
+
+            if (currentMode === 'algorithm') {
+                // For algorithm mode, just show list of handled questions or simplify
+                grid.innerHTML = '<p style="color:var(--text-muted); text-align:center;">Navegación no disponible en Modo Inteligente (las preguntas son infinitas).</p>';
+                return;
+            }
+
+            displayOrder.forEach((originalIndex, orderIndex) => {
+                const item = document.createElement('div');
+                item.className = 'nav-item';
+                item.innerText = originalIndex + 1; // 1-based index
+
+                if (orderIndex === currentIndex) item.classList.add('active');
+
+                if (stats.answered.has(orderIndex)) {
+                    const ans = stats.userAnswers[orderIndex];
+                    if (ans === 'En blanco') item.classList.add('blank');
+
+                    else {
+                        const q = questions[originalIndex];
+                        const isCorrect = ans.toLowerCase() === q.respuesta_correcta.toLowerCase();
+                        item.classList.add(isCorrect ? 'correct' : 'incorrect');
+                    }
+                }
+
+                item.onclick = () => {
+                    currentIndex = orderIndex;
+                    renderApp();
+                    toggleNav(); // Close nav
+                }
+
+                    ;
+
+                grid.appendChild(item);
+            });
+        }
+
+
         function renderApp() {
             if (questions.length === 0) {
-                document.getElementById('main-content').innerHTML = `
-                    <div style="background: var(--container-bg); border-radius: 24px; padding: 40px; border: 1px solid var(--border-color); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); text-align: center;">
-                        <p style="color: var(--text-muted);">No hay preguntas disponibles. Por favor, importa un archivo CSV.</p>
-                        <button class="btn btn-primary" onclick="location.reload()">Recargar</button>
-                    </div>
-                `;
-                renderSidebar(); // Clear sidebar too
+                // Error state
                 return;
             }
 
             const actualIndex = displayOrder[currentIndex];
             const currentQuestion = questions[actualIndex];
-
             const isAnswered = stats.answered.has(currentIndex);
             const currentAnswer = stats.userAnswers[currentIndex];
 
             let feedbackHTML = '';
-            if (isAnswered) {
-                const justification = currentQuestion.justificacion ? `<div style="margin-top: 10px; font-size: 0.95rem; opacity: 0.9; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">ℹ️ ${currentQuestion.justificacion}</div>` : '';
-                const referencia = currentQuestion.referencia ? `<div style="margin-top: 5px; font-size: 0.85rem; color: var(--accent-text); opacity: 0.8;">📚 Ref: ${currentQuestion.referencia}</div>` : '';
 
-                // Combine justification and reference
-                const extraInfo = justification + referencia;
+            if (isAnswered) {
+                const justification = currentQuestion.justificacion ? `<div style="margin-top: 15px; padding-top:15px; border-top:1px solid rgba(255,255,255,0.1); font-size:0.95rem; line-height:1.5;">${currentQuestion.justificacion
+                    }
+
+                </div>` : '';
+
+                const referencia = currentQuestion.referencia ? `<div style="margin-top: 8px; font-size: 0.85rem; color: var(--accent-text); opacity: 0.8;">📚 Ref: ${currentQuestion.referencia
+                    }
+
+                </div>` : '';
 
                 if (currentAnswer) {
                     if (currentAnswer === 'En blanco') {
-                        feedbackHTML = `<div class="feedback" style="display: block; background: var(--container-bg); border: 1px solid var(--text-muted); color: var(--text-muted);">⏸ Respondido en blanco. La respuesta era: <strong>${currentQuestion.respuesta_correcta}</strong>${extraInfo}</div>`;
-                    } else {
+                        feedbackHTML = `<div class="feedback" style="display: block; background: var(--container-bg); border: 1px solid var(--text-muted); color: var(--text-muted);">⏸ <strong>En blanco.</strong>La correcta era <strong>${currentQuestion.respuesta_correcta
+                            }
+
+                        </strong>${justification
+                            }
+
+                        ${referencia
+                            }
+
+                        </div>`;
+                    }
+
+                    else {
                         const correct = currentAnswer.toLowerCase() === currentQuestion.respuesta_correcta.toLowerCase();
+
                         if (correct) {
-                            feedbackHTML = `<div class="feedback correct" style="display: block;">✓ ¡Correcto!${extraInfo}</div>`;
-                        } else {
-                            feedbackHTML = `<div class="feedback incorrect" style="display: block;">✗ La respuesta correcta es: <strong>${currentQuestion.respuesta_correcta}</strong>${extraInfo}</div>`;
+                            feedbackHTML = `<div class="feedback correct" style="display: block;">✅ <strong>¡Correcto !</strong>${justification
+                                }
+
+                            ${referencia
+                                }
+
+                            </div>`;
+                        }
+
+                        else {
+                            feedbackHTML = `<div class="feedback incorrect" style="display: block;">❌ <strong>Incorrecto.</strong>La correcta es <strong>${currentQuestion.respuesta_correcta
+                                }
+
+                            </strong>${justification
+                                }
+
+                            ${referencia
+                                }
+
+                            </div>`;
                         }
                     }
-                } else {
-                    feedbackHTML = `<div class="feedback correct" style="display: block;">💡 Respuesta: <strong>${currentQuestion.respuesta_correcta}</strong>${extraInfo}</div>`;
                 }
             }
 
-            let selectorHTML = '';
-            if (currentMode !== 'algorithm') {
-                selectorHTML = `
-                    <select class="question-selector" onchange="goToQuestion(this.value)">
-                        ${questions.map((q, i) => `
-                            <option value="${i}" ${displayOrder[currentIndex] === i ? 'selected' : ''}>
-                                ${i + 1}. ${q.pregunta.substring(0, 50)}...
-                            </option>
-                        `).join('')}
-                    </select>
-                `;
-            } else {
-                selectorHTML = `
-                    <div class="question-selector" style="cursor: default; opacity: 0.8; background: var(--container-bg); color: var(--text-main);">
-                         Modo Inteligente - Paso ${currentIndex + 1}
-                    </div>
-                `;
+            const progressTxt = currentMode === 'algorithm' ? `Pregunta ${currentIndex + 1
+                }
+
+            (∞)` : `${currentIndex + 1
             }
 
-            const progress = currentMode === 'algorithm' ? 100 : ((currentIndex + 1) / questions.length) * 100;
+            / ${questions.length
+            }
 
+            `;
             let score = 0;
             const totalAnswered = stats.correct + stats.incorrect + stats.blank;
-            if (totalAnswered > 0) {
-                score = ((stats.correct - stats.incorrect) / totalAnswered) * 10;
-            }
+            if (totalAnswered > 0) score = ((stats.correct - stats.incorrect) / totalAnswered) * 10;
             score = Math.max(0, score);
-            const scoreDisplay = totalAnswered > 0 ? score.toFixed(1) : '-';
 
-            const mainContent = document.getElementById('main-content');
-
-            mainContent.innerHTML = `
-                <div style="background: var(--container-bg); border-radius: 24px; padding: 40px; border: 1px solid var(--border-color); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
-                    <div class="top-controls">
-                        ${selectorHTML}
-                        
-                        <div class="mode-selector">
-                        <select id="modeSelect" onchange="changeMode(this.value)" style="padding: 10px; border-radius: 8px; background: var(--container-bg); color: var(--text-main); border: 1px solid var(--border-color); font-family: inherit; cursor: pointer;">
-                            <option value="normal" ${currentMode === 'normal' ? 'selected' : ''}>Normal</option>
-                            <option value="random" ${currentMode === 'random' ? 'selected' : ''}>Aleatorio</option>
-                            <option value="algorithm" ${currentMode === 'algorithm' ? 'selected' : ''}>Inteligente</option>
-                        </select>
-                        </div>
-                    </div>
-
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: ${progress}%"></div>
-                    </div>
-
-                    <div class="stats">
-                        <div class="stat-card">
-                            <div class="stat-label">Progreso</div>
-                            <div class="stat-value">
-                                ${currentMode === 'algorithm' ? (currentIndex + 1) : (currentIndex + 1) + '/' + questions.length}
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-label">Correctas</div>
-                            <div class="stat-value" style="color: var(--success-text)">${stats.correct}</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-label">Incorrectas</div>
-                            <div class="stat-value" style="color: var(--error-text)">${stats.incorrect}</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-label">Nota (/10)</div>
-                            <div class="stat-value" style="color: var(--accent-color)">
-                                ${stats.answered.size > 0 ? Math.max(0, (stats.rawScore / stats.answered.size) * 10).toFixed(2) : '0.00'}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="question-card">
-                        <div>
-                            <div class="question-number">Pregunta ${currentQuestion.numero}</div>
-                            <div class="question-text">${currentQuestion.pregunta}</div>
-                            
-                            <div class="options">
-                                ${renderOptions(currentQuestion, currentAnswer, isAnswered)}
-                            </div>
-                        </div>
-                        ${feedbackHTML}
-                    </div>
-
-                    <div class="controls">
-                        <button class="btn btn-secondary" onclick="previousQuestion()" ${currentIndex === 0 ? 'disabled' : ''}>
-                            ← Anterior
-                        </button>
-                        ${!isAnswered ?
-                    `
-                            <button class="btn btn-secondary" onclick="nextQuestion()" style="border: 1px solid var(--border-color); background: transparent;">Omitir →</button>
-                            <button class="btn btn-primary" onclick="showAnswer()">Ver Respuesta</button>
-                            ` :
-                    `<button class="btn btn-primary" onclick="nextQuestion()">Siguiente →</button>`
-                }
-                    </div>
-
-
+            document.getElementById('main-content').innerHTML = ` 
+            <div class="exam-header">
+                <div class="exam-stat">
+                    <span>Progreso</span>
+                    <strong>${progressTxt}</strong>
                 </div>
-            `;
+                
+                <div class="exam-stat">
+                    <span>Tiempo</span>
+                    <strong id="timer" style="font-feature-settings: 'tnum'; font-variant-numeric: tabular-nums;">${document.getElementById('timer') ? document.getElementById('timer').innerText : '00:00'}</strong>
+                </div>
 
-            // Also update sidebar to reflect current active question
-            renderSidebar();
+                <div class="exam-stat">
+                    <span>Nota</span>
+                    <strong style="color: ${score >= 5 ? 'var(--success-text)' : 'var(--error-text)'}">${score.toFixed(1)}</strong>
+                </div>
+            </div>
+            <div class="question-card"><div class="question-number">Pregunta ${currentQuestion.numero || (actualIndex + 1)}
+
+            </div><div class="question-text">${currentQuestion.pregunta
+                }
+
+            </div><div class="options">${renderOptions(currentQuestion, currentAnswer, isAnswered)
+                }
+
+            </div>${feedbackHTML
+                }
+
+            <div class="bottom-controls" style="display:flex; justify-content:center; gap:15px; align-items:center;">
+                <button class="btn btn-secondary" onclick="previousQuestion()" ${currentIndex === 0 ? 'disabled' : ''}>←</button>
+                <button class="btn btn-secondary" onclick="toggleNav()" title="Mapa de Preguntas">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                </button>
+                ${!isAnswered ? `<button class="btn btn-secondary" onclick="nextQuestion()" title="Omitir Pregunta">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 17 5-5-5-5"></path><path d="m6 17 5-5-5-5"></path></svg>
+                </button>` : ''}
+                
+                ${isAnswered ?
+                    `<button class="btn btn-primary" onclick="nextQuestion()">Siguiente →</button>` :
+                    ``
+                }
+            </div><div style="margin-top:20px; text-align:center;"><button onclick="location.reload()" style="background:none; border:none; color:var(--text-muted); font-size:0.8rem; cursor:pointer; text-decoration:underline;">Salir / Cambiar Examen</button></div></div>`;
+
+            // Remove old sidebar calls
         }
 
-        function renderSidebar() {
-            if (currentMode === 'algorithm') {
-                // In algorithm mode, grid might not make sense or should just show history?
-                // For simplified implementation, we hide or show limited grid.
-                // Let's show history of steps.
-                const grid = document.getElementById('question-grid');
-                grid.innerHTML = ''; // Just clear for now
-                // Optionally show previous steps
-                return;
-            }
-
-            const grid = document.getElementById('question-grid');
-            grid.innerHTML = '';
-
-            displayOrder.forEach((originalIndex, orderIndex) => {
-                const dot = document.createElement('div');
-                dot.className = 'grid-item';
-                dot.textContent = originalIndex + 1; // Display 1-based index (user friendly)
-
-                // Active logic
-                if (orderIndex === currentIndex) {
-                    dot.classList.add('active');
-                }
-
-                // Check answer status logic
-                // In 'stats.answered', we store 'currentIndex' (which corresponds to orderIndex in this loop context for rendering)
-                if (stats.answered.has(orderIndex)) {
-                    const answer = stats.userAnswers[orderIndex];
-                    if (answer === 'En blanco') {
-                        dot.classList.add('blank');
-                    } else {
-                        const q = questions[originalIndex];
-                        const correct = answer.toLowerCase() === q.respuesta_correcta.toLowerCase();
-                        dot.classList.add(correct ? 'correct' : 'incorrect');
-                    }
-                }
-
-                dot.onclick = () => {
-                    goToQuestion(originalIndex); // Accepts Original Index? No, goToQuestion expects INDEX in displayOrder? Wait.
-                    // goToQuestion calls currentIndex = displayOrder.indexOf(originalIndex in normal, wait).
-                    // The selector uses value=originalIndex.
-                    // goToQuestion implementation:
-                };
-
-                // To fix onclick:
-                // We want to jump to this Specific STEP.
-                // So we should pass 'orderIndex'.
-                dot.onclick = () => {
-                    // We need a function to jump to specific step index
-                    jumpToStep(orderIndex);
-                };
-
-                grid.appendChild(dot);
-            });
-        }
-
-        function renderOptions(question, currentAnswer, isAnswered) {
-            // Use pre-shuffled options
-            const encodedOptions = question.shuffledOptions || ['Vertader', 'Fals'];
-
-            // Add "En blanco" as the last option always
-            const options = [...encodedOptions, 'En blanco'];
-
-            return options.map(opt => {
-                let classes = 'option';
-                const isCorrect = opt.toLowerCase() === question.respuesta_correcta.toLowerCase();
-                const isBlank = opt === 'En blanco';
-
-                if (currentAnswer === opt) {
-                    classes += ' selected';
-                    if (isBlank) {
-                        // Neutral styling for blank selection
-                        classes += ' active';
-                    } else {
-                        classes += isCorrect ? ' correct' : ' incorrect';
-                    }
-                } else if (isAnswered && isCorrect && !isBlank) {
-                    // Show correct answer if user missed it
-                    classes += ' correct';
-                }
-
-                return `<div class="${classes}" onclick="selectOption('${opt.replace(/'/g, "\\'")}')">${opt}</div>`;
-            }).join('');
-        }
-
-        window.selectOption = function (answer) {
-            if (stats.answered.has(currentIndex)) return;
-
-            const actualIndex = displayOrder[currentIndex];
-            const currentQuestion = questions[actualIndex];
-
-            stats.userAnswers[currentIndex] = answer;
-            stats.answered.add(currentIndex);
-
-            if (answer === 'En blanco') {
-                stats.blank++;
-                // No change to rawScore (0 points)
-                questionWeights[actualIndex] = Math.min(20, questionWeights[actualIndex] * 1.5);
-            } else {
-                const correct = answer.toLowerCase() === currentQuestion.respuesta_correcta.toLowerCase();
-
-                // Calculate penalty based on number of options
-                // Get options again to know count (excluding 'En blanco')
-                let numOptions = 2; // Default T/F
-                if (currentQuestion.opciones && currentQuestion.opciones.trim()) {
-                    if (currentQuestion.opciones.includes('|')) numOptions = currentQuestion.opciones.split('|').length;
-                    else if (currentQuestion.opciones.includes(';')) numOptions = currentQuestion.opciones.split(';').length;
-                }
-
-                if (correct) {
-                    stats.correct++;
-                    stats.rawScore += 1.0;
-                    questionWeights[actualIndex] = Math.max(0.1, questionWeights[actualIndex] * 0.4);
-                } else {
-                    stats.incorrect++;
-                    // Penalty logic: 1 / (N - 1)
-                    // If 2 options (T/F): 1/1 = 1.0
-                    // If 3 options: 1/2 = 0.5
-                    // If 4 options: 1/3 = 0.33
-                    let penalty = 1.0;
-                    if (numOptions > 2) {
-                        penalty = 1.0 / (numOptions - 1);
-                    }
-                    stats.rawScore -= penalty;
-
-                    questionWeights[actualIndex] = Math.min(20, questionWeights[actualIndex] * 2.5);
-                }
-            }
-
-            renderApp();
-        };
-
-        window.showAnswer = function () {
-            if (!stats.answered.has(currentIndex)) {
-                stats.answered.add(currentIndex);
-                // Mark as 'En blanco' implicitly if shown? 
-                // Usually "Show Answer" implies giving up -> Blank.
-                stats.userAnswers[currentIndex] = 'En blanco';
-                stats.blank++;
-                renderApp();
-            }
-        };
-
-        window.nextQuestion = function () {
-            const isLast = currentIndex === displayOrder.length - 1;
-
-            // Check if omit logic is needed (skipped without answering/showing answer)
-            if (!stats.answered.has(currentIndex)) {
-                // Treat as omitted/blank
-                stats.userAnswers[currentIndex] = 'En blanco';
-                stats.answered.add(currentIndex);
-                stats.blank++;
-                // We don't penalize score but maybe show feedack? 
-                // If "Omitir" button pressed, we just move on.
-            }
-
-            if (isLast) {
-                if (currentMode === 'algorithm') {
-                    // Infinite mode basically, append new step
-                    displayOrder.push(pickWeightedIndex());
-                    currentIndex++;
-                    renderApp();
-                } else {
-                    alert('¡Has llegado al final de las preguntas!');
-                }
-            } else {
-                currentIndex++;
-                renderApp();
-            }
-        };
-
-        window.previousQuestion = function () {
-            if (currentIndex > 0) {
-                currentIndex--;
-                renderApp();
-            }
-        };
-
-        // Helper for selector
-        window.goToQuestion = function (originalIndexStr) {
-            const originalIndex = parseInt(originalIndexStr);
-            // We need to find where this originalIndex represents in the current DisplayOrder
-            // Only works well in Normal mode where displayOrder[i] == i.
-            // In random mode, we search for it.
-            const idx = displayOrder.indexOf(originalIndex);
-            if (idx !== -1) {
-                currentIndex = idx;
-                renderApp();
-            }
-        };
-
-        // Helper for grid
-        window.jumpToStep = function (stepIndex) {
-            currentIndex = stepIndex;
-            renderApp();
-        }
+        // Remove old renderer
+        function renderSidebar() { }
 
 
-
-
-
-        // TIMER LOGIC
         let startTime;
         let timerInterval;
 
         function startTimer() {
             startTime = Date.now();
-            document.getElementById('timer').style.display = 'block';
 
             clearInterval(timerInterval);
             timerInterval = setInterval(updateTimer, 1000);
@@ -1460,17 +1337,57 @@
 
         function updateTimer() {
             const now = Date.now();
-            const diff = now - startTime;
-
-            const totalSeconds = Math.floor(diff / 1000);
-            const minutes = Math.floor(totalSeconds / 60);
-            const seconds = totalSeconds % 60;
-
-            const minStr = String(minutes).padStart(2, '0');
-            const secStr = String(seconds).padStart(2, '0');
-
-            document.getElementById('timer').textContent = `${minStr}:${secStr}`;
+            const diff = Math.floor((now - startTime) / 1000);
+            const m = Math.floor(diff / 60).toString().padStart(2, '0');
+            const s = (diff % 60).toString().padStart(2, '0');
+            document.getElementById('timer').innerText = `${m}:${s}`;
         }
+
+        // --- EXAM CONTROL LOGIC ---
+
+        function showAnswer() {
+            const isAnswered = stats.answered.has(currentIndex);
+            if (isAnswered) return; // Already answered
+
+            const currentAnswer = stats.userAnswers[currentIndex];
+            if (!currentAnswer) {
+                alert("Si us plau, selecciona una opció abans de veure la resposta.");
+                return;
+            }
+
+            stats.answered.add(currentIndex);
+
+            // Update stats
+            const actualIndex = displayOrder[currentIndex];
+            const q = questions[actualIndex];
+            const correct = currentAnswer.toLowerCase() === q.respuesta_correcta.toLowerCase();
+
+            if (correct) {
+                stats.correct++;
+            } else {
+                stats.incorrect++;
+            }
+
+            renderApp();
+        }
+
+        function nextQuestion() {
+            if (currentIndex < questions.length - 1) {
+                currentIndex++;
+                renderApp();
+            } else {
+                alert("Has arribat al final de l'examen!");
+            }
+        }
+
+        function previousQuestion() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderApp();
+            }
+        }
+
+
     </script>
 </body>
 
