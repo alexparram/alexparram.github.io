@@ -771,8 +771,10 @@
                 const correct = opt.toLowerCase() === q.respuesta_correcta.toLowerCase();
                 if (correct) {
                     stats.correct++;
+                    if (currentMode === 'algorithm') questionWeights[actualIndex] *= 0.4;
                 } else {
                     stats.incorrect++;
+                    if (currentMode === 'algorithm') questionWeights[actualIndex] *= 2.5;
                 }
 
                 // Re-render
@@ -1261,7 +1263,7 @@
             const progressTxt = currentMode === 'algorithm' ? `Pregunta ${currentIndex + 1
                 }
 
-            (∞)` : `${currentIndex + 1
+            ` : `${currentIndex + 1
             }
 
             / ${questions.length
@@ -1293,6 +1295,14 @@
                 <div class="exam-stat">
                     <span>Nota</span>
                     <strong style="color: ${score >= 5 ? 'var(--success-text)' : 'var(--error-text)'}">${score.toFixed(1)}</strong>
+                </div>
+
+                <div class="exam-stat">
+                     <select onchange="changeMode(this.value)" style="background:var(--bg-color); color:var(--text-main); border:1px solid var(--border-color); padding:4px; border-radius:6px; font-size:0.8rem; margin-top:5px;">
+                        <option value="normal" ${currentMode === 'normal' ? 'selected' : ''}>Normal</option>
+                        <option value="random" ${currentMode === 'random' ? 'selected' : ''}>Aleatorio</option>
+                        <option value="algorithm" ${currentMode === 'algorithm' ? 'selected' : ''}>Inteligente</option>
+                    </select>
                 </div>
             </div>
             <div class="question-card"><div class="question-number">Pregunta ${currentQuestion.numero || (actualIndex + 1)}
@@ -1375,11 +1385,17 @@
         }
 
         function nextQuestion() {
-            if (currentIndex < questions.length - 1) {
+            if (currentMode === 'algorithm') {
                 currentIndex++;
+                displayOrder.push(pickWeightedIndex());
                 renderApp();
             } else {
-                alert("Has arribat al final de l'examen!");
+                if (currentIndex < questions.length - 1) {
+                    currentIndex++;
+                    renderApp();
+                } else {
+                    alert("Has arribat al final de l'examen!");
+                }
             }
         }
 
